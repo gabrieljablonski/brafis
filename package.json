@@ -1,0 +1,28 @@
+{
+  "name": "template-ts-pkg",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "author": "gabrieljablonski <contact@gabrieljablonski.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsx watch ./src/index.ts",
+    "prebuild": "eslint 'src/**/*.ts'",
+    "build": "tsc && tsc-alias"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^2.8.7",
+    "tsc-alias": "^1.8.5",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4"
+  }
+}
