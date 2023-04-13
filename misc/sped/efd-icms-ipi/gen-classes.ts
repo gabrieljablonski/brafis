@@ -49,7 +49,7 @@ export default class Bloco${block} extends Bloco {
 
   build(): string[][] {
     throw new NotImplemented();
-    this.entries = [];
+    this.registers = [];
 ${registers
   .map(r => {
     if (!['0', '1', '2'].includes(r.level)) {
@@ -61,7 +61,7 @@ ${registers
   .filter(Boolean)
   .join('')}
 
-    return this.entries;
+    return this.registers;
   }
 ${registers
   .map(
@@ -74,7 +74,7 @@ ${registers
    */
   private build${r.register}(): string[] {
     throw new NotImplemented();
-    this.entries.push(['${r.register}']);
+    this.registers.push(['${r.register}']);
   }`
   )
   .join('\n')}

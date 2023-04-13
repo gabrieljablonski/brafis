@@ -12,14 +12,14 @@ export default class Bloco9 extends Bloco {
 
   build(): string[][] {
     throw new NotImplemented();
-    this.entries = [];
+    this.registers = [];
 
     this.build9001();
     this.build9900();
     this.build9990();
     this.build9999();
 
-    return this.entries;
+    return this.registers;
   }
 
   /**
@@ -29,7 +29,7 @@ export default class Bloco9 extends Bloco {
    */
   private build9001(): string[] {
     throw new NotImplemented();
-    this.entries.push(['9001']);
+    this.registers.push(['9001']);
   }
 
   /**
@@ -39,7 +39,7 @@ export default class Bloco9 extends Bloco {
    */
   private build9900(): string[] {
     throw new NotImplemented();
-    this.entries.push(['9900']);
+    this.registers.push(['9900']);
   }
 
   /**
@@ -49,7 +49,7 @@ export default class Bloco9 extends Bloco {
    */
   private build9990(): string[] {
     throw new NotImplemented();
-    this.entries.push(['9990']);
+    this.registers.push(['9990']);
   }
 
   /**
@@ -59,6 +59,6 @@ export default class Bloco9 extends Bloco {
    */
   private build9999(): string[] {
     throw new NotImplemented();
-    this.entries.push(['9999']);
+    this.registers.push(['9999']);
   }
 }

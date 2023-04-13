@@ -10,16 +10,16 @@ export default class Bloco {
 
   protected profile: BlocoOptions['profile'];
 
-  protected entries: string[][];
+  protected registers: string[][];
 
   constructor(options: BlocoOptions) {
     this.efd = options.efd;
     this.profile = options.profile;
-    this.entries = [];
+    this.registers = [];
   }
 
   build(): string[][] {
-    this.entries = [];
-    return this.entries;
+    this.registers = [];
+    return this.registers;
   }
 }

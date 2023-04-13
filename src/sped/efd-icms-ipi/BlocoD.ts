@@ -12,7 +12,7 @@ export default class BlocoD extends Bloco {
 
   build(): string[][] {
     throw new NotImplemented();
-    this.entries = [];
+    this.registers = [];
 
     this.buildD001();
     this.buildD100();
@@ -26,7 +26,7 @@ export default class BlocoD extends Bloco {
     this.buildD750();
     this.buildD990();
 
-    return this.entries;
+    return this.registers;
   }
 
   /**
@@ -36,7 +36,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD001(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D001']);
+    this.registers.push(['D001']);
   }
 
   /**
@@ -46,7 +46,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD100(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D100']);
+    this.registers.push(['D100']);
   }
 
   /**
@@ -56,7 +56,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD101(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D101']);
+    this.registers.push(['D101']);
   }
 
   /**
@@ -66,7 +66,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD110(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D110']);
+    this.registers.push(['D110']);
   }
 
   /**
@@ -76,7 +76,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD120(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D120']);
+    this.registers.push(['D120']);
   }
 
   /**
@@ -86,7 +86,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD130(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D130']);
+    this.registers.push(['D130']);
   }
 
   /**
@@ -96,7 +96,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD140(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D140']);
+    this.registers.push(['D140']);
   }
 
   /**
@@ -106,7 +106,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD150(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D150']);
+    this.registers.push(['D150']);
   }
 
   /**
@@ -116,7 +116,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD160(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D160']);
+    this.registers.push(['D160']);
   }
 
   /**
@@ -126,7 +126,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD161(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D161']);
+    this.registers.push(['D161']);
   }
 
   /**
@@ -136,7 +136,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD162(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D162']);
+    this.registers.push(['D162']);
   }
 
   /**
@@ -146,7 +146,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD170(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D170']);
+    this.registers.push(['D170']);
   }
 
   /**
@@ -156,7 +156,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD180(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D180']);
+    this.registers.push(['D180']);
   }
 
   /**
@@ -166,7 +166,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD190(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D190']);
+    this.registers.push(['D190']);
   }
 
   /**
@@ -176,7 +176,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD195(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D195']);
+    this.registers.push(['D195']);
   }
 
   /**
@@ -186,7 +186,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD197(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D197']);
+    this.registers.push(['D197']);
   }
 
   /**
@@ -196,7 +196,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD300(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D300']);
+    this.registers.push(['D300']);
   }
 
   /**
@@ -206,7 +206,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD301(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D301']);
+    this.registers.push(['D301']);
   }
 
   /**
@@ -216,7 +216,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD310(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D310']);
+    this.registers.push(['D310']);
   }
 
   /**
@@ -226,7 +226,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD350(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D350']);
+    this.registers.push(['D350']);
   }
 
   /**
@@ -236,7 +236,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD355(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D355']);
+    this.registers.push(['D355']);
   }
 
   /**
@@ -246,7 +246,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD360(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D360']);
+    this.registers.push(['D360']);
   }
 
   /**
@@ -256,7 +256,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD365(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D365']);
+    this.registers.push(['D365']);
   }
 
   /**
@@ -266,7 +266,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD370(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D370']);
+    this.registers.push(['D370']);
   }
 
   /**
@@ -276,7 +276,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD390(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D390']);
+    this.registers.push(['D390']);
   }
 
   /**
@@ -286,7 +286,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD400(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D400']);
+    this.registers.push(['D400']);
   }
 
   /**
@@ -296,7 +296,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD410(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D410']);
+    this.registers.push(['D410']);
   }
 
   /**
@@ -306,7 +306,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD411(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D411']);
+    this.registers.push(['D411']);
   }
 
   /**
@@ -316,7 +316,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD420(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D420']);
+    this.registers.push(['D420']);
   }
 
   /**
@@ -326,7 +326,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD500(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D500']);
+    this.registers.push(['D500']);
   }
 
   /**
@@ -336,7 +336,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD510(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D510']);
+    this.registers.push(['D510']);
   }
 
   /**
@@ -346,7 +346,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD530(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D530']);
+    this.registers.push(['D530']);
   }
 
   /**
@@ -356,7 +356,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD590(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D590']);
+    this.registers.push(['D590']);
   }
 
   /**
@@ -366,7 +366,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD600(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D600']);
+    this.registers.push(['D600']);
   }
 
   /**
@@ -376,7 +376,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD610(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D610']);
+    this.registers.push(['D610']);
   }
 
   /**
@@ -386,7 +386,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD690(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D690']);
+    this.registers.push(['D690']);
   }
 
   /**
@@ -396,7 +396,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD695(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D695']);
+    this.registers.push(['D695']);
   }
 
   /**
@@ -406,7 +406,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD696(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D696']);
+    this.registers.push(['D696']);
   }
 
   /**
@@ -416,7 +416,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD697(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D697']);
+    this.registers.push(['D697']);
   }
 
   /**
@@ -426,7 +426,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD700(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D700']);
+    this.registers.push(['D700']);
   }
 
   /**
@@ -436,7 +436,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD730(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D730']);
+    this.registers.push(['D730']);
   }
 
   /**
@@ -446,7 +446,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD731(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D731']);
+    this.registers.push(['D731']);
   }
 
   /**
@@ -456,7 +456,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD735(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D735']);
+    this.registers.push(['D735']);
   }
 
   /**
@@ -466,7 +466,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD737(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D737']);
+    this.registers.push(['D737']);
   }
 
   /**
@@ -476,7 +476,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD750(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D750']);
+    this.registers.push(['D750']);
   }
 
   /**
@@ -486,7 +486,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD760(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D760']);
+    this.registers.push(['D760']);
   }
 
   /**
@@ -496,7 +496,7 @@ export default class BlocoD extends Bloco {
    */
   private buildD761(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D761']);
+    this.registers.push(['D761']);
   }
 
   /**
@@ -506,6 +506,6 @@ export default class BlocoD extends Bloco {
    */
   private buildD990(): string[] {
     throw new NotImplemented();
-    this.entries.push(['D990']);
+    this.registers.push(['D990']);
   }
 }

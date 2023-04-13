@@ -12,7 +12,7 @@ export default class BlocoE extends Bloco {
 
   build(): string[][] {
     throw new NotImplemented();
-    this.entries = [];
+    this.registers = [];
 
     this.buildE001();
     this.buildE100();
@@ -21,7 +21,7 @@ export default class BlocoE extends Bloco {
     this.buildE500();
     this.buildE990();
 
-    return this.entries;
+    return this.registers;
   }
 
   /**
@@ -31,7 +31,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE001(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E001']);
+    this.registers.push(['E001']);
   }
 
   /**
@@ -41,7 +41,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE100(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E100']);
+    this.registers.push(['E100']);
   }
 
   /**
@@ -51,7 +51,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE110(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E110']);
+    this.registers.push(['E110']);
   }
 
   /**
@@ -61,7 +61,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE111(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E111']);
+    this.registers.push(['E111']);
   }
 
   /**
@@ -71,7 +71,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE112(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E112']);
+    this.registers.push(['E112']);
   }
 
   /**
@@ -81,7 +81,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE113(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E113']);
+    this.registers.push(['E113']);
   }
 
   /**
@@ -91,7 +91,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE115(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E115']);
+    this.registers.push(['E115']);
   }
 
   /**
@@ -101,7 +101,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE116(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E116']);
+    this.registers.push(['E116']);
   }
 
   /**
@@ -111,7 +111,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE200(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E200']);
+    this.registers.push(['E200']);
   }
 
   /**
@@ -121,7 +121,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE210(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E210']);
+    this.registers.push(['E210']);
   }
 
   /**
@@ -131,7 +131,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE220(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E220']);
+    this.registers.push(['E220']);
   }
 
   /**
@@ -141,7 +141,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE230(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E230']);
+    this.registers.push(['E230']);
   }
 
   /**
@@ -151,7 +151,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE240(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E240']);
+    this.registers.push(['E240']);
   }
 
   /**
@@ -161,7 +161,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE250(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E250']);
+    this.registers.push(['E250']);
   }
 
   /**
@@ -171,7 +171,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE300(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E300']);
+    this.registers.push(['E300']);
   }
 
   /**
@@ -181,7 +181,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE310(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E310']);
+    this.registers.push(['E310']);
   }
 
   /**
@@ -191,7 +191,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE311(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E311']);
+    this.registers.push(['E311']);
   }
 
   /**
@@ -201,7 +201,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE312(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E312']);
+    this.registers.push(['E312']);
   }
 
   /**
@@ -211,7 +211,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE313(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E313']);
+    this.registers.push(['E313']);
   }
 
   /**
@@ -221,7 +221,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE316(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E316']);
+    this.registers.push(['E316']);
   }
 
   /**
@@ -231,7 +231,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE500(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E500']);
+    this.registers.push(['E500']);
   }
 
   /**
@@ -241,7 +241,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE510(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E510']);
+    this.registers.push(['E510']);
   }
 
   /**
@@ -251,7 +251,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE520(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E520']);
+    this.registers.push(['E520']);
   }
 
   /**
@@ -261,7 +261,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE530(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E530']);
+    this.registers.push(['E530']);
   }
 
   /**
@@ -271,7 +271,7 @@ export default class BlocoE extends Bloco {
    */
   private buildE531(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E531']);
+    this.registers.push(['E531']);
   }
 
   /**
@@ -281,6 +281,6 @@ export default class BlocoE extends Bloco {
    */
   private buildE990(): string[] {
     throw new NotImplemented();
-    this.entries.push(['E990']);
+    this.registers.push(['E990']);
   }
 }

@@ -12,13 +12,13 @@ export default class BlocoH extends Bloco {
 
   build(): string[][] {
     throw new NotImplemented();
-    this.entries = [];
+    this.registers = [];
 
     this.buildH001();
     this.buildH005();
     this.buildH990();
 
-    return this.entries;
+    return this.registers;
   }
 
   /**
@@ -28,7 +28,7 @@ export default class BlocoH extends Bloco {
    */
   private buildH001(): string[] {
     throw new NotImplemented();
-    this.entries.push(['H001']);
+    this.registers.push(['H001']);
   }
 
   /**
@@ -38,7 +38,7 @@ export default class BlocoH extends Bloco {
    */
   private buildH005(): string[] {
     throw new NotImplemented();
-    this.entries.push(['H005']);
+    this.registers.push(['H005']);
   }
 
   /**
@@ -48,7 +48,7 @@ export default class BlocoH extends Bloco {
    */
   private buildH010(): string[] {
     throw new NotImplemented();
-    this.entries.push(['H010']);
+    this.registers.push(['H010']);
   }
 
   /**
@@ -58,7 +58,7 @@ export default class BlocoH extends Bloco {
    */
   private buildH020(): string[] {
     throw new NotImplemented();
-    this.entries.push(['H020']);
+    this.registers.push(['H020']);
   }
 
   /**
@@ -68,7 +68,7 @@ export default class BlocoH extends Bloco {
    */
   private buildH030(): string[] {
     throw new NotImplemented();
-    this.entries.push(['H030']);
+    this.registers.push(['H030']);
   }
 
   /**
@@ -78,6 +78,6 @@ export default class BlocoH extends Bloco {
    */
   private buildH990(): string[] {
     throw new NotImplemented();
-    this.entries.push(['H990']);
+    this.registers.push(['H990']);
   }
 }
