@@ -23,42 +23,116 @@ export default class Bloco9 extends Bloco {
   }
 
   /**
-   * Abertura do Bloco 9
-   * Nível 1
-   * Ocorrência 1
+   * Registro 9001 - ABERTURA DO BLOCO 9
+   * Nível: 1
+   * Ocorrência: um por Arquivo
    */
   private build9001(): string[] {
     throw new NotImplemented();
-    this.registers.push(['9001']);
+    /**
+     * Texto fixo contendo "9001"
+     *
+     * Número: 1
+     * Tipo: C
+     * Tamanho: 4
+     */
+    const REG = '';
+    /**
+     * Indicador de movimento:
+     *  0 - Bloco com dados informados;
+     *  1 - Bloco sem dados informados
+     *
+     * Número: 2
+     * Tipo: N
+     * Tamanho: 001*
+     */
+    const IND_MOV = '';
+    this.registers.push(['9001', REG, IND_MOV]);
   }
 
   /**
-   * Registros do Arquivo
-   * Nível 2
-   * Ocorrência V
+   * Registro 9900 - REGISTROS DO ARQUIVO.
+   * Nível: 2
+   * Ocorrência: vários (por arquivo)
    */
   private build9900(): string[] {
     throw new NotImplemented();
-    this.registers.push(['9900']);
+    /**
+     * Texto fixo contendo "9900"
+     *
+     * Número: 1
+     * Tipo: C
+     * Tamanho: 4
+     */
+    const REG = '';
+    /**
+     * Registro que será totalizado no próximo campo
+     *
+     * Número: 2
+     * Tipo: C
+     * Tamanho: 4
+     */
+    const REG_BLC = '';
+    /**
+     * Total de registros do tipo informado no campo anterior
+     *
+     * Número: 3
+     * Tipo: N
+     * Tamanho: -
+     */
+    const QTD_REG_BLC = '';
+    this.registers.push(['9900', REG, REG_BLC, QTD_REG_BLC]);
   }
 
   /**
-   * Encerramento do Bloco 9
-   * Nível 1
-   * Ocorrência 1
+   * Registro 9990 - ENCERRAMENTO DO BLOCO 9
+   * Nível: 1
+   * Ocorrência: um por Arquivo
    */
   private build9990(): string[] {
     throw new NotImplemented();
-    this.registers.push(['9990']);
+    /**
+     * Texto fixo contendo "9990"
+     *
+     * Número: 1
+     * Tipo: C
+     * Tamanho: 4
+     */
+    const REG = '';
+    /**
+     * Quantidade total de linhas do Bloco 9
+     *
+     * Número: 2
+     * Tipo: N
+     * Tamanho: -
+     */
+    const QTD_LIN_9 = '';
+    this.registers.push(['9990', REG, QTD_LIN_9]);
   }
 
   /**
-   * Encerramento do Arquivo Digital
-   * Nível 0
-   * Ocorrência 1
+   * Registro 9999 - ENCERRAMENTO DO ARQUIVO DIGITAL.
+   * Nível: 0
+   * Ocorrência: um por Arquivo
    */
   private build9999(): string[] {
     throw new NotImplemented();
-    this.registers.push(['9999']);
+    /**
+     * Texto fixo contendo "9999"
+     *
+     * Número: 1
+     * Tipo: C
+     * Tamanho: 4
+     */
+    const REG = '';
+    /**
+     * Quantidade total de linhas do arquivo digital
+     *
+     * Número: 2
+     * Tipo: N
+     * Tamanho: -
+     */
+    const QTD_LIN = '';
+    this.registers.push(['9999', REG, QTD_LIN]);
   }
 }

@@ -18,6 +18,9 @@ export interface EfdIcmsIpiBuildOptions {
 }
 
 export default class EfdIcmsIpi {
+  /**
+   * @todo should also support other types of documents (NFC-e, CT-e, ...)
+   */
   parsedXmls: NfeIssuedXml[];
 
   constructor(xmls: string[]) {
@@ -28,6 +31,9 @@ export default class EfdIcmsIpi {
       isArray: name => ALWAYS_ARRAY.has(name),
       parseTagValue: false,
     });
+    /**
+     * @todo test performance with large input when making this async
+     */
     this.parsedXmls = xmls.map(xml => parser.parse(xml));
   }
 

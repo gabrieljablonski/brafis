@@ -21,6 +21,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
+    "node-xlsx": "^0.21.0",
     "prettier": "^2.8.7",
     "tsc-alias": "^1.8.5",
     "tsx": "^3.12.6",
