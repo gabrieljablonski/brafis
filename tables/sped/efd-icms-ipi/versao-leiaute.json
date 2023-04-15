@@ -1,0 +1,104 @@
+{
+  "001": {
+    "codigo": "001",
+    "versao": "100",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2008"
+  },
+  "002": {
+    "codigo": "002",
+    "versao": "101",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2009"
+  },
+  "003": {
+    "codigo": "003",
+    "versao": "102",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2010"
+  },
+  "004": {
+    "codigo": "004",
+    "versao": "103",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2011"
+  },
+  "005": {
+    "codigo": "005",
+    "versao": "104",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2012"
+  },
+  "006": {
+    "codigo": "006",
+    "versao": "105",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/07/2012"
+  },
+  "007": {
+    "codigo": "007",
+    "versao": "106",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2013"
+  },
+  "008": {
+    "codigo": "008",
+    "versao": "107",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2014"
+  },
+  "009": {
+    "codigo": "009",
+    "versao": "108",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2015"
+  },
+  "010": {
+    "codigo": "010",
+    "versao": "109",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2016"
+  },
+  "011": {
+    "codigo": "011",
+    "versao": "110",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2017"
+  },
+  "012": {
+    "codigo": "012",
+    "versao": "111",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2018"
+  },
+  "013": {
+    "codigo": "013",
+    "versao": "112",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2019"
+  },
+  "014": {
+    "codigo": "014",
+    "versao": "113",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2020"
+  },
+  "015": {
+    "codigo": "015",
+    "versao": "114",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2021"
+  },
+  "016": {
+    "codigo": "016",
+    "versao": "115",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2022"
+  },
+  "017": {
+    "codigo": "017",
+    "versao": "116",
+    "instituidoPor": "Ato COTEPE",
+    "obrigatoriedade": "01/01/2023"
+  }
+}

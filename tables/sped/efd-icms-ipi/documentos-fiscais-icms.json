@@ -1,0 +1,167 @@
+{
+  "01": {
+    "codigo": "01",
+    "descricao": "Nota Fiscal",
+    "modelo": "1/1A"
+  },
+  "1B": {
+    "codigo": "1B",
+    "descricao": "Nota Fiscal Avulsa",
+    "modelo": "-"
+  },
+  "02": {
+    "codigo": "02",
+    "descricao": "Nota Fiscal de Venda a Consumidor",
+    "modelo": "2"
+  },
+  "2D": {
+    "codigo": "2D",
+    "descricao": "Cupom Fiscal",
+    "modelo": "-"
+  },
+  "2E": {
+    "codigo": "2E",
+    "descricao": "Cupom Fiscal Bilhete de Passagem",
+    "modelo": "-"
+  },
+  "04": {
+    "codigo": "04",
+    "descricao": "Nota Fiscal de Produtor",
+    "modelo": "4"
+  },
+  "06": {
+    "codigo": "06",
+    "descricao": "Nota Fiscal/Conta de Energia Elétrica",
+    "modelo": "6"
+  },
+  "07": {
+    "codigo": "07",
+    "descricao": "Nota Fiscal de Serviço de Transporte",
+    "modelo": "7"
+  },
+  "08": {
+    "codigo": "08",
+    "descricao": "Conhecimento de Transporte Rodoviário de Cargas",
+    "modelo": "8"
+  },
+  "8B": {
+    "codigo": "8B",
+    "descricao": "Conhecimento de Transporte de Cargas Avulso",
+    "modelo": "-"
+  },
+  "09": {
+    "codigo": "09",
+    "descricao": "Conhecimento de Transporte Aquaviário de Cargas",
+    "modelo": "9"
+  },
+  "10": {
+    "codigo": "10",
+    "descricao": "Conhecimento Aéreo",
+    "modelo": "10"
+  },
+  "11": {
+    "codigo": "11",
+    "descricao": "Conhecimento de Transporte Ferroviário de Cargas",
+    "modelo": "11"
+  },
+  "13": {
+    "codigo": "13",
+    "descricao": "Bilhete de Passagem Rodoviário",
+    "modelo": "13"
+  },
+  "14": {
+    "codigo": "14",
+    "descricao": "Bilhete de Passagem Aquaviário",
+    "modelo": "14"
+  },
+  "15": {
+    "codigo": "15",
+    "descricao": "Bilhete de Passagem e Nota de Bagagem",
+    "modelo": "15"
+  },
+  "16": {
+    "codigo": "16",
+    "descricao": "Bilhete de Passagem Ferroviário",
+    "modelo": "16"
+  },
+  "18": {
+    "codigo": "18",
+    "descricao": "Resumo de Movimento Diário",
+    "modelo": "18"
+  },
+  "21": {
+    "codigo": "21",
+    "descricao": "Nota Fiscal de Serviço de Comunicação",
+    "modelo": "21"
+  },
+  "22": {
+    "codigo": "22",
+    "descricao": "Nota Fiscal de Serviço de Telecomunicação",
+    "modelo": "22"
+  },
+  "26": {
+    "codigo": "26",
+    "descricao": "Conhecimento de Transporte Multimodal de Cargas",
+    "modelo": "26"
+  },
+  "27": {
+    "codigo": "27",
+    "descricao": "Nota Fiscal De Transporte Ferroviário De Carga",
+    "modelo": "-"
+  },
+  "28": {
+    "codigo": "28",
+    "descricao": "Nota Fiscal/Conta de Fornecimento de Gás Canalizado",
+    "modelo": "-"
+  },
+  "29": {
+    "codigo": "29",
+    "descricao": "Nota Fiscal/Conta de Fornecimento de Água Canalizada",
+    "modelo": "-"
+  },
+  "55": {
+    "codigo": "55",
+    "descricao": "Nota Fiscal Eletrônica - NF-e",
+    "modelo": "55"
+  },
+  "57": {
+    "codigo": "57",
+    "descricao": "Conhecimento de Transporte Eletrônico - CT-e",
+    "modelo": "57"
+  },
+  "59": {
+    "codigo": "59",
+    "descricao": "Cupom Fiscal Eletrônico - CF-e-SAT",
+    "modelo": "59"
+  },
+  "60": {
+    "codigo": "60",
+    "descricao": "Cupom Fiscal Eletrônico CF-e-ECF",
+    "modelo": "60"
+  },
+  "62": {
+    "codigo": "62",
+    "descricao": "Nota Fiscal Fatura Eletrônica de Serviços de Comunicação - NFCom",
+    "modelo": "62"
+  },
+  "63": {
+    "codigo": "63",
+    "descricao": "Bilhete de Passagem Eletrônico - BP-e",
+    "modelo": "63"
+  },
+  "65": {
+    "codigo": "65",
+    "descricao": "Nota Fiscal Eletrônica para Consumidor Final - NFC-e",
+    "modelo": "65"
+  },
+  "66": {
+    "codigo": "66",
+    "descricao": "Nota Fiscal de Energia Elétrica Eletrônica - NF3e",
+    "modelo": "66"
+  },
+  "67": {
+    "codigo": "67",
+    "descricao": "Conhecimento de Transporte Eletrônico - CT-e OS",
+    "modelo": "67"
+  }
+}

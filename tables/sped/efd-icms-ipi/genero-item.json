@@ -1,0 +1,402 @@
+{
+  "00": {
+    "codigo": "00",
+    "descricao": "Serviço"
+  },
+  "01": {
+    "codigo": "01",
+    "descricao": "Animais vivos"
+  },
+  "02": {
+    "codigo": "02",
+    "descricao": "Carnes e miudezas, comestíveis"
+  },
+  "03": {
+    "codigo": "03",
+    "descricao": "Peixes e crustáceos, moluscos e os outros invertebrados aquáticos"
+  },
+  "04": {
+    "codigo": "04",
+    "descricao": "Leite e laticínios; ovos de aves; mel natural; produtos comestíveis de origem animal, não especificados nem compreendidos em outros Capítulos da TIPI"
+  },
+  "05": {
+    "codigo": "05",
+    "descricao": "Outros produtos de origem animal, não especificados nem compreendidos em outros Capítulos da TIPI"
+  },
+  "06": {
+    "codigo": "06",
+    "descricao": "Plantas vivas e produtos de floricultura"
+  },
+  "07": {
+    "codigo": "07",
+    "descricao": "Produtos hortícolas, plantas, raízes e tubérculos, comestíveis"
+  },
+  "08": {
+    "codigo": "08",
+    "descricao": "Frutas; cascas de cítricos e de melões"
+  },
+  "09": {
+    "codigo": "09",
+    "descricao": "Café, chá, mate e especiarias"
+  },
+  "10": {
+    "codigo": "10",
+    "descricao": "Cereais"
+  },
+  "11": {
+    "codigo": "11",
+    "descricao": "Produtos da indústria de moagem; malte; amidos e féculas; inulina; glúten de trigo"
+  },
+  "12": {
+    "codigo": "12",
+    "descricao": "Sementes e frutos oleaginosos; grãos, sementes e frutos diversos; plantas industriais ou medicinais; palha e forragem"
+  },
+  "13": {
+    "codigo": "13",
+    "descricao": "Gomas, resinas e outros sucos e extratos vegetais"
+  },
+  "14": {
+    "codigo": "14",
+    "descricao": "Matérias para entrançar e outros produtos de origem vegetal, não especificadas nem compreendidas em outros Capítulos da NCM"
+  },
+  "15": {
+    "codigo": "15",
+    "descricao": "Gorduras e óleos animais ou vegetais; produtos da sua dissociação; gorduras alimentares elaboradas; ceras de origem animal ou vegetal"
+  },
+  "16": {
+    "codigo": "16",
+    "descricao": "Preparações de carne, de peixes ou de crustáceos, de moluscos ou de outros invertebrados aquáticos"
+  },
+  "17": {
+    "codigo": "17",
+    "descricao": "Açúcares e produtos de confeitaria"
+  },
+  "18": {
+    "codigo": "18",
+    "descricao": "Cacau e suas preparações"
+  },
+  "19": {
+    "codigo": "19",
+    "descricao": "Preparações à base de cereais, farinhas, amidos, féculas ou de leite; produtos de pastelaria"
+  },
+  "20": {
+    "codigo": "20",
+    "descricao": "Preparações de produtos hortícolas, de frutas ou de outras partes de plantas"
+  },
+  "21": {
+    "codigo": "21",
+    "descricao": "Preparações alimentícias diversas"
+  },
+  "22": {
+    "codigo": "22",
+    "descricao": "Bebidas, líquidos alcoólicos e vinagres"
+  },
+  "23": {
+    "codigo": "23",
+    "descricao": "Resíduos e desperdícios das indústrias alimentares; alimentos preparados para animais"
+  },
+  "24": {
+    "codigo": "24",
+    "descricao": "Fumo (tabaco) e seus sucedâneos, manufaturados"
+  },
+  "25": {
+    "codigo": "25",
+    "descricao": "Sal; enxofre; terras e pedras; gesso, cal e cimento"
+  },
+  "26": {
+    "codigo": "26",
+    "descricao": "Minérios, escórias e cinzas"
+  },
+  "27": {
+    "codigo": "27",
+    "descricao": "Combustíveis minerais, óleos minerais e produtos de sua destilação; matérias betuminosas; ceras minerais"
+  },
+  "28": {
+    "codigo": "28",
+    "descricao": "Produtos químicos inorgânicos; compostos inorgânicos ou orgânicos de metais preciosos, de elementos radioativos, de metais das terras raras ou de isótopos"
+  },
+  "29": {
+    "codigo": "29",
+    "descricao": "Produtos químicos orgânicos"
+  },
+  "30": {
+    "codigo": "30",
+    "descricao": "Produtos farmacêuticos"
+  },
+  "31": {
+    "codigo": "31",
+    "descricao": "Adubos ou fertilizantes"
+  },
+  "32": {
+    "codigo": "32",
+    "descricao": "Extratos tanantes e tintoriais; taninos e seus derivados; pigmentos e outras matérias corantes, tintas e vernizes, mástiques; tintas de escrever"
+  },
+  "33": {
+    "codigo": "33",
+    "descricao": "Óleos essenciais e resinóides; produtos de perfumaria ou de toucador preparados e preparações cosméticas"
+  },
+  "34": {
+    "codigo": "34",
+    "descricao": "Sabões, agentes orgânicos de superfície, preparações para lavagem, preparações lubrificantes, ceras artificiais, ceras preparadas, produtos de conservação e limpeza, velas e artigos semelhantes, massas ou pastas para modelar, \"ceras para dentistas\" e composições para dentistas à base de gesso"
+  },
+  "35": {
+    "codigo": "35",
+    "descricao": "Matérias albuminóides; produtos à base de amidos ou de féculas modificados; colas; enzimas"
+  },
+  "36": {
+    "codigo": "36",
+    "descricao": "Pólvoras e explosivos; artigos de pirotecnia; fósforos; ligas pirofóricas; matérias inflamáveis"
+  },
+  "37": {
+    "codigo": "37",
+    "descricao": "Produtos para fotografia e cinematografia"
+  },
+  "38": {
+    "codigo": "38",
+    "descricao": "Produtos diversos das indústrias químicas"
+  },
+  "39": {
+    "codigo": "39",
+    "descricao": "Plásticos e suas obras"
+  },
+  "40": {
+    "codigo": "40",
+    "descricao": "Borracha e suas obras"
+  },
+  "41": {
+    "codigo": "41",
+    "descricao": "Peles, exceto a peleteria (peles com pêlo*), e couros"
+  },
+  "42": {
+    "codigo": "42",
+    "descricao": "Obras de couro; artigos de correeiro ou de seleiro; artigos de viagem, bolsas e artefatos semelhantes; obras de tripa"
+  },
+  "43": {
+    "codigo": "43",
+    "descricao": "Peleteria (peles com pêlo*) e suas obras; peleteria (peles com pêlo*) artificial"
+  },
+  "44": {
+    "codigo": "44",
+    "descricao": "Madeira, carvão vegetal e obras de madeira"
+  },
+  "45": {
+    "codigo": "45",
+    "descricao": "Cortiça e suas obras"
+  },
+  "46": {
+    "codigo": "46",
+    "descricao": "Obras de espartaria ou de cestaria"
+  },
+  "47": {
+    "codigo": "47",
+    "descricao": "Pastas de madeira ou de outras matérias fibrosas celulósicas; papel ou cartão de reciclar (desperdícios e aparas)"
+  },
+  "48": {
+    "codigo": "48",
+    "descricao": "Papel e cartão; obras de pasta de celulose, de papel ou de cartão"
+  },
+  "49": {
+    "codigo": "49",
+    "descricao": "Livros, jornais, gravuras e outros produtos das indústrias gráficas; textos manuscritos ou datilografados, planos e plantas"
+  },
+  "50": {
+    "codigo": "50",
+    "descricao": "Seda"
+  },
+  "51": {
+    "codigo": "51",
+    "descricao": "Lã e pêlos finos ou grosseiros; fios e tecidos de crina"
+  },
+  "52": {
+    "codigo": "52",
+    "descricao": "Algodão"
+  },
+  "53": {
+    "codigo": "53",
+    "descricao": "Outras fibras têxteis vegetais; fios de papel e tecido de fios de papel"
+  },
+  "54": {
+    "codigo": "54",
+    "descricao": "Filamentos sintéticos ou artificiais"
+  },
+  "55": {
+    "codigo": "55",
+    "descricao": "Fibras sintéticas ou artificiais, descontínuas"
+  },
+  "56": {
+    "codigo": "56",
+    "descricao": "Pastas (\"ouates\"), feltros e falsos tecidos; fios especiais; cordéis, cordas e cabos; artigos de cordoaria"
+  },
+  "57": {
+    "codigo": "57",
+    "descricao": "Tapetes e outros revestimentos para pavimentos, de matérias têxteis"
+  },
+  "58": {
+    "codigo": "58",
+    "descricao": "Tecidos especiais; tecidos tufados; rendas; tapeçarias; passamanarias; bordados"
+  },
+  "59": {
+    "codigo": "59",
+    "descricao": "Tecidos impregnados, revestidos, recobertos ou estratificados; artigos para usos técnicos de matérias têxteis"
+  },
+  "60": {
+    "codigo": "60",
+    "descricao": "Tecidos de malha"
+  },
+  "61": {
+    "codigo": "61",
+    "descricao": "Vestuário e seus acessórios, de malha"
+  },
+  "62": {
+    "codigo": "62",
+    "descricao": "Vestuário e seus acessórios, exceto de malha"
+  },
+  "63": {
+    "codigo": "63",
+    "descricao": "Outros artefatos têxteis confeccionados; sortidos; artefatos de matérias têxteis, calçados, chapéus e artefatos de uso semelhante, usados; trapos"
+  },
+  "64": {
+    "codigo": "64",
+    "descricao": "Calçados, polainas e artefatos semelhantes, e suas partes"
+  },
+  "65": {
+    "codigo": "65",
+    "descricao": "Chapéus e artefatos de uso semelhante, e suas partes"
+  },
+  "66": {
+    "codigo": "66",
+    "descricao": "Guarda-chuvas, sombrinhas, guarda-sóis, bengalas, bengalas-assentos, chicotes, e suas partes"
+  },
+  "67": {
+    "codigo": "67",
+    "descricao": "Penas e penugem preparadas, e suas obras; flores artificiais; obras de cabelo"
+  },
+  "68": {
+    "codigo": "68",
+    "descricao": "Obras de pedra, gesso, cimento, amianto, mica ou de matérias semelhantes"
+  },
+  "69": {
+    "codigo": "69",
+    "descricao": "Produtos cerâmicos"
+  },
+  "70": {
+    "codigo": "70",
+    "descricao": "Vidro e suas obras"
+  },
+  "71": {
+    "codigo": "71",
+    "descricao": "Pérolas naturais ou cultivadas, pedras preciosas ou semipreciosas e semelhantes, metais preciosos, metais folheados ou chapeados de metais preciosos, e suas obras; bijuterias; moedas"
+  },
+  "72": {
+    "codigo": "72",
+    "descricao": "Ferro fundido, ferro e aço"
+  },
+  "73": {
+    "codigo": "73",
+    "descricao": "Obras de ferro fundido, ferro ou aço"
+  },
+  "74": {
+    "codigo": "74",
+    "descricao": "Cobre e suas obras"
+  },
+  "75": {
+    "codigo": "75",
+    "descricao": "Níquel e suas obras"
+  },
+  "76": {
+    "codigo": "76",
+    "descricao": "Alumínio e suas obras"
+  },
+  "77": {
+    "codigo": "77",
+    "descricao": "(Reservado para uma eventual utilização futura no SH)"
+  },
+  "78": {
+    "codigo": "78",
+    "descricao": "Chumbo e suas obras"
+  },
+  "79": {
+    "codigo": "79",
+    "descricao": "Zinco e suas obras"
+  },
+  "80": {
+    "codigo": "80",
+    "descricao": "Estanho e suas obras"
+  },
+  "81": {
+    "codigo": "81",
+    "descricao": "Outros metais comuns; ceramais (\"cermets\"); obras dessas matérias"
+  },
+  "82": {
+    "codigo": "82",
+    "descricao": "Ferramentas, artefatos de cutelaria e talheres, e suas partes, de metais comuns"
+  },
+  "83": {
+    "codigo": "83",
+    "descricao": "Obras diversas de metais comuns"
+  },
+  "84": {
+    "codigo": "84",
+    "descricao": "Reatores nucleares, caldeiras, máquinas, aparelhos e instrumentos mecânicos, e suas partes"
+  },
+  "85": {
+    "codigo": "85",
+    "descricao": "Máquinas, aparelhos e materiais elétricos, e suas partes; aparelhos de gravação ou de reprodução de som, aparelhos de gravação ou de reprodução de imagens e de som em televisão, e suas partes e acessórios"
+  },
+  "86": {
+    "codigo": "86",
+    "descricao": "Veículos e material para vias férreas ou semelhantes, e suas partes; aparelhos mecânicos (incluídos os eletromecânicos) de sinalização para vias de comunicação"
+  },
+  "87": {
+    "codigo": "87",
+    "descricao": "Veículos automóveis, tratores, ciclos e outros veículos terrestres, suas partes e acessórios"
+  },
+  "88": {
+    "codigo": "88",
+    "descricao": "Aeronaves e aparelhos espaciais, e suas partes"
+  },
+  "89": {
+    "codigo": "89",
+    "descricao": "Embarcações e estruturas flutuantes"
+  },
+  "90": {
+    "codigo": "90",
+    "descricao": "Instrumentos e aparelhos de óptica, fotografia ou cinematografia, medida, controle ou de precisão; instrumentos e aparelhos médico-cirúrgicos; suas partes e acessórios"
+  },
+  "91": {
+    "codigo": "91",
+    "descricao": "Aparelhos de relojoaria e suas partes"
+  },
+  "92": {
+    "codigo": "92",
+    "descricao": "Instrumentos musicais, suas partes e acessórios"
+  },
+  "93": {
+    "codigo": "93",
+    "descricao": "Armas e munições; suas partes e acessórios"
+  },
+  "94": {
+    "codigo": "94",
+    "descricao": "Móveis, mobiliário médico-cirúrgico; colchões; iluminação e construção pré-fabricadas"
+  },
+  "95": {
+    "codigo": "95",
+    "descricao": "Brinquedos, jogos, artigos para divertimento ou para esporte; suas partes e acessórios"
+  },
+  "96": {
+    "codigo": "96",
+    "descricao": "Obras diversas"
+  },
+  "97": {
+    "codigo": "97",
+    "descricao": "Objetos de arte, de coleção e antiguidades"
+  },
+  "98": {
+    "codigo": "98",
+    "descricao": "(Reservado para usos especiais pelas Partes Contratantes)"
+  },
+  "99": {
+    "codigo": "99",
+    "descricao": "Operações especiais (utilizado exclusivamente pelo Brasil para classificar operações especiais na exportação)"
+  }
+}

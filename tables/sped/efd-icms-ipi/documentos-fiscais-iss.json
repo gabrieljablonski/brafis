@@ -1,0 +1,52 @@
+{
+  "01": {
+    "codigo": "01",
+    "descricao": "Nota Fiscal",
+    "modelo": "1/1 A"
+  },
+  "03": {
+    "codigo": "03",
+    "descricao": "Nota Fiscal de Serviços (modelo 3)",
+    "modelo": "3"
+  },
+  "3A": {
+    "codigo": "3A",
+    "descricao": "Nota Fiscal de Serviços - Modelo Simplificado (modelo 3-A)",
+    "modelo": "3A"
+  },
+  "3B": {
+    "codigo": "3B",
+    "descricao": "Nota Fiscal de Serviços - Modelo Avulso",
+    "modelo": "3B"
+  },
+  "04": {
+    "codigo": "04",
+    "descricao": "Nota Fiscal de Produtor",
+    "modelo": "4"
+  },
+  "08": {
+    "codigo": "08",
+    "descricao": "Conhecimento de Transporte Rodoviário de Cargas",
+    "modelo": "8"
+  },
+  "55": {
+    "codigo": "55",
+    "descricao": "Nota Fiscal Eletrônica",
+    "modelo": "55"
+  },
+  "62": {
+    "codigo": "62",
+    "descricao": "Nota Fiscal Fatura Eletrônica de Serviços de Comunicação - NFCom",
+    "modelo": "62"
+  },
+  "65": {
+    "codigo": "65",
+    "descricao": "Nota Fiscal de Consumidor Eletrônica- NFC-e",
+    "modelo": "65"
+  },
+  "66": {
+    "codigo": "66",
+    "descricao": "Nota Fiscal de Energia Elétrica Eletrônica - NF3e",
+    "modelo": "66"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "00": {
+    "codigo": "00",
+    "descricao": "Documento regular"
+  },
+  "01": {
+    "codigo": "01",
+    "descricao": "Escrituração extemporânea de documento regular"
+  },
+  "02": {
+    "codigo": "02",
+    "descricao": "Documento cancelado"
+  },
+  "03": {
+    "codigo": "03",
+    "descricao": "Escrituração extemporânea de documento cancelado"
+  },
+  "04": {
+    "codigo": "04",
+    "descricao": "NF-e, NFC-e ou CT-e denegado"
+  },
+  "05": {
+    "codigo": "05",
+    "descricao": "NF-e, NFC-e ou CT-e - Numeração inutilizada"
+  },
+  "06": {
+    "codigo": "06",
+    "descricao": "Documento Fiscal Complementar"
+  },
+  "07": {
+    "codigo": "07",
+    "descricao": "Escrituração extemporânea de documento complementar"
+  }
+}
