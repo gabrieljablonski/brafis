@@ -170,12 +170,10 @@ ${registers
           f.length ? `\n     * Tamanho: ${f.length}` : ''
         }${f.decimal ? `\n     * Casas decimais: ${f.decimal}` : ''}
      */
-    const ${f.name} = '';`
+    const ${f.name} = '${f.name === 'REG' ? r.register : ''}';`
       )
       .join('')}
-    this.registers.push(['${r.register}', ${r.fields
-        .map(({ name }) => name)
-        .join(', ')}]);
+    this.registers.push([${r.fields.map(({ name }) => name).join(', ')}]);
   }`
   )
   .join('\n')}

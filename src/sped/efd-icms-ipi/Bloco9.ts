@@ -36,7 +36,7 @@ export default class Bloco9 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '9001';
     /**
      * Indicador de movimento:
      *  0 - Bloco com dados informados;
@@ -47,7 +47,7 @@ export default class Bloco9 extends Bloco {
      * Tamanho: 001*
      */
     const IND_MOV = '';
-    this.registers.push(['9001', REG, IND_MOV]);
+    this.registers.push([REG, IND_MOV]);
   }
 
   /**
@@ -64,7 +64,7 @@ export default class Bloco9 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '9900';
     /**
      * Registro que será totalizado no próximo campo
      *
@@ -81,7 +81,7 @@ export default class Bloco9 extends Bloco {
      * Tamanho: -
      */
     const QTD_REG_BLC = '';
-    this.registers.push(['9900', REG, REG_BLC, QTD_REG_BLC]);
+    this.registers.push([REG, REG_BLC, QTD_REG_BLC]);
   }
 
   /**
@@ -98,7 +98,7 @@ export default class Bloco9 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '9990';
     /**
      * Quantidade total de linhas do Bloco 9
      *
@@ -107,7 +107,7 @@ export default class Bloco9 extends Bloco {
      * Tamanho: -
      */
     const QTD_LIN_9 = '';
-    this.registers.push(['9990', REG, QTD_LIN_9]);
+    this.registers.push([REG, QTD_LIN_9]);
   }
 
   /**
@@ -124,7 +124,7 @@ export default class Bloco9 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '9999';
     /**
      * Quantidade total de linhas do arquivo digital
      *
@@ -133,6 +133,6 @@ export default class Bloco9 extends Bloco {
      * Tamanho: -
      */
     const QTD_LIN = '';
-    this.registers.push(['9999', REG, QTD_LIN]);
+    this.registers.push([REG, QTD_LIN]);
   }
 }

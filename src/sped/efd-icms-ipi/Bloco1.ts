@@ -51,7 +51,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1001';
     /**
      * Indicador de movimento:
      *  0- Bloco com dados informados;
@@ -62,7 +62,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: 001*
      */
     const IND_MOV = '';
-    this.registers.push(['1001', REG, IND_MOV]);
+    this.registers.push([REG, IND_MOV]);
   }
 
   /**
@@ -79,7 +79,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = '1010';
     /**
      * Reg. 1100 - Ocorreu averbação (conclusão) de exportação no período:
      *  S - Sim N - Não
@@ -202,7 +202,6 @@ export default class Bloco1 extends Bloco {
      */
     const IND_REST_RESSARC_COMPL_ICMS = '';
     this.registers.push([
-      '1010',
       REG,
       IND_EXP,
       IND_CCRF,
@@ -234,7 +233,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1100';
     /**
      * Informe o tipo de documento:
      *  0 - Declaração de Exportação;
@@ -351,7 +350,6 @@ export default class Bloco1 extends Bloco {
      */
     const PAIS = '';
     this.registers.push([
-      '1100',
       REG,
       IND_DOC,
       NRO_DE,
@@ -381,7 +379,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1105';
     /**
      * Código do modelo da NF, conforme tabela 4.1.1
      *
@@ -431,7 +429,6 @@ export default class Bloco1 extends Bloco {
      */
     const COD_ITEM = '';
     this.registers.push([
-      '1105',
       REG,
       COD_MOD,
       SERIE,
@@ -456,7 +453,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1110';
     /**
      * Código do participante-Fornecedor da Mercadoria destinada à exportação (campo 02 do Registro 0150)
      *
@@ -523,7 +520,6 @@ export default class Bloco1 extends Bloco {
      */
     const UNID = '';
     this.registers.push([
-      '1110',
       REG,
       COD_PART,
       COD_MOD,
@@ -550,7 +546,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1200';
     /**
      * Código de ajuste, conforme informado na Tabela indicada no
      *  item 5.1.1
@@ -602,7 +598,6 @@ export default class Bloco1 extends Bloco {
      */
     const SLD_CRED_FIM = '';
     this.registers.push([
-      '1200',
       REG,
       COD_AJ_APUR,
       SLD_CRED,
@@ -627,7 +622,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1210';
     /**
      * Tipo de utilização do crédito, conforme tabela indicada no
      *  item 5.5
@@ -661,14 +656,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: 044*
      */
     const CHV_DOCe = '';
-    this.registers.push([
-      '1210',
-      REG,
-      TIPO_UTIL,
-      NR_DOC,
-      VL_CRED_UTIL,
-      CHV_DOCe,
-    ]);
+    this.registers.push([REG, TIPO_UTIL, NR_DOC, VL_CRED_UTIL, CHV_DOCe]);
   }
 
   /**
@@ -685,7 +673,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1250';
     /**
      * Informar o valor total do ICMS operação própria que o informante tem direito ao crédito, na forma prevista na
      *  legislação, referente às hipóteses de restituição em que há previsão deste crédito
@@ -731,7 +719,6 @@ export default class Bloco1 extends Bloco {
      */
     const VL_FCP_ST_COMPL = '';
     this.registers.push([
-      '1250',
       REG,
       VL_CREDITO_ICMS_OP,
       VL_ICMS_ST_REST,
@@ -755,7 +742,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1255';
     /**
      * Código do motivo da restituição ou complementação conforme Tabela 5.7
      *
@@ -809,7 +796,6 @@ export default class Bloco1 extends Bloco {
      */
     const VL_FCP_ST_COMPL_MOT = '';
     this.registers.push([
-      '1255',
       REG,
       COD_MOT_REST_COMPL,
       VL_CREDITO_ICMS_OP_MOT,
@@ -834,7 +820,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1300';
     /**
      * Código do Produto, constante do registro 0200
      *
@@ -916,7 +902,6 @@ export default class Bloco1 extends Bloco {
      */
     const FECH_FISICO = '';
     this.registers.push([
-      '1300',
       REG,
       COD_ITEM,
       DT_FECH,
@@ -945,7 +930,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1310';
     /**
      * Tanque que armazena o combustível
      *
@@ -1020,7 +1005,6 @@ export default class Bloco1 extends Bloco {
      */
     const FECH_FISICO = '';
     this.registers.push([
-      '1310',
       REG,
       NUM_TANQUE,
       ESTQ_ABERT,
@@ -1048,7 +1032,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1320';
     /**
      * Bico Ligado à Bomba
      *
@@ -1130,7 +1114,6 @@ export default class Bloco1 extends Bloco {
      */
     const VOL_VENDAS = '';
     this.registers.push([
-      '1320',
       REG,
       NUM_BICO,
       NR_INTERV,
@@ -1159,7 +1142,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1350';
     /**
      * Número de Série da Bomba
      *
@@ -1194,7 +1177,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: 1
      */
     const TIPO_MEDICAO = '';
-    this.registers.push(['1350', REG, SERIE, FABRICANTE, MODELO, TIPO_MEDICAO]);
+    this.registers.push([REG, SERIE, FABRICANTE, MODELO, TIPO_MEDICAO]);
   }
 
   /**
@@ -1211,7 +1194,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1360';
     /**
      * Número do Lacre associado na Bomba
      *
@@ -1228,7 +1211,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: 008*
      */
     const DT_APLICACAO = '';
-    this.registers.push(['1360', REG, NUM_LACRE, DT_APLICACAO]);
+    this.registers.push([REG, NUM_LACRE, DT_APLICACAO]);
   }
 
   /**
@@ -1245,7 +1228,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1370';
     /**
      * Número sequencial do bico ligado a bomba
      *
@@ -1270,7 +1253,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: 3
      */
     const NUM_TANQUE = '';
-    this.registers.push(['1370', REG, NUM_BICO, COD_ITEM, NUM_TANQUE]);
+    this.registers.push([REG, NUM_BICO, COD_ITEM, NUM_TANQUE]);
   }
 
   /**
@@ -1287,7 +1270,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1390';
     /**
      * Código do produto conforme tabela 5.8
      *
@@ -1296,7 +1279,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: 002*
      */
     const COD_PROD = '';
-    this.registers.push(['1390', REG, COD_PROD]);
+    this.registers.push([REG, COD_PROD]);
   }
 
   /**
@@ -1313,7 +1296,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1391';
     /**
      * Data de produção (DDMMAAAA)
      *
@@ -1471,7 +1454,6 @@ export default class Bloco1 extends Bloco {
      */
     const QTD_RESIDUO = '';
     this.registers.push([
-      '1391',
       REG,
       DT_REGISTRO,
       QTD_MOID,
@@ -1509,7 +1491,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1400';
     /**
      * Código do item (Tabela própria da unidade da federação (Tabela
      *  de Itens UF Índice de Participação dos Municípios) ou campo 02 do Registro 0200
@@ -1535,7 +1517,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: -
      */
     const VALOR = '';
-    this.registers.push(['1400', REG, COD_ITEM_IPM, MUN, VALOR]);
+    this.registers.push([REG, COD_ITEM_IPM, MUN, VALOR]);
   }
 
   /**
@@ -1552,7 +1534,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1500';
     /**
      * Indicador do tipo de operação:
      *  1- Saída
@@ -1773,7 +1755,6 @@ export default class Bloco1 extends Bloco {
      */
     const COD_GRUPO_TENSAO = '';
     this.registers.push([
-      '1500',
       REG,
       IND_OPER,
       IND_EMIT,
@@ -1818,7 +1799,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1510';
     /**
      * Número sequencial do item no documento fiscal
      *
@@ -1984,7 +1965,6 @@ export default class Bloco1 extends Bloco {
      */
     const COD_CTA = '';
     this.registers.push([
-      '1510',
       REG,
       NUM_ITEM,
       COD_ITEM,
@@ -2023,7 +2003,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1600';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  identificação da instituição financeira e/ou de pagamento
@@ -2049,7 +2029,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: -
      */
     const TOT_DEBITO = '';
-    this.registers.push(['1600', REG, COD_PART, TOT_CREDITO, TOT_DEBITO]);
+    this.registers.push([REG, COD_PART, TOT_CREDITO, TOT_DEBITO]);
   }
 
   /**
@@ -2066,7 +2046,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1601';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  identificação da instituição que efetuou o pagamento
@@ -2111,7 +2091,6 @@ export default class Bloco1 extends Bloco {
      */
     const TOT_OUTROS = '';
     this.registers.push([
-      '1601',
       REG,
       COD_PART_IP,
       COD_PART_IT,
@@ -2135,7 +2114,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1700';
     /**
      * Código dispositivo autorizado:
      *  00 - Formulário de Segurança - impressor autônomo
@@ -2198,7 +2177,6 @@ export default class Bloco1 extends Bloco {
      */
     const NUM_AUT = '';
     this.registers.push([
-      '1700',
       REG,
       COD_DISP,
       COD_MOD,
@@ -2224,7 +2202,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1710';
     /**
      * Número do dispositivo autorizado (inutilizado) inicial
      *
@@ -2241,7 +2219,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: 12
      */
     const NUM_DOC_FIN = '';
-    this.registers.push(['1710', REG, NUM_DOC_INI, NUM_DOC_FIN]);
+    this.registers.push([REG, NUM_DOC_INI, NUM_DOC_FIN]);
   }
 
   /**
@@ -2258,7 +2236,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = '1800';
     /**
      * Valor das prestações cargas (Tributado)
      *
@@ -2332,7 +2310,6 @@ export default class Bloco1 extends Bloco {
      */
     const VL_DIF = '';
     this.registers.push([
-      '1800',
       REG,
       VL_CARGA,
       VL_PASS,
@@ -2360,7 +2337,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1900';
     /**
      * Indicador de outra apuração do ICMS:
      *  3 - APURAÇÃO 1;
@@ -2381,7 +2358,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: -
      */
     const DESCR_COMPL_OUT_APUR = '';
-    this.registers.push(['1900', REG, IND_APUR_ICMS, DESCR_COMPL_OUT_APUR]);
+    this.registers.push([REG, IND_APUR_ICMS, DESCR_COMPL_OUT_APUR]);
   }
 
   /**
@@ -2398,7 +2375,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1910';
     /**
      * Data inicial da sub-apuração
      *
@@ -2415,7 +2392,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: 008*
      */
     const DT_FIN = '';
-    this.registers.push(['1910', REG, DT_INI, DT_FIN]);
+    this.registers.push([REG, DT_INI, DT_FIN]);
   }
 
   /**
@@ -2432,7 +2409,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1920';
     /**
      * Valor total dos débitos por "Saídas e prestações com débito do imposto"
      *
@@ -2533,7 +2510,6 @@ export default class Bloco1 extends Bloco {
      */
     const DEB_ESP_OA = '';
     this.registers.push([
-      '1920',
       REG,
       VL_TOT_TRANSF_DEBITOS_OA,
       VL_TOT_AJ_DEBITOS_OA,
@@ -2564,7 +2540,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1921';
     /**
      * Código do ajuste da SUB-APURAÇÃO e dedução,
      *  conforme a Tabela indicada no item 5.1.1
@@ -2590,7 +2566,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: -
      */
     const VL_AJ_APUR = '';
-    this.registers.push(['1921', REG, COD_AJ_APUR, DESCR_COMPL_AJ, VL_AJ_APUR]);
+    this.registers.push([REG, COD_AJ_APUR, DESCR_COMPL_AJ, VL_AJ_APUR]);
   }
 
   /**
@@ -2607,7 +2583,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1922';
     /**
      * Número do documento de arrecadação estadual, se houver
      *
@@ -2652,15 +2628,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: -
      */
     const TXT_COMPL = '';
-    this.registers.push([
-      '1922',
-      REG,
-      NUM_DA,
-      NUM_PROC,
-      IND_PROC,
-      PROC,
-      TXT_COMPL,
-    ]);
+    this.registers.push([REG, NUM_DA, NUM_PROC, IND_PROC, PROC, TXT_COMPL]);
   }
 
   /**
@@ -2677,7 +2645,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1923';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
@@ -2753,7 +2721,6 @@ export default class Bloco1 extends Bloco {
      */
     const CHV_DOCe = '';
     this.registers.push([
-      '1923',
       REG,
       COD_PART,
       COD_MOD,
@@ -2781,7 +2748,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1925';
     /**
      * Código da informação adicional conforme tabela a ser definida pelas SEFAZ, conforme tabela definida no item
      *  5.2
@@ -2807,13 +2774,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: -
      */
     const DESCR_COMPL_AJ = '';
-    this.registers.push([
-      '1925',
-      REG,
-      COD_INF_ADIC,
-      VL_INF_ADIC,
-      DESCR_COMPL_AJ,
-    ]);
+    this.registers.push([REG, COD_INF_ADIC, VL_INF_ADIC, DESCR_COMPL_AJ]);
   }
 
   /**
@@ -2830,7 +2791,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1926';
     /**
      * Código da obrigação a recolher, conforme a Tabela 5.4
      *
@@ -2909,7 +2870,6 @@ export default class Bloco1 extends Bloco {
      */
     const MES_REF = '';
     this.registers.push([
-      '1926',
       REG,
       COD_OR,
       VL_OR,
@@ -2937,7 +2897,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1960';
     /**
      * Indicador da sub-apuração por tipo de benefício (conforme tabela 4.7.1)
      *
@@ -3035,7 +2995,6 @@ export default class Bloco1 extends Bloco {
      */
     const G1_11 = '';
     this.registers.push([
-      '1960',
       REG,
       IND_AP,
       G1_01,
@@ -3066,7 +3025,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1970';
     /**
      * Indicador da sub-apuração por tipo de benefício (conforme tabela 4.7.1)
      *
@@ -3156,7 +3115,6 @@ export default class Bloco1 extends Bloco {
      */
     const G3_09 = '';
     this.registers.push([
-      '1970',
       REG,
       IND_AP,
       G3_01,
@@ -3186,7 +3144,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1975';
     /**
      * Alíquota incidente sobre as importações-base
      *
@@ -3219,7 +3177,7 @@ export default class Bloco1 extends Bloco {
      * Tamanho: -
      */
     const G3_12 = '';
-    this.registers.push(['1975', REG, ALIQ_IMP_BASE, G3_10, G3_11, G3_12]);
+    this.registers.push([REG, ALIQ_IMP_BASE, G3_10, G3_11, G3_12]);
   }
 
   /**
@@ -3236,7 +3194,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1980';
     /**
      * Indicador da sub-apuração por tipo de benefício (conforme Tabela
      *  4.7.1)
@@ -3343,7 +3301,6 @@ export default class Bloco1 extends Bloco {
      */
     const G4_12 = '';
     this.registers.push([
-      '1980',
       REG,
       IND_AP,
       G4_01,
@@ -3375,7 +3332,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = '1990';
     /**
      * Quantidade total de linhas do Bloco 1
      *
@@ -3384,6 +3341,6 @@ export default class Bloco1 extends Bloco {
      * Tamanho: -
      */
     const QTD_LIN_1 = '';
-    this.registers.push(['1990', REG, QTD_LIN_1]);
+    this.registers.push([REG, QTD_LIN_1]);
   }
 }

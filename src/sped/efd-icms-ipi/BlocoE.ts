@@ -38,7 +38,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E001';
     /**
      * Indicador de movimento:
      *  0- Bloco com dados informados;
@@ -49,7 +49,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: 1
      */
     const IND_MOV = '';
-    this.registers.push(['E001', REG, IND_MOV]);
+    this.registers.push([REG, IND_MOV]);
   }
 
   /**
@@ -66,7 +66,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E100';
     /**
      * Data inicial a que a apuração se refere
      *
@@ -83,7 +83,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: 008*
      */
     const DT_FIN = '';
-    this.registers.push(['E100', REG, DT_INI, DT_FIN]);
+    this.registers.push([REG, DT_INI, DT_FIN]);
   }
 
   /**
@@ -100,7 +100,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E110';
     /**
      * Valor total dos débitos por "Saídas e prestações com débito do imposto"
      *
@@ -216,7 +216,6 @@ export default class BlocoE extends Bloco {
      */
     const DEB_ESP = '';
     this.registers.push([
-      'E110',
       REG,
       VL_TOT_DEBITOS,
       VL_AJ_DEBITOS,
@@ -249,7 +248,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E111';
     /**
      * Código do ajuste da apuração e dedução, conforme a Tabela indicada no item 5.1.1
      *
@@ -274,7 +273,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: -
      */
     const VL_AJ_APUR = '';
-    this.registers.push(['E111', REG, COD_AJ_APUR, DESCR_COMPL_AJ, VL_AJ_APUR]);
+    this.registers.push([REG, COD_AJ_APUR, DESCR_COMPL_AJ, VL_AJ_APUR]);
   }
 
   /**
@@ -291,7 +290,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E112';
     /**
      * Número do documento de arrecadação estadual, se houver
      *
@@ -336,15 +335,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: -
      */
     const TXT_COMPL = '';
-    this.registers.push([
-      'E112',
-      REG,
-      NUM_DA,
-      NUM_PROC,
-      IND_PROC,
-      PROC,
-      TXT_COMPL,
-    ]);
+    this.registers.push([REG, NUM_DA, NUM_PROC, IND_PROC, PROC, TXT_COMPL]);
   }
 
   /**
@@ -361,7 +352,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E113';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
@@ -437,7 +428,6 @@ export default class BlocoE extends Bloco {
      */
     const CHV_DOCe = '';
     this.registers.push([
-      'E113',
       REG,
       COD_PART,
       COD_MOD,
@@ -465,7 +455,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E115';
     /**
      * Código da informação adicional conforme tabela a ser
      *  definida pelas SEFAZ, conforme tabela definida no item 5.2
@@ -491,13 +481,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: -
      */
     const DESCR_COMPL_AJ = '';
-    this.registers.push([
-      'E115',
-      REG,
-      COD_INF_ADIC,
-      VL_INF_ADIC,
-      DESCR_COMPL_AJ,
-    ]);
+    this.registers.push([REG, COD_INF_ADIC, VL_INF_ADIC, DESCR_COMPL_AJ]);
   }
 
   /**
@@ -514,7 +498,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E116';
     /**
      * Código da obrigação a recolher, conforme a Tabela 5.4
      *
@@ -593,7 +577,6 @@ export default class BlocoE extends Bloco {
      */
     const MES_REF = '';
     this.registers.push([
-      'E116',
       REG,
       COD_OR,
       VL_OR,
@@ -621,7 +604,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E200';
     /**
      * Sigla da unidade da federação a que se refere a apuração do ICMS ST
      *
@@ -646,7 +629,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: 008*
      */
     const DT_FIN = '';
-    this.registers.push(['E200', REG, UF, DT_INI, DT_FIN]);
+    this.registers.push([REG, UF, DT_INI, DT_FIN]);
   }
 
   /**
@@ -663,7 +646,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E210';
     /**
      * Indicador de movimento:
      *  0 - Sem operações com ST
@@ -779,7 +762,6 @@ export default class BlocoE extends Bloco {
      */
     const DEB_ESP_ST = '';
     this.registers.push([
-      'E210',
       REG,
       IND_MOV_ST,
       VL_SLD_CRED_ANT_ST,
@@ -812,7 +794,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E220';
     /**
      * Código do ajuste da apuração e dedução, conforme a
      *  Tabela indicada no item 5.1.1
@@ -838,7 +820,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: -
      */
     const VL_AJ_APUR = '';
-    this.registers.push(['E220', REG, COD_AJ_APUR, DESCR_COMPL_AJ, VL_AJ_APUR]);
+    this.registers.push([REG, COD_AJ_APUR, DESCR_COMPL_AJ, VL_AJ_APUR]);
   }
 
   /**
@@ -855,7 +837,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E230';
     /**
      * Número do documento de arrecadação estadual, se houver
      *
@@ -899,15 +881,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: -
      */
     const TXT_COMPL = '';
-    this.registers.push([
-      'E230',
-      REG,
-      NUM_DA,
-      NUM_PROC,
-      IND_PROC,
-      PROC,
-      TXT_COMPL,
-    ]);
+    this.registers.push([REG, NUM_DA, NUM_PROC, IND_PROC, PROC, TXT_COMPL]);
   }
 
   /**
@@ -924,7 +898,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E240';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
@@ -1000,7 +974,6 @@ export default class BlocoE extends Bloco {
      */
     const CHV_DOCe = '';
     this.registers.push([
-      'E240',
       REG,
       COD_PART,
       COD_MOD,
@@ -1028,7 +1001,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E250';
     /**
      * Código da obrigação a recolher, conforme a Tabela 5.4
      *
@@ -1106,7 +1079,6 @@ export default class BlocoE extends Bloco {
      */
     const MES_REF = '';
     this.registers.push([
-      'E250',
       REG,
       COD_OR,
       VL_OR,
@@ -1134,7 +1106,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E300';
     /**
      * Sigla da unidade da federação a que se refere à apuração do FCP e do ICMS Diferencial de Alíquota da UF de Origem/Destino
      *
@@ -1159,7 +1131,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: 008*
      */
     const DT_FIN = '';
-    this.registers.push(['E300', REG, UF, DT_INI, DT_FIN]);
+    this.registers.push([REG, UF, DT_INI, DT_FIN]);
   }
 
   /**
@@ -1176,7 +1148,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E310';
     /**
      * Indicador de movimento:
      *  0 - Sem operações
@@ -1348,7 +1320,6 @@ export default class BlocoE extends Bloco {
      */
     const DEB_ESP_FCP = '';
     this.registers.push([
-      'E310',
       REG,
       IND_MOV_FCP_DIFAL,
       VL_SLD_CRED_ANT_DIFAL,
@@ -1388,7 +1359,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E311';
     /**
      * Código do ajuste da apuração e dedução, conforme a Tabela indicada no item 5.1.1
      *
@@ -1413,7 +1384,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: -
      */
     const VL_AJ_APUR = '';
-    this.registers.push(['E311', REG, COD_AJ_APUR, DESCR_COMPL_AJ, VL_AJ_APUR]);
+    this.registers.push([REG, COD_AJ_APUR, DESCR_COMPL_AJ, VL_AJ_APUR]);
   }
 
   /**
@@ -1430,7 +1401,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E312';
     /**
      * Número do documento de arrecadação estadual, se houver
      *
@@ -1475,15 +1446,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: -
      */
     const TXT_COMPL = '';
-    this.registers.push([
-      'E312',
-      REG,
-      NUM_DA,
-      NUM_PROC,
-      IND_PROC,
-      PROC,
-      TXT_COMPL,
-    ]);
+    this.registers.push([REG, NUM_DA, NUM_PROC, IND_PROC, PROC, TXT_COMPL]);
   }
 
   /**
@@ -1500,7 +1463,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E313';
     /**
      * Código do participante (campo 02 do Registro 0150)
      *
@@ -1574,7 +1537,6 @@ export default class BlocoE extends Bloco {
      */
     const VL_AJ_ITEM = '';
     this.registers.push([
-      'E313',
       REG,
       COD_PART,
       COD_MOD,
@@ -1602,7 +1564,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E316';
     /**
      * Código da obrigação recolhida ou a recolher, conforme a Tabela 5.4
      *
@@ -1681,7 +1643,6 @@ export default class BlocoE extends Bloco {
      */
     const MES_REF = '';
     this.registers.push([
-      'E316',
       REG,
       COD_OR,
       VL_OR,
@@ -1709,7 +1670,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E500';
     /**
      * Indicador de período de apuração do IPI:
      *  0 - Mensal;
@@ -1736,7 +1697,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: 008*
      */
     const DT_FIN = '';
-    this.registers.push(['E500', REG, IND_APUR, DT_INI, DT_FIN]);
+    this.registers.push([REG, IND_APUR, DT_INI, DT_FIN]);
   }
 
   /**
@@ -1753,7 +1714,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E510';
     /**
      * Código Fiscal de Operação e Prestação do agrupamento de itens
      *
@@ -1797,15 +1758,7 @@ export default class BlocoE extends Bloco {
      * Tamanho: -
      */
     const VL_IPI = '';
-    this.registers.push([
-      'E510',
-      REG,
-      CFOP,
-      CST_IPI,
-      VL_CONT_IPI,
-      VL_BC_IPI,
-      VL_IPI,
-    ]);
+    this.registers.push([REG, CFOP, CST_IPI, VL_CONT_IPI, VL_BC_IPI, VL_IPI]);
   }
 
   /**
@@ -1822,7 +1775,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E520';
     /**
      * Saldo credor do IPI transferido do período anterior
      *
@@ -1880,7 +1833,6 @@ export default class BlocoE extends Bloco {
      */
     const VL_SD_IPI = '';
     this.registers.push([
-      'E520',
       REG,
       VL_SD_ANT_IPI,
       VL_DEB_IPI,
@@ -1906,7 +1858,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E530';
     /**
      * Indicador do tipo de ajuste:
      *  0- Ajuste a débito;
@@ -1962,7 +1914,6 @@ export default class BlocoE extends Bloco {
      */
     const DESCR_AJ = '';
     this.registers.push([
-      'E530',
       REG,
       IND_AJ,
       VL_AJ,
@@ -1987,7 +1938,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E531';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
@@ -2063,7 +2014,6 @@ export default class BlocoE extends Bloco {
      */
     const CHV_NFE = '';
     this.registers.push([
-      'E531',
       REG,
       COD_PART,
       COD_MOD,
@@ -2091,7 +2041,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'E990';
     /**
      * Quantidade total de linhas do Bloco E
      *
@@ -2100,6 +2050,6 @@ export default class BlocoE extends Bloco {
      * Tamanho: -
      */
     const QTD_LIN_E = '';
-    this.registers.push(['E990', REG, QTD_LIN_E]);
+    this.registers.push([REG, QTD_LIN_E]);
   }
 }

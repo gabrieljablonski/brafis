@@ -35,7 +35,7 @@ export default class BlocoG extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'G001';
     /**
      * Indicador de movimento:
      *  0- Bloco com dados informados;
@@ -46,7 +46,7 @@ export default class BlocoG extends Bloco {
      * Tamanho: 001*
      */
     const IND_MOV = '';
-    this.registers.push(['G001', REG, IND_MOV]);
+    this.registers.push([REG, IND_MOV]);
   }
 
   /**
@@ -63,7 +63,7 @@ export default class BlocoG extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'G110';
     /**
      * Data inicial a que a apuração se refere
      *
@@ -140,7 +140,6 @@ export default class BlocoG extends Bloco {
      */
     const SOM_ICMS_OC = '';
     this.registers.push([
-      'G110',
       REG,
       DT_INI,
       DT_FIN,
@@ -168,7 +167,7 @@ export default class BlocoG extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'G125';
     /**
      * Código individualizado do bem ou componente adotado no controle patrimonial do estabelecimento informante
      *
@@ -250,7 +249,6 @@ export default class BlocoG extends Bloco {
      */
     const VL_PARC_PASS = '';
     this.registers.push([
-      'G125',
       REG,
       COD_IND_BEM,
       DT_MOV,
@@ -278,7 +276,7 @@ export default class BlocoG extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'G126';
     /**
      * Data inicial do período de apuração
      *
@@ -347,7 +345,6 @@ export default class BlocoG extends Bloco {
      */
     const VL_PARC_APROP = '';
     this.registers.push([
-      'G126',
       REG,
       DT_INI,
       DT_FIM,
@@ -374,7 +371,7 @@ export default class BlocoG extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'G130';
     /**
      * Indicador do emitente do documento fiscal:
      *  0- Emissão própria;
@@ -444,7 +441,6 @@ export default class BlocoG extends Bloco {
      */
     const NUM_DA = '';
     this.registers.push([
-      'G130',
       REG,
       IND_EMIT,
       COD_PART,
@@ -471,7 +467,7 @@ export default class BlocoG extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'G140';
     /**
      * Número sequencial do item no documento fiscal
      *
@@ -537,7 +533,6 @@ export default class BlocoG extends Bloco {
      */
     const VL_ICMS_DIF_APLICADO = '';
     this.registers.push([
-      'G140',
       REG,
       NUM_ITEM,
       COD_ITEM,
@@ -564,7 +559,7 @@ export default class BlocoG extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'G990';
     /**
      * Quantidade total de linhas do Bloco G
      *
@@ -573,6 +568,6 @@ export default class BlocoG extends Bloco {
      * Tamanho: -
      */
     const QTD_LIN_G = '';
-    this.registers.push(['G990', REG, QTD_LIN_G]);
+    this.registers.push([REG, QTD_LIN_G]);
   }
 }

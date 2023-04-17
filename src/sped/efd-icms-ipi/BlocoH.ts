@@ -35,7 +35,7 @@ export default class BlocoH extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'H001';
     /**
      * Indicador de movimento:
      *  0- Bloco com dados informados;
@@ -46,7 +46,7 @@ export default class BlocoH extends Bloco {
      * Tamanho: 001*
      */
     const IND_MOV = '';
-    this.registers.push(['H001', REG, IND_MOV]);
+    this.registers.push([REG, IND_MOV]);
   }
 
   /**
@@ -63,7 +63,7 @@ export default class BlocoH extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'H005';
     /**
      * Data do inventário
      *
@@ -93,7 +93,7 @@ export default class BlocoH extends Bloco {
      * Tamanho: 002*
      */
     const MOT_INV = '';
-    this.registers.push(['H005', REG, DT_INV, VL_INV, MOT_INV]);
+    this.registers.push([REG, DT_INV, VL_INV, MOT_INV]);
   }
 
   /**
@@ -110,7 +110,7 @@ export default class BlocoH extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'H010';
     /**
      * Código do item (campo 02 do Registro 0200)
      *
@@ -196,7 +196,6 @@ export default class BlocoH extends Bloco {
      */
     const VL_ITEM_IR = '';
     this.registers.push([
-      'H010',
       REG,
       COD_ITEM,
       UNID,
@@ -225,7 +224,7 @@ export default class BlocoH extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'H020';
     /**
      * Código da Situação Tributária referente ao ICMS, conforme a Tabela indicada no item 4.3.1
      *
@@ -250,7 +249,7 @@ export default class BlocoH extends Bloco {
      * Tamanho: 2
      */
     const VL_ICMS = '';
-    this.registers.push(['H020', REG, CST_ICMS, BC_ICMS, VL_ICMS]);
+    this.registers.push([REG, CST_ICMS, BC_ICMS, VL_ICMS]);
   }
 
   /**
@@ -267,7 +266,7 @@ export default class BlocoH extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'H030';
     /**
      * Valor médio unitário do ICMS OP
      *
@@ -300,14 +299,7 @@ export default class BlocoH extends Bloco {
      * Tamanho: -
      */
     const VL_FCP = '';
-    this.registers.push([
-      'H030',
-      REG,
-      VL_ICMS_OP,
-      VL_BC_ICMS_ST,
-      VL_ICMS_ST,
-      VL_FCP,
-    ]);
+    this.registers.push([REG, VL_ICMS_OP, VL_BC_ICMS_ST, VL_ICMS_ST, VL_FCP]);
   }
 
   /**
@@ -324,7 +316,7 @@ export default class BlocoH extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'H990';
     /**
      * Quantidade total de linhas do Bloco H
      *
@@ -333,6 +325,6 @@ export default class BlocoH extends Bloco {
      * Tamanho: -
      */
     const QTD_LIN_H = '';
-    this.registers.push(['H990', REG, QTD_LIN_H]);
+    this.registers.push([REG, QTD_LIN_H]);
   }
 }

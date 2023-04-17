@@ -36,7 +36,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K001';
     /**
      * Indicador de movimento:
      *  0- Bloco com dados informados;
@@ -47,7 +47,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: 001*
      */
     const IND_MOV = '';
-    this.registers.push(['K001', REG, IND_MOV]);
+    this.registers.push([REG, IND_MOV]);
   }
 
   /**
@@ -64,7 +64,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K010';
     /**
      * Indicador de tipo de leiaute adotado:
      *  0 - Leiaute simplificado
@@ -76,7 +76,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: 001*
      */
     const IND_TP_LEIAUTE = '';
-    this.registers.push(['K010', REG, IND_TP_LEIAUTE]);
+    this.registers.push([REG, IND_TP_LEIAUTE]);
   }
 
   /**
@@ -93,7 +93,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K100';
     /**
      * Data inicial a que a apuração se refere
      *
@@ -110,7 +110,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: 8
      */
     const DT_FIN = '';
-    this.registers.push(['K100', REG, DT_INI, DT_FIN]);
+    this.registers.push([REG, DT_INI, DT_FIN]);
   }
 
   /**
@@ -127,7 +127,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K200';
     /**
      * Data do estoque final
      *
@@ -172,15 +172,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: 60
      */
     const COD_PART = '';
-    this.registers.push([
-      'K200',
-      REG,
-      DT_EST,
-      COD_ITEM,
-      QTD,
-      IND_EST,
-      COD_PART,
-    ]);
+    this.registers.push([REG, DT_EST, COD_ITEM, QTD, IND_EST, COD_PART]);
   }
 
   /**
@@ -197,7 +189,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K210';
     /**
      * Data de início da ordem de serviço
      *
@@ -240,7 +232,6 @@ export default class BlocoK extends Bloco {
      */
     const QTD_ORI = '';
     this.registers.push([
-      'K210',
       REG,
       DT_INI_OS,
       DT_FIN_OS,
@@ -264,7 +255,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K215';
     /**
      * Código do item de destino (campo 02 do Registro 0200)
      *
@@ -281,7 +272,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: -
      */
     const QTD_DES = '';
-    this.registers.push(['K215', REG, COD_ITEM_DES, QTD_DES]);
+    this.registers.push([REG, COD_ITEM_DES, QTD_DES]);
   }
 
   /**
@@ -298,7 +289,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K220';
     /**
      * Data da movimentação interna
      *
@@ -340,7 +331,6 @@ export default class BlocoK extends Bloco {
      */
     const QTD_DEST = '';
     this.registers.push([
-      'K220',
       REG,
       DT_MOV,
       COD_ITEM_ORI,
@@ -364,7 +354,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K230';
     /**
      * Data de início da ordem de produção
      *
@@ -406,7 +396,6 @@ export default class BlocoK extends Bloco {
      */
     const QTD_ENC = '';
     this.registers.push([
-      'K230',
       REG,
       DT_INI_OP,
       DT_FIN_OP,
@@ -430,7 +419,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K235';
     /**
      * Data de saída do estoque para alocação ao produto
      *
@@ -464,7 +453,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: 60
      */
     const COD_INS_SUBST = '';
-    this.registers.push(['K235', REG, DT_SAÍDA, COD_ITEM, QTD, COD_INS_SUBST]);
+    this.registers.push([REG, DT_SAÍDA, COD_ITEM, QTD, COD_INS_SUBST]);
   }
 
   /**
@@ -481,7 +470,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K250';
     /**
      * Data do reconhecimento da produção ocorrida no terceiro
      *
@@ -506,7 +495,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: -
      */
     const QTD = '';
-    this.registers.push(['K250', REG, DT_PROD, COD_ITEM, QTD]);
+    this.registers.push([REG, DT_PROD, COD_ITEM, QTD]);
   }
 
   /**
@@ -523,7 +512,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K255';
     /**
      * Data do reconhecimento do consumo do insumo referente ao produto informado no campo 04 do Registro K250
      *
@@ -556,7 +545,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: 60
      */
     const COD_INS_SUBST = '';
-    this.registers.push(['K255', REG, DT_CONS, COD_ITEM, QTD, COD_INS_SUBST]);
+    this.registers.push([REG, DT_CONS, COD_ITEM, QTD, COD_INS_SUBST]);
   }
 
   /**
@@ -573,7 +562,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K260';
     /**
      * Código de identificação da ordem de produção, no reprocessamento, ou da ordem de serviço, no reparo
      *
@@ -624,7 +613,6 @@ export default class BlocoK extends Bloco {
      */
     const QTD_RET = '';
     this.registers.push([
-      'K260',
       REG,
       COD_OP_OS,
       COD_ITEM,
@@ -649,7 +637,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K265';
     /**
      * Código da mercadoria (campo 02 do Registro 0200)
      *
@@ -674,7 +662,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: -
      */
     const QTD_RET = '';
-    this.registers.push(['K265', REG, COD_ITEM, QTD_CONS, QTD_RET]);
+    this.registers.push([REG, COD_ITEM, QTD_CONS, QTD_RET]);
   }
 
   /**
@@ -691,7 +679,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K270';
     /**
      * Data inicial do período de apuração em que ocorreu o apontamento que está sendo corrigido
      *
@@ -758,7 +746,6 @@ export default class BlocoK extends Bloco {
      */
     const ORIGEM = '';
     this.registers.push([
-      'K270',
       REG,
       DT_INI_AP,
       DT_FIN_AP,
@@ -784,7 +771,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K275';
     /**
      * Código da mercadoria (campo 02 do Registro 0200)
      *
@@ -818,7 +805,6 @@ export default class BlocoK extends Bloco {
      */
     const COD_INS_SUBST = '';
     this.registers.push([
-      'K275',
       REG,
       COD_ITEM,
       QTD_COR_POS,
@@ -841,7 +827,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K280';
     /**
      * Data do estoque final escriturado que está sendo
      *  corrigido
@@ -895,7 +881,6 @@ export default class BlocoK extends Bloco {
      */
     const COD_PART = '';
     this.registers.push([
-      'K280',
       REG,
       DT_EST,
       COD_ITEM,
@@ -920,7 +905,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K290';
     /**
      * Data de início da ordem de produção
      *
@@ -945,7 +930,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: 30
      */
     const COD_DOC_OP = '';
-    this.registers.push(['K290', REG, DT_INI_OP, DT_FIN_OP, COD_DOC_OP]);
+    this.registers.push([REG, DT_INI_OP, DT_FIN_OP, COD_DOC_OP]);
   }
 
   /**
@@ -962,7 +947,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K291';
     /**
      * Código do item produzido (campo 02 do Registro 0200)
      *
@@ -979,7 +964,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: -
      */
     const QTD = '';
-    this.registers.push(['K291', REG, COD_ITEM, QTD]);
+    this.registers.push([REG, COD_ITEM, QTD]);
   }
 
   /**
@@ -996,7 +981,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K292';
     /**
      * Código do insumo/componente consumido (campo 02 do Registro 0200)
      *
@@ -1013,7 +998,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: -
      */
     const QTD = '';
-    this.registers.push(['K292', REG, COD_ITEM, QTD]);
+    this.registers.push([REG, COD_ITEM, QTD]);
   }
 
   /**
@@ -1030,7 +1015,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K300';
     /**
      * Data do reconhecimento da produção ocorrida no terceiro
      *
@@ -1039,7 +1024,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: 8
      */
     const DT_PROD = '';
-    this.registers.push(['K300', REG, DT_PROD]);
+    this.registers.push([REG, DT_PROD]);
   }
 
   /**
@@ -1056,7 +1041,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K301';
     /**
      * Código do item produzido (campo 02 do Registro 0200)
      *
@@ -1073,7 +1058,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: -
      */
     const QTD = '';
-    this.registers.push(['K301', REG, COD_ITEM, QTD]);
+    this.registers.push([REG, COD_ITEM, QTD]);
   }
 
   /**
@@ -1090,7 +1075,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K302';
     /**
      * Código do insumo (campo 02 do Registro 0200)
      *
@@ -1107,7 +1092,7 @@ export default class BlocoK extends Bloco {
      * Tamanho: -
      */
     const QTD = '';
-    this.registers.push(['K302', REG, COD_ITEM, QTD]);
+    this.registers.push([REG, COD_ITEM, QTD]);
   }
 
   /**
@@ -1124,7 +1109,7 @@ export default class BlocoK extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'K990';
     /**
      * Quantidade total de linhas do Bloco K
      *
@@ -1133,6 +1118,6 @@ export default class BlocoK extends Bloco {
      * Tamanho: -
      */
     const QTD_LIN_K = '';
-    this.registers.push(['K990', REG, QTD_LIN_K]);
+    this.registers.push([REG, QTD_LIN_K]);
   }
 }

@@ -42,7 +42,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B001';
     /**
      * Indicador de movimento:
      *  0 - Bloco com dados informados
@@ -53,7 +53,7 @@ export default class BlocoB extends Bloco {
      * Tamanho: 001*
      */
     const IND_DAD = '';
-    this.registers.push(['B001', REG, IND_DAD]);
+    this.registers.push([REG, IND_DAD]);
   }
 
   /**
@@ -70,7 +70,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B020';
     /**
      * Indicador do tipo de operação:
      *  0 - Aquisição;
@@ -240,7 +240,6 @@ export default class BlocoB extends Bloco {
      */
     const COD_INF_OBS = '';
     this.registers.push([
-      'B020',
       REG,
       IND_OPER,
       IND_EMIT,
@@ -279,7 +278,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B025';
     /**
      * Parcela correspondente ao "Valor Contábil" referente à combinação da alíquota e item da lista
      *
@@ -330,7 +329,6 @@ export default class BlocoB extends Bloco {
      */
     const COD_SERV = '';
     this.registers.push([
-      'B025',
       REG,
       VL_CONT_P,
       VL_BC_ISS_P,
@@ -355,7 +353,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B030';
     /**
      * Código do modelo do documento fiscal, conforme a Tabela 4.1.3
      *
@@ -446,7 +444,6 @@ export default class BlocoB extends Bloco {
      */
     const COD_INF_OBS = '';
     this.registers.push([
-      'B030',
       REG,
       COD_MOD,
       SER,
@@ -476,7 +473,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B035';
     /**
      * Parcela correspondente ao "Valor
      *
@@ -526,7 +523,6 @@ export default class BlocoB extends Bloco {
      */
     const COD_SERV = '';
     this.registers.push([
-      'B035',
       REG,
       VL_CONT_P,
       VL_BC_ISS_P,
@@ -552,7 +548,7 @@ export default class BlocoB extends Bloco {
      * Tamanho: 004
      *
      */
-    const REG = '';
+    const REG = 'B350';
     /**
      * Código da conta do plano de contas
      *
@@ -636,7 +632,6 @@ export default class BlocoB extends Bloco {
      */
     const COD_INF_OBS = '';
     this.registers.push([
-      'B350',
       REG,
       COD_CTD,
       CTA_ISS,
@@ -665,7 +660,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B420';
     /**
      * Totalização do Valor Contábil das prestações do declarante referente à combinação da alíquota e item da lista
      *
@@ -715,7 +710,6 @@ export default class BlocoB extends Bloco {
      */
     const COD_SERV = '';
     this.registers.push([
-      'B420',
       REG,
       VL_CONT,
       VL_BC_ISS,
@@ -741,7 +735,7 @@ export default class BlocoB extends Bloco {
      * Tamanho: 004
      *
      */
-    const REG = '';
+    const REG = 'B440';
     /**
      * Indicador do tipo de operação:
      *  0 - Aquisição;
@@ -787,7 +781,6 @@ export default class BlocoB extends Bloco {
      */
     const VL_ISS_RT = '';
     this.registers.push([
-      'B440',
       REG,
       IND_OPER,
       COD_PART,
@@ -811,7 +804,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B460';
     /**
      * Indicador do tipo de dedução:
      *  0 - Compensação do ISS calculado a maior;
@@ -880,7 +873,6 @@ export default class BlocoB extends Bloco {
      */
     const IND_OBR = '';
     this.registers.push([
-      'B460',
       REG,
       IND_DED,
       VL_DED,
@@ -906,7 +898,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B470';
     /**
      * A - Valor total referente às prestações de serviço do período
      *
@@ -1024,7 +1016,6 @@ export default class BlocoB extends Bloco {
      */
     const VL_ISS_REC_UNI = '';
     this.registers.push([
-      'B470',
       REG,
       VL_CONT,
       VL_MAT_TERC,
@@ -1057,7 +1048,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B500';
     /**
      * Valor mensal das receitas auferidas pela sociedade uniprofissional
      *
@@ -1082,7 +1073,7 @@ export default class BlocoB extends Bloco {
      * Tamanho: -
      */
     const VL_OR = '';
-    this.registers.push(['B500', REG, VL_REC, QTD_PROF, VL_OR]);
+    this.registers.push([REG, VL_REC, QTD_PROF, VL_OR]);
   }
 
   /**
@@ -1099,7 +1090,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B510';
     /**
      * Indicador de habilitação:
      *  0- Profissional habilitado
@@ -1146,7 +1137,7 @@ export default class BlocoB extends Bloco {
      * Tamanho: 100
      */
     const NOME = '';
-    this.registers.push(['B510', REG, IND_PROF, IND_ESC, IND_SOC, CPF, NOME]);
+    this.registers.push([REG, IND_PROF, IND_ESC, IND_SOC, CPF, NOME]);
   }
 
   /**
@@ -1163,7 +1154,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 004*
      */
-    const REG = '';
+    const REG = 'B990';
     /**
      * Quantidade total de linhas do Bloco B
      *
@@ -1172,6 +1163,6 @@ export default class BlocoB extends Bloco {
      * Tamanho: -
      */
     const QTD_LIN_B = '';
-    this.registers.push(['B990', REG, QTD_LIN_B]);
+    this.registers.push([REG, QTD_LIN_B]);
   }
 }

@@ -43,7 +43,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D001';
     /**
      * Indicador de movimento:
      *  0 - Bloco com dados informados;
@@ -54,7 +54,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: 1
      */
     const IND_MOV = '';
-    this.registers.push(['D001', REG, IND_MOV]);
+    this.registers.push([REG, IND_MOV]);
   }
 
   /**
@@ -71,7 +71,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D100';
     /**
      * Indicador do tipo de operação:
      *  0 - Aquisição;
@@ -275,7 +275,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_MUN_DEST = '';
     this.registers.push([
-      'D100',
       REG,
       IND_OPER,
       IND_EMIT,
@@ -318,7 +317,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D101';
     /**
      * Valor total relativo ao Fundo de Combate à
      *  Pobreza (FCP) da UF de destino
@@ -345,13 +344,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const VL_ICMS_UF_REM = '';
-    this.registers.push([
-      'D101',
-      REG,
-      VL_FCP_UF_DEST,
-      VL_ICMS_UF_DEST,
-      VL_ICMS_UF_REM,
-    ]);
+    this.registers.push([REG, VL_FCP_UF_DEST, VL_ICMS_UF_DEST, VL_ICMS_UF_REM]);
   }
 
   /**
@@ -368,7 +361,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D110';
     /**
      * Número sequencial do item no documento fiscal
      *
@@ -401,7 +394,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const VL_OUT = '';
-    this.registers.push(['D110', REG, NUM_ITEM, COD_ITEM, VL_SERV, VL_OUT]);
+    this.registers.push([REG, NUM_ITEM, COD_ITEM, VL_SERV, VL_OUT]);
   }
 
   /**
@@ -418,7 +411,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D120';
     /**
      * Código do município de origem do serviço,
      *  conforme a tabela IBGE (Preencher com 9999999, se Exterior)
@@ -452,14 +445,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: 2
      */
     const UF_ID = '';
-    this.registers.push([
-      'D120',
-      REG,
-      COD_MUN_ORIG,
-      COD_MUN_DEST,
-      VEIC_ID,
-      UF_ID,
-    ]);
+    this.registers.push([REG, COD_MUN_ORIG, COD_MUN_DEST, VEIC_ID, UF_ID]);
   }
 
   /**
@@ -476,7 +462,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D130';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  - consignatário, se houver
@@ -588,7 +574,6 @@ export default class BlocoD extends Bloco {
      */
     const UF_ID = '';
     this.registers.push([
-      'D130',
       REG,
       COD_PART_CONSG,
       COD_PART_RED,
@@ -620,7 +605,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D140';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  - consignatário, se houver
@@ -733,7 +718,6 @@ export default class BlocoD extends Bloco {
      */
     const VL_FRT_MM = '';
     this.registers.push([
-      'D140',
       REG,
       COD_PART_CONSG,
       COD_MUN_ORIG,
@@ -765,7 +749,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D150';
     /**
      * Código do município de origem do serviço,
      *  conforme a tabela IBGE (Preencher com 9999999, se Exterior)
@@ -853,7 +837,6 @@ export default class BlocoD extends Bloco {
      */
     const VL_TX_ADV = '';
     this.registers.push([
-      'D150',
       REG,
       COD_MUN_ORIG,
       COD_MUN_DEST,
@@ -882,7 +865,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D160';
     /**
      * Identificação do número do despacho
      *
@@ -944,7 +927,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_MUN_DEST = '';
     this.registers.push([
-      'D160',
       REG,
       DESPACHO,
       CNPJ_CPF_REM,
@@ -970,7 +952,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D161';
     /**
      * Indicador do tipo de transporte da carga coletada:
      *  0-Rodoviário 1-Ferroviário
@@ -1035,7 +1017,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_MUN_ENTG = '';
     this.registers.push([
-      'D161',
       REG,
       IND_CARGA,
       CNPJ_CPF_COL,
@@ -1061,7 +1042,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D162';
     /**
      * Código do modelo do documento fiscal, conforme a Tabela 4.1.1
      *
@@ -1136,7 +1117,6 @@ export default class BlocoD extends Bloco {
      */
     const PESO_LIQ = '';
     this.registers.push([
-      'D162',
       REG,
       COD_MOD,
       SER,
@@ -1164,7 +1144,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D170';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  - consignatário, se houver
@@ -1275,7 +1255,6 @@ export default class BlocoD extends Bloco {
      */
     const UF_ID = '';
     this.registers.push([
-      'D170',
       REG,
       COD_PART_CONSG,
       COD_PART_RED,
@@ -1307,7 +1286,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D180';
     /**
      * Número de ordem sequencial do modal
      *
@@ -1442,7 +1421,6 @@ export default class BlocoD extends Bloco {
      */
     const VL_DOC = '';
     this.registers.push([
-      'D180',
       REG,
       NUM_SEQ,
       IND_EMIT,
@@ -1477,7 +1455,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D190';
     /**
      * Código da Situação Tributária, conforme a tabela
      *  indicada no item 4.3.1
@@ -1546,7 +1524,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_OBS = '';
     this.registers.push([
-      'D190',
       REG,
       CST_ICMS,
       CFOP,
@@ -1573,7 +1550,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D195';
     /**
      * Código da observação do lançamento fiscal (campo 02 do Registro 0460)
      *
@@ -1590,7 +1567,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const TXT_COMPL = '';
-    this.registers.push(['D195', REG, COD_OBS, TXT_COMPL]);
+    this.registers.push([REG, COD_OBS, TXT_COMPL]);
   }
 
   /**
@@ -1607,7 +1584,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D197';
     /**
      * Código do ajustes/benefício/incentivo, conforme tabela indicada no item 5.3
      *
@@ -1665,7 +1642,6 @@ export default class BlocoD extends Bloco {
      */
     const VL_OUTROS = '';
     this.registers.push([
-      'D197',
       REG,
       COD_AJ,
       DESCR_COMPL_AJ,
@@ -1691,7 +1667,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D300';
     /**
      * Código do modelo do documento fiscal, conforme a Tabela 4.1.1
      *
@@ -1848,7 +1824,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_CTA = '';
     this.registers.push([
-      'D300',
       REG,
       COD_MOD,
       SER,
@@ -1886,7 +1861,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D301';
     /**
      * Número do documento fiscal cancelado
      *
@@ -1895,7 +1870,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const NUM_DOC_CANC = '';
-    this.registers.push(['D301', REG, NUM_DOC_CANC]);
+    this.registers.push([REG, NUM_DOC_CANC]);
   }
 
   /**
@@ -1912,7 +1887,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D310';
     /**
      * Código do município de origem do serviço,
      *  conforme a tabela IBGE
@@ -1946,14 +1921,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const VL_ICMS = '';
-    this.registers.push([
-      'D310',
-      REG,
-      COD_MUN_ORIG,
-      VL_SERV,
-      VL_BC_ICMS,
-      VL_ICMS,
-    ]);
+    this.registers.push([REG, COD_MUN_ORIG, VL_SERV, VL_BC_ICMS, VL_ICMS]);
   }
 
   /**
@@ -1970,7 +1938,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D350';
     /**
      * Código do modelo do documento fiscal, conforme a Tabela 4.1.1
      *
@@ -2003,7 +1971,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: 3
      */
     const ECF_CX = '';
-    this.registers.push(['D350', REG, COD_MOD, ECF_MOD, ECF_FAB, ECF_CX]);
+    this.registers.push([REG, COD_MOD, ECF_MOD, ECF_FAB, ECF_CX]);
   }
 
   /**
@@ -2020,7 +1988,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D355';
     /**
      * Data do movimento a que se refere a Redução Z
      *
@@ -2069,16 +2037,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const VL_BRT = '';
-    this.registers.push([
-      'D355',
-      REG,
-      DT_DOC,
-      CRO,
-      CRZ,
-      NUM_COO_FIN,
-      GT_FIN,
-      VL_BRT,
-    ]);
+    this.registers.push([REG, DT_DOC, CRO, CRZ, NUM_COO_FIN, GT_FIN, VL_BRT]);
   }
 
   /**
@@ -2095,7 +2054,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D360';
     /**
      * Valor total do PIS
      *
@@ -2112,7 +2071,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const VL_COFINS = '';
-    this.registers.push(['D360', REG, VL_PIS, VL_COFINS]);
+    this.registers.push([REG, VL_PIS, VL_COFINS]);
   }
 
   /**
@@ -2129,7 +2088,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D365';
     /**
      * Código do totalizador, conforme Tabela
      *  4.4.6
@@ -2165,14 +2124,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const DESCR_NR_TOT = '';
-    this.registers.push([
-      'D365',
-      REG,
-      COD_TOT_PAR,
-      VLR_ACUM_TOT,
-      NR_TOT,
-      DESCR_NR_TOT,
-    ]);
+    this.registers.push([REG, COD_TOT_PAR, VLR_ACUM_TOT, NR_TOT, DESCR_NR_TOT]);
   }
 
   /**
@@ -2189,7 +2141,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D370';
     /**
      * Código do município de origem do serviço, conforme a tabela IBGE
      *
@@ -2231,7 +2183,6 @@ export default class BlocoD extends Bloco {
      */
     const VL_ICMS = '';
     this.registers.push([
-      'D370',
       REG,
       COD_MUN_ORIG,
       VL_SERV,
@@ -2255,7 +2206,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D390';
     /**
      * Código da Situação Tributária, conforme a Tabela indicada no item 4.3.1
      *
@@ -2338,7 +2289,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_OBS = '';
     this.registers.push([
-      'D390',
       REG,
       CST_ICMS,
       CFOP,
@@ -2367,7 +2317,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D400';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  - agência, filial ou posto
@@ -2490,7 +2440,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_CTA = '';
     this.registers.push([
-      'D400',
       REG,
       COD_PART,
       COD_MOD,
@@ -2524,7 +2473,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D410';
     /**
      * Código do modelo do documento fiscal, conforme a Tabela 4.1.1
      *
@@ -2638,7 +2587,6 @@ export default class BlocoD extends Bloco {
      */
     const VL_ICMS = '';
     this.registers.push([
-      'D410',
       REG,
       COD_MOD,
       SER,
@@ -2671,7 +2619,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D411';
     /**
      * Número do documento fiscal cancelado
      *
@@ -2680,7 +2628,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const NUM_DOC_CANC = '';
-    this.registers.push(['D411', REG, NUM_DOC_CANC]);
+    this.registers.push([REG, NUM_DOC_CANC]);
   }
 
   /**
@@ -2697,7 +2645,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D420';
     /**
      * Código do município de origem do serviço, conforme a tabela IBGE
      *
@@ -2730,14 +2678,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const VL_ICMS = '';
-    this.registers.push([
-      'D420',
-      REG,
-      COD_MUN_ORIG,
-      VL_SERV,
-      VL_BC_ICMS,
-      VL_ICMS,
-    ]);
+    this.registers.push([REG, COD_MUN_ORIG, VL_SERV, VL_BC_ICMS, VL_ICMS]);
   }
 
   /**
@@ -2754,7 +2695,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D500';
     /**
      * Indicador do tipo de operação:
      *  0- Aquisição;
@@ -2954,7 +2895,6 @@ export default class BlocoD extends Bloco {
      */
     const TP_ASSINANTE = '';
     this.registers.push([
-      'D500',
       REG,
       IND_OPER,
       IND_EMIT,
@@ -2996,7 +2936,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D510';
     /**
      * Número sequencial do item no documento fiscal
      *
@@ -3157,7 +3097,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_CTA = '';
     this.registers.push([
-      'D510',
       REG,
       NUM_ITEM,
       COD_ITEM,
@@ -3195,7 +3134,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D530';
     /**
      * Indicador do tipo de serviço prestado:
      *  0 - Telefonia;
@@ -3251,7 +3190,6 @@ export default class BlocoD extends Bloco {
      */
     const TERMINAL = '';
     this.registers.push([
-      'D530',
       REG,
       IND_SERV,
       DT_INI_SERV,
@@ -3276,7 +3214,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D590';
     /**
      * Código da Situação Tributária, conforme a tabela
      *  indicada no item 4.3.1
@@ -3362,7 +3300,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_OBS = '';
     this.registers.push([
-      'D590',
       REG,
       CST_ICMS,
       CFOP,
@@ -3391,7 +3328,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D600';
     /**
      * Código do modelo do documento fiscal, conforme a
      *
@@ -3529,7 +3466,6 @@ export default class BlocoD extends Bloco {
      */
     const VL_COFINS = '';
     this.registers.push([
-      'D600',
       REG,
       COD_MOD,
       COD_MUN,
@@ -3565,7 +3501,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D610';
     /**
      * comunicação ou de telecomunicação,
      *
@@ -3703,7 +3639,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_CTA = '';
     this.registers.push([
-      'D610',
       REG,
       COD_CLASS,
       COD_ITEM,
@@ -3739,7 +3674,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D690';
     /**
      * Código da Situação Tributária, conforme a tabela indicada no item 4.3.1
      *
@@ -3827,7 +3762,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_OBS = '';
     this.registers.push([
-      'D690',
       REG,
       CST_ICMS,
       CFOP,
@@ -3856,7 +3790,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D695';
     /**
      * Código do modelo do documento fiscal, conforme a Tabela 4.1.1
      *
@@ -3924,7 +3858,6 @@ export default class BlocoD extends Bloco {
      */
     const CHV_COD_DIG = '';
     this.registers.push([
-      'D695',
       REG,
       COD_MOD,
       SER,
@@ -3951,7 +3884,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D696';
     /**
      * Código da Situação Tributária, conforme a tabela indicada no item 4.3.1
      *
@@ -4036,7 +3969,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_OBS = '';
     this.registers.push([
-      'D696',
       REG,
       CST_ICMS,
       CFOP,
@@ -4065,7 +3997,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D697';
     /**
      * Sigla da unidade da federação
      *
@@ -4090,7 +4022,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const VL_ICMS = '';
-    this.registers.push(['D697', REG, UF, VL_BC_ICMS, VL_ICMS]);
+    this.registers.push([REG, UF, VL_BC_ICMS, VL_ICMS]);
   }
 
   /**
@@ -4107,7 +4039,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D700';
     /**
      * Indicador do tipo de prestação: 0: Entrada
      *  1: Saída
@@ -4358,7 +4290,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_MUN_DEST = '';
     this.registers.push([
-      'D700',
       REG,
       IND_OPER,
       IND_EMIT,
@@ -4407,7 +4338,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D730';
     /**
      * Código da Situação Tributária, conforme a tabela
      *  indicada no item 4.3.1
@@ -4477,7 +4408,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_OBS = '';
     this.registers.push([
-      'D730',
       REG,
       CST_ICMS,
       CFOP,
@@ -4504,7 +4434,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D731';
     /**
      * Valor do Fundo de Combate à Pobreza (FCP) vinculado à operação própria, na combinação de CST_ICMS, CFOP e alíquota do ICMS
      *
@@ -4513,7 +4443,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const VL_FCP_OP = '';
-    this.registers.push(['D731', REG, VL_FCP_OP]);
+    this.registers.push([REG, VL_FCP_OP]);
   }
 
   /**
@@ -4530,7 +4460,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D735';
     /**
      * Código da observação do lançamento fiscal (campo 02 do Registro 0460)
      *
@@ -4547,7 +4477,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const TXT_COMPL = '';
-    this.registers.push(['D735', REG, COD_OBS, TXT_COMPL]);
+    this.registers.push([REG, COD_OBS, TXT_COMPL]);
   }
 
   /**
@@ -4564,7 +4494,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D737';
     /**
      * Código do ajustes/benefício/incentivo, conforme tabela indicada no item 5.3
      *
@@ -4622,7 +4552,6 @@ export default class BlocoD extends Bloco {
      */
     const VL_OUTROS = '';
     this.registers.push([
-      'D737',
       REG,
       COD_AJ,
       DESCR_COMPL_AJ,
@@ -4648,7 +4577,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D750';
     /**
      * Código do modelo do documento fiscal, conforme a Tabela 4.1.1
      *
@@ -4772,7 +4701,6 @@ export default class BlocoD extends Bloco {
      */
     const VL_COFINS = '';
     this.registers.push([
-      'D750',
       REG,
       COD_MOD,
       SER,
@@ -4806,7 +4734,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D760';
     /**
      * Código da Situação Tributária, conforme a tabela indicada no item 4.3.1
      *
@@ -4873,7 +4801,6 @@ export default class BlocoD extends Bloco {
      */
     const COD_OBS = '';
     this.registers.push([
-      'D760',
       REG,
       CST_ICMS,
       CFOP,
@@ -4900,7 +4827,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D761';
     /**
      * Valor do Fundo de Combate à Pobreza (FCP) vinculado à operação própria, na combinação de CST_ICMS, CFOP e alíquota do ICMS
      *
@@ -4909,7 +4836,7 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const VL_FCP_OP = '';
-    this.registers.push(['D761', REG, VL_FCP_OP]);
+    this.registers.push([REG, VL_FCP_OP]);
   }
 
   /**
@@ -4926,7 +4853,7 @@ export default class BlocoD extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG = '';
+    const REG = 'D990';
     /**
      * Quantidade total de linhas do Bloco D
      *
@@ -4935,6 +4862,6 @@ export default class BlocoD extends Bloco {
      * Tamanho: -
      */
     const QTD_LIN_D = '';
-    this.registers.push(['D990', REG, QTD_LIN_D]);
+    this.registers.push([REG, QTD_LIN_D]);
   }
 }
