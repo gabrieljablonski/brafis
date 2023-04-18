@@ -127,10 +127,10 @@ import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Bloco${block}Options extends BlocoOptions {}
+export interface Bloco${block}Options {}
 
 export default class Bloco${block} extends Bloco {
-  constructor(options: Bloco${block}Options) {
+  constructor(options: BlocoOptions & Bloco${block}Options) {
     super(options);
   }
 

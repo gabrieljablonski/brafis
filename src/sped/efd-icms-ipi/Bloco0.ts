@@ -3,10 +3,10 @@ import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Bloco0Options extends BlocoOptions {}
+export interface Bloco0Options {}
 
 export default class Bloco0 extends Bloco {
-  constructor(options: Bloco0Options) {
+  constructor(options: BlocoOptions & Bloco0Options) {
     super(options);
   }
 
