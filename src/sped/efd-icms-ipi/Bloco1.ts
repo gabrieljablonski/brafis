@@ -42,7 +42,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 1
    * Ocorrência: um por arquivo
    */
-  private build1001(): string[] {
+  private build1001() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1001"
@@ -70,7 +70,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1
    */
-  private build1010(): string[] {
+  private build1010() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1010"
@@ -224,7 +224,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1100(): string[] {
+  private build1100() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1100"
@@ -370,7 +370,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1105(): string[] {
+  private build1105() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1105"
@@ -444,7 +444,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private build1110(): string[] {
+  private build1110() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1110"
@@ -537,7 +537,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1200(): string[] {
+  private build1200() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1200"
@@ -613,7 +613,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1210(): string[] {
+  private build1210() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1210"
@@ -664,7 +664,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:1
    */
-  private build1250(): string[] {
+  private build1250() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1250"
@@ -733,7 +733,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1255(): string[] {
+  private build1255() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1255"
@@ -811,7 +811,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1300(): string[] {
+  private build1300() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1300"
@@ -921,7 +921,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1310(): string[] {
+  private build1310() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1310"
@@ -1023,7 +1023,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private build1320(): string[] {
+  private build1320() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1320"
@@ -1133,7 +1133,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1350(): string[] {
+  private build1350() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1350"
@@ -1185,7 +1185,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1360(): string[] {
+  private build1360() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1360"
@@ -1219,7 +1219,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1370(): string[] {
+  private build1370() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1370"
@@ -1261,7 +1261,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1390(): string[] {
+  private build1390() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1390"
@@ -1287,7 +1287,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1391(): string[] {
+  private build1391() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1391"
@@ -1482,7 +1482,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1400(): string[] {
+  private build1400() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1400"
@@ -1525,7 +1525,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private build1500(): string[] {
+  private build1500() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1500"
@@ -1790,7 +1790,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1510(): string[] {
+  private build1510() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1510"
@@ -1994,7 +1994,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1600(): string[] {
+  private build1600() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1600"
@@ -2037,7 +2037,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1601(): string[] {
+  private build1601() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1601"
@@ -2105,7 +2105,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: V
    */
-  private build1700(): string[] {
+  private build1700() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1700"
@@ -2193,7 +2193,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1710(): string[] {
+  private build1710() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1710"
@@ -2227,7 +2227,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1
    */
-  private build1800(): string[] {
+  private build1800() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1800"
@@ -2328,7 +2328,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1900(): string[] {
+  private build1900() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1900"
@@ -2366,7 +2366,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private build1910(): string[] {
+  private build1910() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1910"
@@ -2400,7 +2400,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 4
    * Ocorrência: um (por período)
    */
-  private build1920(): string[] {
+  private build1920() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1920"
@@ -2531,7 +2531,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private build1921(): string[] {
+  private build1921() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1921"
@@ -2574,7 +2574,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 6
    * Ocorrência: 1:N
    */
-  private build1922(): string[] {
+  private build1922() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1922"
@@ -2636,7 +2636,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 6
    * Ocorrência: 1:N
    */
-  private build1923(): string[] {
+  private build1923() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1923"
@@ -2739,7 +2739,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private build1925(): string[] {
+  private build1925() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1925"
@@ -2782,7 +2782,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private build1926(): string[] {
+  private build1926() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1926"
@@ -2888,7 +2888,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1960(): string[] {
+  private build1960() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1960"
@@ -3016,7 +3016,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private build1970(): string[] {
+  private build1970() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1970"
@@ -3135,7 +3135,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 3
    * Ocorrência: 1:4
    */
-  private build1975(): string[] {
+  private build1975() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1975"
@@ -3185,7 +3185,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 2
    * Ocorrência: 1
    */
-  private build1980(): string[] {
+  private build1980() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1980"
@@ -3323,7 +3323,7 @@ export default class Bloco1 extends Bloco {
    * Nível: 1
    * Ocorrência: um por Arquivo
    */
-  private build1990(): string[] {
+  private build1990() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "1990"

@@ -26,7 +26,7 @@ export default class BlocoH extends Bloco {
    * Nível: 1
    * Ocorrência: um por Arquivo
    */
-  private buildH001(): string[] {
+  private buildH001() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "H001"
@@ -54,7 +54,7 @@ export default class BlocoH extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private buildH005(): string[] {
+  private buildH005() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "H005"
@@ -101,7 +101,7 @@ export default class BlocoH extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildH010(): string[] {
+  private buildH010() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "H010"
@@ -215,7 +215,7 @@ export default class BlocoH extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildH020(): string[] {
+  private buildH020() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "H020"
@@ -257,7 +257,7 @@ export default class BlocoH extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildH030(): string[] {
+  private buildH030() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "H030"
@@ -307,7 +307,7 @@ export default class BlocoH extends Bloco {
    * Nível: 1
    * Ocorrência: um por arquivo
    */
-  private buildH990(): string[] {
+  private buildH990() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "H990"

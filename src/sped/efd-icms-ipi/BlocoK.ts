@@ -27,7 +27,7 @@ export default class BlocoK extends Bloco {
    * Nível: 1
    * Ocorrência: um por Arquivo
    */
-  private buildK001(): string[] {
+  private buildK001() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K001"
@@ -55,7 +55,7 @@ export default class BlocoK extends Bloco {
    * Nível: 2
    * Ocorrência: um por Arquivo
    */
-  private buildK010(): string[] {
+  private buildK010() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K010"
@@ -84,7 +84,7 @@ export default class BlocoK extends Bloco {
    * Nível: 2
    * Ocorrência: Vários
    */
-  private buildK100(): string[] {
+  private buildK100() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K100"
@@ -118,7 +118,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK200(): string[] {
+  private buildK200() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K200"
@@ -180,7 +180,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK210(): string[] {
+  private buildK210() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K210"
@@ -246,7 +246,7 @@ export default class BlocoK extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildK215(): string[] {
+  private buildK215() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K215"
@@ -280,7 +280,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK220(): string[] {
+  private buildK220() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K220"
@@ -345,7 +345,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK230(): string[] {
+  private buildK230() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K230"
@@ -410,7 +410,7 @@ export default class BlocoK extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildK235(): string[] {
+  private buildK235() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K235"
@@ -461,7 +461,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK250(): string[] {
+  private buildK250() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K250"
@@ -503,7 +503,7 @@ export default class BlocoK extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildK255(): string[] {
+  private buildK255() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K255"
@@ -553,7 +553,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK260(): string[] {
+  private buildK260() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K260"
@@ -628,7 +628,7 @@ export default class BlocoK extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildK265(): string[] {
+  private buildK265() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K265"
@@ -670,7 +670,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK270(): string[] {
+  private buildK270() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K270"
@@ -762,7 +762,7 @@ export default class BlocoK extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildK275(): string[] {
+  private buildK275() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K275"
@@ -818,7 +818,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK280(): string[] {
+  private buildK280() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K280"
@@ -896,7 +896,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK290(): string[] {
+  private buildK290() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K290"
@@ -938,7 +938,7 @@ export default class BlocoK extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildK291(): string[] {
+  private buildK291() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K291"
@@ -972,7 +972,7 @@ export default class BlocoK extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildK292(): string[] {
+  private buildK292() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K292"
@@ -1006,7 +1006,7 @@ export default class BlocoK extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildK300(): string[] {
+  private buildK300() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K300"
@@ -1032,7 +1032,7 @@ export default class BlocoK extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildK301(): string[] {
+  private buildK301() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K301"
@@ -1066,7 +1066,7 @@ export default class BlocoK extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildK302(): string[] {
+  private buildK302() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K302"
@@ -1100,7 +1100,7 @@ export default class BlocoK extends Bloco {
    * Nível: 1
    * Ocorrência: um por arquivo
    */
-  private buildK990(): string[] {
+  private buildK990() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "K990"

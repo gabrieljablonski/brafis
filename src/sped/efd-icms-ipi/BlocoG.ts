@@ -26,7 +26,7 @@ export default class BlocoG extends Bloco {
    * Nível: 1
    * Ocorrência: um (por arquivo)
    */
-  private buildG001(): string[] {
+  private buildG001() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "G001"
@@ -54,7 +54,7 @@ export default class BlocoG extends Bloco {
    * Nível: 2
    * Ocorrência: um (por período de apuração)
    */
-  private buildG110(): string[] {
+  private buildG110() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "G110"
@@ -158,7 +158,7 @@ export default class BlocoG extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildG125(): string[] {
+  private buildG125() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "G125"
@@ -267,7 +267,7 @@ export default class BlocoG extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildG126(): string[] {
+  private buildG126() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "G126"
@@ -362,7 +362,7 @@ export default class BlocoG extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildG130(): string[] {
+  private buildG130() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "G130"
@@ -458,7 +458,7 @@ export default class BlocoG extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildG140(): string[] {
+  private buildG140() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "G140"
@@ -550,7 +550,7 @@ export default class BlocoG extends Bloco {
    * Nível: 1
    * Ocorrência: um (por arquivo)
    */
-  private buildG990(): string[] {
+  private buildG990() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "G990"

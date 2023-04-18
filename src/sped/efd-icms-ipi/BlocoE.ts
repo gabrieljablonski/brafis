@@ -29,7 +29,7 @@ export default class BlocoE extends Bloco {
    * Nível: 1
    * Ocorrência: um por Arquivo
    */
-  private buildE001(): string[] {
+  private buildE001() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E001"
@@ -57,7 +57,7 @@ export default class BlocoE extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private buildE100(): string[] {
+  private buildE100() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E100"
@@ -91,7 +91,7 @@ export default class BlocoE extends Bloco {
    * Nível: 3
    * Ocorrência: um por período
    */
-  private buildE110(): string[] {
+  private buildE110() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E110"
@@ -239,7 +239,7 @@ export default class BlocoE extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildE111(): string[] {
+  private buildE111() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E111"
@@ -281,7 +281,7 @@ export default class BlocoE extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildE112(): string[] {
+  private buildE112() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E112"
@@ -343,7 +343,7 @@ export default class BlocoE extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildE113(): string[] {
+  private buildE113() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E113"
@@ -446,7 +446,7 @@ export default class BlocoE extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildE115(): string[] {
+  private buildE115() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E115"
@@ -489,7 +489,7 @@ export default class BlocoE extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildE116(): string[] {
+  private buildE116() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E116"
@@ -595,7 +595,7 @@ export default class BlocoE extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private buildE200(): string[] {
+  private buildE200() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E200"
@@ -637,7 +637,7 @@ export default class BlocoE extends Bloco {
    * Nível: 3
    * Ocorrência: um por período
    */
-  private buildE210(): string[] {
+  private buildE210() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E210"
@@ -785,7 +785,7 @@ export default class BlocoE extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildE220(): string[] {
+  private buildE220() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E220"
@@ -828,7 +828,7 @@ export default class BlocoE extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildE230(): string[] {
+  private buildE230() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E230"
@@ -889,7 +889,7 @@ export default class BlocoE extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildE240(): string[] {
+  private buildE240() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E240"
@@ -992,7 +992,7 @@ export default class BlocoE extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildE250(): string[] {
+  private buildE250() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E250"
@@ -1097,7 +1097,7 @@ export default class BlocoE extends Bloco {
    * Nível: 2
    * Ocorrência: 1:N
    */
-  private buildE300(): string[] {
+  private buildE300() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E300"
@@ -1139,7 +1139,7 @@ export default class BlocoE extends Bloco {
    * Nível: 3
    * Ocorrência: um (por período)
    */
-  private buildE310(): string[] {
+  private buildE310() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E310"
@@ -1350,7 +1350,7 @@ export default class BlocoE extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildE311(): string[] {
+  private buildE311() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E311"
@@ -1392,7 +1392,7 @@ export default class BlocoE extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildE312(): string[] {
+  private buildE312() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E312"
@@ -1454,7 +1454,7 @@ export default class BlocoE extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildE313(): string[] {
+  private buildE313() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E313"
@@ -1555,7 +1555,7 @@ export default class BlocoE extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildE316(): string[] {
+  private buildE316() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E316"
@@ -1661,7 +1661,7 @@ export default class BlocoE extends Bloco {
    * Nível: 2
    * Ocorrência: um ou vários (por arquivo)
    */
-  private buildE500(): string[] {
+  private buildE500() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E500"
@@ -1705,7 +1705,7 @@ export default class BlocoE extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildE510(): string[] {
+  private buildE510() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E510"
@@ -1766,7 +1766,7 @@ export default class BlocoE extends Bloco {
    * Nível: 3
    * Ocorrência: 1:1
    */
-  private buildE520(): string[] {
+  private buildE520() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E520"
@@ -1849,7 +1849,7 @@ export default class BlocoE extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N por Período
    */
-  private buildE530(): string[] {
+  private buildE530() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E530"
@@ -1929,7 +1929,7 @@ export default class BlocoE extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildE531(): string[] {
+  private buildE531() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E531"
@@ -2032,7 +2032,7 @@ export default class BlocoE extends Bloco {
    * Nível: 1
    * Ocorrência: um por Arquivo
    */
-  private buildE990(): string[] {
+  private buildE990() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "E990"

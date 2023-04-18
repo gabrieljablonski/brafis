@@ -27,7 +27,7 @@ export default class Bloco9 extends Bloco {
    * Nível: 1
    * Ocorrência: um por Arquivo
    */
-  private build9001(): string[] {
+  private build9001() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "9001"
@@ -55,7 +55,7 @@ export default class Bloco9 extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private build9900(): string[] {
+  private build9900() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "9900"
@@ -89,7 +89,7 @@ export default class Bloco9 extends Bloco {
    * Nível: 1
    * Ocorrência: um por Arquivo
    */
-  private build9990(): string[] {
+  private build9990() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "9990"
@@ -115,7 +115,7 @@ export default class Bloco9 extends Bloco {
    * Nível: 0
    * Ocorrência: um por Arquivo
    */
-  private build9999(): string[] {
+  private build9999() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "9999"

@@ -35,7 +35,7 @@ export default class BlocoC extends Bloco {
    * Nível: 1
    * Ocorrência: um por arquivo
    */
-  private buildC001(): string[] {
+  private buildC001() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C001"
@@ -63,7 +63,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private buildC100(): string[] {
+  private buildC100() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C100"
@@ -351,7 +351,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:1
    */
-  private buildC101(): string[] {
+  private buildC101() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C101"
@@ -393,7 +393,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:1
    */
-  private buildC105(): string[] {
+  private buildC105() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C105"
@@ -428,7 +428,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC110(): string[] {
+  private buildC110() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C110"
@@ -463,7 +463,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC111(): string[] {
+  private buildC111() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C111"
@@ -502,7 +502,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC112(): string[] {
+  private buildC112() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C112"
@@ -588,7 +588,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC113(): string[] {
+  private buildC113() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C113"
@@ -695,7 +695,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC114(): string[] {
+  private buildC114() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C114"
@@ -754,7 +754,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC115(): string[] {
+  private buildC115() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C115"
@@ -863,7 +863,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC116(): string[] {
+  private buildC116() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C116"
@@ -921,7 +921,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC120(): string[] {
+  private buildC120() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C120"
@@ -988,7 +988,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:1
    */
-  private buildC130(): string[] {
+  private buildC130() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C130"
@@ -1074,7 +1074,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:1
    */
-  private buildC140(): string[] {
+  private buildC140() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C140"
@@ -1155,7 +1155,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC141(): string[] {
+  private buildC141() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C141"
@@ -1197,7 +1197,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:1
    */
-  private buildC160(): string[] {
+  private buildC160() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C160"
@@ -1272,7 +1272,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC165(): string[] {
+  private buildC165() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C165"
@@ -1402,7 +1402,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N (um ou vários por registro C100)
    */
-  private buildC170(): string[] {
+  private buildC170() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C170"
@@ -1764,7 +1764,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC171(): string[] {
+  private buildC171() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C171"
@@ -1798,7 +1798,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildC172(): string[] {
+  private buildC172() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C172"
@@ -1840,7 +1840,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC173(): string[] {
+  private buildC173() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C173"
@@ -1929,7 +1929,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC174(): string[] {
+  private buildC174() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C174"
@@ -1974,7 +1974,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC175(): string[] {
+  private buildC175() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C175"
@@ -2028,7 +2028,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC176(): string[] {
+  private buildC176() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C176"
@@ -2282,7 +2282,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildC177(): string[] {
+  private buildC177() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C177"
@@ -2308,7 +2308,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildC178(): string[] {
+  private buildC178() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C178"
@@ -2351,7 +2351,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildC179(): string[] {
+  private buildC179() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C179"
@@ -2418,7 +2418,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildC180(): string[] {
+  private buildC180() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C180"
@@ -2537,7 +2537,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC181(): string[] {
+  private buildC181() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C181"
@@ -2750,7 +2750,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC185(): string[] {
+  private buildC185() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C185"
@@ -2932,7 +2932,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC186(): string[] {
+  private buildC186() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C186"
@@ -3130,7 +3130,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC190(): string[] {
+  private buildC190() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C190"
@@ -3257,7 +3257,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: undefined
    */
-  private buildC191(): string[] {
+  private buildC191() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C191"
@@ -3299,7 +3299,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC195(): string[] {
+  private buildC195() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C195"
@@ -3333,7 +3333,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC197(): string[] {
+  private buildC197() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C197"
@@ -3417,7 +3417,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private buildC300(): string[] {
+  private buildC300() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C300"
@@ -3528,7 +3528,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC310(): string[] {
+  private buildC310() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C310"
@@ -3554,7 +3554,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC320(): string[] {
+  private buildC320() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C320"
@@ -3647,7 +3647,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC321(): string[] {
+  private buildC321() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C321"
@@ -3748,7 +3748,7 @@ export default class BlocoC extends Bloco {
    * Nível: 5
    * Ocorrência: 1:1
    */
-  private buildC330(): string[] {
+  private buildC330() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C330"
@@ -3894,7 +3894,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private buildC350(): string[] {
+  private buildC350() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C350"
@@ -4014,7 +4014,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC370(): string[] {
+  private buildC370() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C370"
@@ -4080,7 +4080,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildC380(): string[] {
+  private buildC380() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C380"
@@ -4245,7 +4245,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC390(): string[] {
+  private buildC390() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C390"
@@ -4342,7 +4342,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private buildC400(): string[] {
+  private buildC400() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C400"
@@ -4393,7 +4393,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC405(): string[] {
+  private buildC405() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C405"
@@ -4460,7 +4460,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildC410(): string[] {
+  private buildC410() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C410"
@@ -4494,7 +4494,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC420(): string[] {
+  private buildC420() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C420"
@@ -4544,7 +4544,7 @@ export default class BlocoC extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildC425(): string[] {
+  private buildC425() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C425"
@@ -4610,7 +4610,7 @@ export default class BlocoC extends Bloco {
    * Nível: 6
    * Ocorrência: 1:N
    */
-  private buildC430(): string[] {
+  private buildC430() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C430"
@@ -4774,7 +4774,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC460(): string[] {
+  private buildC460() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C460"
@@ -4876,7 +4876,7 @@ export default class BlocoC extends Bloco {
    * Nível: 5
    * Ocorrência: 1:1
    */
-  private buildC465(): string[] {
+  private buildC465() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C465"
@@ -4910,7 +4910,7 @@ export default class BlocoC extends Bloco {
    * Nível: 5
    * Ocorrência: 1:N
    */
-  private buildC470(): string[] {
+  private buildC470() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C470"
@@ -5021,7 +5021,7 @@ export default class BlocoC extends Bloco {
    * Nível: 6
    * Ocorrência: 1:1
    */
-  private buildC480(): string[] {
+  private buildC480() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C480"
@@ -5186,7 +5186,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC490(): string[] {
+  private buildC490() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C490"
@@ -5270,7 +5270,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários
    */
-  private buildC495(): string[] {
+  private buildC495() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C495"
@@ -5417,7 +5417,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private buildC500(): string[] {
+  private buildC500() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C500"
@@ -5823,7 +5823,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC510(): string[] {
+  private buildC510() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C510"
@@ -6023,7 +6023,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N (um ou vários por registro C500)
    */
-  private buildC590(): string[] {
+  private buildC590() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C590"
@@ -6137,7 +6137,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: undefined
    */
-  private buildC591(): string[] {
+  private buildC591() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C591"
@@ -6171,7 +6171,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC595(): string[] {
+  private buildC595() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C595"
@@ -6205,7 +6205,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC597(): string[] {
+  private buildC597() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C597"
@@ -6288,7 +6288,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private buildC600(): string[] {
+  private buildC600() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C600"
@@ -6507,7 +6507,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC601(): string[] {
+  private buildC601() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C601"
@@ -6533,7 +6533,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC610(): string[] {
+  private buildC610() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C610"
@@ -6701,7 +6701,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC690(): string[] {
+  private buildC690() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C690"
@@ -6811,7 +6811,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private buildC700(): string[] {
+  private buildC700() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C700"
@@ -6903,7 +6903,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N (um ou vários por registro C700)
    */
-  private buildC790(): string[] {
+  private buildC790() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C790"
@@ -7014,7 +7014,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC791(): string[] {
+  private buildC791() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C791"
@@ -7056,7 +7056,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: Vários
    */
-  private buildC800(): string[] {
+  private buildC800() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C800"
@@ -7222,7 +7222,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC810(): string[] {
+  private buildC810() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C810"
@@ -7305,7 +7305,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildC815(): string[] {
+  private buildC815() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C815"
@@ -7452,7 +7452,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC850(): string[] {
+  private buildC850() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C850"
@@ -7535,7 +7535,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC855(): string[] {
+  private buildC855() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C855"
@@ -7570,7 +7570,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC857(): string[] {
+  private buildC857() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C857"
@@ -7655,7 +7655,7 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private buildC860(): string[] {
+  private buildC860() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C860"
@@ -7713,7 +7713,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC870(): string[] {
+  private buildC870() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C870"
@@ -7771,7 +7771,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:1
    */
-  private buildC880(): string[] {
+  private buildC880() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C880"
@@ -7918,7 +7918,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC890(): string[] {
+  private buildC890() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C890"
@@ -8003,7 +8003,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC895(): string[] {
+  private buildC895() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C895"
@@ -8038,7 +8038,7 @@ export default class BlocoC extends Bloco {
    * Nível: 4
    * Ocorrência: 1:N
    */
-  private buildC897(): string[] {
+  private buildC897() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C897"
@@ -8123,7 +8123,7 @@ export default class BlocoC extends Bloco {
    * Nível: 1
    * Ocorrência: um por arquivo
    */
-  private buildC990(): string[] {
+  private buildC990() {
     throw new NotImplemented();
     /**
      * Texto fixo contendo "C990"

@@ -159,7 +159,7 @@ ${registers
    * Nível: ${r.level}
    * Ocorrência: ${r.occurrence}
    */
-  private build${r.register}(): string[] {
+  private build${r.register}() {
     throw new NotImplemented();${r.fields
       .map(
         f => `
