@@ -1,35 +1,74 @@
 import { NotImplemented } from '@/utils/exceptions';
 import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
+import tables from '@/tables';
+import { endOfMonthTz, formatTZ } from '@/utils';
+import { isValidCnpj, isValidCpf } from '@/utils/validators';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Bloco0Options {}
+export interface Bloco0Options {
+  isSubstitute: boolean;
+  periodStart: Date;
+  periodEnd: Date;
+  disablePeriodWarning?: boolean;
+}
 
 export default class Bloco0 extends Bloco {
+  private isSubstitute: boolean;
+  private periodStart: Date;
+  private periodEnd: Date;
+
   constructor(options: BlocoOptions & Bloco0Options) {
     super(options);
+
+    this.isSubstitute = options.isSubstitute;
+    this.periodStart = options.periodStart;
+    this.periodEnd = options.periodEnd;
+
+    if (!options.disablePeriodWarning && this.periodStart.getUTCDate() !== 1) {
+      /**
+       * "O valor informado deve ser o primeiro dia do mês, exceto no caso de início de atividades ou de qualquer outro evento que altere a forma e o período de escrituração fiscal do estabelecimento."
+       */
+      // eslint-disable-next-line no-console
+      console.warn(
+        '[SPED/EFD-ICMS-IPI] Period start should probably be the first day of the month.'
+      );
+    }
+
+    if (
+      !options.disablePeriodWarning &&
+      (this.periodEnd.getUTCMonth() !== this.periodStart.getUTCMonth() ||
+        this.periodEnd.getUTCDate() !==
+          endOfMonthTz(this.periodStart).getUTCDate())
+    ) {
+      /**
+       * "O valor informado deve ser o último dia do mesmo mês da data inicial, exceto no caso de encerramento de atividades ou de qualquer outro fato determinante para paralisação das atividades do estabelecimento."
+       */
+      // eslint-disable-next-line no-console
+      console.warn(
+        '[SPED/EFD-ICMS-IPI] Period end should probably be last day of the month of the period start.'
+      );
+    }
   }
 
   build(): string[][] {
-    throw new NotImplemented();
     this.registers = [];
 
     this.build0000();
     this.build0001();
     this.build0002();
     this.build0005();
-    this.build0015();
-    this.build0100();
-    this.build0150();
-    this.build0190();
-    this.build0200();
-    this.build0300();
-    this.build0400();
-    this.build0450();
-    this.build0460();
-    this.build0500();
-    this.build0600();
-    this.build0990();
+    // this.build0015();
+    // this.build0100();
+    // this.build0150();
+    // this.build0190();
+    // this.build0200();
+    // this.build0300();
+    // this.build0400();
+    // this.build0450();
+    // this.build0460();
+    // this.build0500();
+    // this.build0600();
+    // this.build0990();
 
     return this.registers;
   }
@@ -40,6 +79,19 @@ export default class Bloco0 extends Bloco {
    * Ocorrência: um por arquivo
    */
   private build0000() {
+    const layout = [...tables.versaoLeiaute.values()]
+      .reverse()
+      .find(
+        ({ obrigatoriedade }) =>
+          this.periodEnd.getTime() >= obrigatoriedade.getTime()
+      );
+
+    if (!layout) {
+      throw new Error('this should never happen');
+    }
+
+    const { entity } = this.efd;
+
     /**
      * Texto fixo contendo "0000"
      *
@@ -55,7 +107,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 003*
      */
-    const COD_VER = '';
+    const COD_VER = layout.codigo;
     /**
      * Código da finalidade do arquivo:
      *  0 - Remessa do arquivo original;
@@ -65,7 +117,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 1
      */
-    const COD_FIN = '';
+    const COD_FIN = this.isSubstitute ? '1' : '0';
     /**
      * Data inicial das informações contidas no arquivo
      *
@@ -73,7 +125,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 008*
      */
-    const DT_INI = '';
+    const DT_INI = formatTZ(this.periodStart, 'ddMMyyyy');
     /**
      * Data final das informações contidas no arquivo
      *
@@ -81,7 +133,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 008*
      */
-    const DT_FIN = '';
+    const DT_FIN = formatTZ(this.periodEnd, 'ddMMyyyy');
     /**
      * Nome empresarial da entidade
      *
@@ -89,7 +141,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 100
      */
-    const NOME = '';
+    const NOME = this.efd.entity.nome;
     /**
      * Número de inscrição da entidade no CNPJ
      *
@@ -97,7 +149,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 014*
      */
-    const CNPJ = '';
+    const CNPJ = isValidCnpj(entity.cpfCnpj) ? entity.cpfCnpj : '';
     /**
      * Número de inscrição da entidade no CPF
      *
@@ -105,7 +157,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 011*
      */
-    const CPF = '';
+    const CPF = isValidCpf(entity.cpfCnpj) ? entity.cpfCnpj : '';
     /**
      * Sigla da unidade da federação da entidade
      *
@@ -113,7 +165,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 002*
      */
-    const UF = '';
+    const UF = entity.uf;
     /**
      * Inscrição Estadual da entidade
      *
@@ -121,7 +173,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 14
      */
-    const IE = '';
+    const IE = entity.ie;
     /**
      * Código do município do
      *  domicílio fiscal da entidade, conforme a tabela IBGE
@@ -130,7 +182,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 007*
      */
-    const COD_MUN = '';
+    const COD_MUN = entity.codigoMunicipio;
     /**
      * Inscrição Municipal da entidade
      *
@@ -138,7 +190,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: -
      */
-    const IM = '';
+    const IM = entity.im ?? '';
     /**
      * Inscrição da entidade na SUFRAMA
      *
@@ -146,7 +198,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 009*
      */
-    const SUFRAMA = '';
+    const SUFRAMA = entity.suframa ?? '';
     /**
      * Perfil de apresentação do arquivo fiscal;
      *  A - Perfil A;
@@ -157,7 +209,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 1
      */
-    const IND_PERFIL = '';
+    const IND_PERFIL = entity.perfil;
     /**
      * Indicador de tipo de atividade:
      *  0 - Industrial ou equiparado a industrial;
@@ -167,7 +219,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 1
      */
-    const IND_ATIV = '';
+    const IND_ATIV = entity.atividadeIndustrial ? '0' : '1';
     this.registers.push([
       REG,
       COD_VER,
@@ -193,7 +245,6 @@ export default class Bloco0 extends Bloco {
    * Ocorrência: um por arquivo
    */
   private build0001() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "0001"
      *
@@ -211,7 +262,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 1
      */
-    const IND_MOV = '';
+    const IND_MOV = '0';
     this.registers.push([REG, IND_MOV]);
   }
 
@@ -221,6 +272,9 @@ export default class Bloco0 extends Bloco {
    * Ocorrência: um por arquivo
    */
   private build0002() {
+    if (!this.efd.entity.atividadeIndustrial) {
+      return;
+    }
     throw new NotImplemented();
     /**
      * Texto fixo contendo "0002"
@@ -247,7 +301,7 @@ export default class Bloco0 extends Bloco {
    * Ocorrência: um por arquivo
    */
   private build0005() {
-    throw new NotImplemented();
+    const { entity } = this.efd;
     /**
      * Texto fixo contendo "0005"
      *
@@ -263,7 +317,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 60
      */
-    const FANTASIA = '';
+    const FANTASIA = entity.nomeFantasia ?? entity.nome;
     /**
      * Código de Endereçamento Postal
      *
@@ -271,7 +325,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 008*
      */
-    const CEP = '';
+    const CEP = entity.cep;
     /**
      * Logradouro e endereço do imóvel
      *
@@ -279,7 +333,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 60
      */
-    const END = '';
+    const END = entity.endereco;
     /**
      * Número do imóvel
      *
@@ -287,7 +341,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 10
      */
-    const NUM = '';
+    const NUM = entity.numero ?? '';
     /**
      * Dados complementares do endereço
      *
@@ -295,7 +349,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 60
      */
-    const COMPL = '';
+    const COMPL = entity.complemento ?? '';
     /**
      * Bairro em que o imóvel está situado
      *
@@ -303,7 +357,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 60
      */
-    const BAIRRO = '';
+    const BAIRRO = entity.bairro;
     /**
      * Número do telefone (DDD+FONE)
      *
@@ -311,7 +365,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 11
      */
-    const FONE = '';
+    const FONE = entity.telefone ?? '';
     /**
      * Número do fax
      *
@@ -319,7 +373,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 11
      */
-    const FAX = '';
+    const FAX = entity.fax ?? '';
     /**
      * Endereço do correio eletrônico
      *
@@ -327,7 +381,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: -
      */
-    const EMAIL = '';
+    const EMAIL = entity.email ?? '';
     this.registers.push([
       REG,
       FANTASIA,
@@ -383,6 +437,9 @@ export default class Bloco0 extends Bloco {
    * Ocorrência: um por arquivo
    */
   private build0100() {
+    if (this.efd.entity.perfil === 'C') {
+      return;
+    }
     throw new NotImplemented();
     /**
      * Texto fixo contendo "0100"

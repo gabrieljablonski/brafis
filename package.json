@@ -7,7 +7,8 @@
   "scripts": {
     "start": "tsx watch ./src/index.ts",
     "prebuild": "eslint 'src/**/*.ts'",
-    "build": "tsc && tsc-alias"
+    "build": "tsc && tsc-alias",
+    "postbuild": "cp -r tables/ build/tables"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
@@ -28,6 +29,8 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "date-fns": "^2.29.3",
+    "date-fns-tz": "^2.0.0",
     "fast-xml-parser": "^4.2.0"
   }
 }
