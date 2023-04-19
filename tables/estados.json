@@ -1,0 +1,142 @@
+{
+  "AC": {
+    "sigla": "AC",
+    "nome": "Acre",
+    "codigo": "12"
+  },
+  "AL": {
+    "sigla": "AL",
+    "nome": "Alagoas",
+    "codigo": "27"
+  },
+  "AP": {
+    "sigla": "AP",
+    "nome": "Amapá",
+    "codigo": "16"
+  },
+  "AM": {
+    "sigla": "AM",
+    "nome": "Amazonas",
+    "codigo": "13"
+  },
+  "BA": {
+    "sigla": "BA",
+    "nome": "Bahia",
+    "codigo": "29"
+  },
+  "CE": {
+    "sigla": "CE",
+    "nome": "Ceará",
+    "codigo": "23"
+  },
+  "ES": {
+    "sigla": "ES",
+    "nome": "Espírito Santo",
+    "codigo": "32"
+  },
+  "GO": {
+    "sigla": "GO",
+    "nome": "Goiás",
+    "codigo": "52"
+  },
+  "MA": {
+    "sigla": "MA",
+    "nome": "Maranhão",
+    "codigo": "21"
+  },
+  "MT": {
+    "sigla": "MT",
+    "nome": "Mato Grosso",
+    "codigo": "51"
+  },
+  "MS": {
+    "sigla": "MS",
+    "nome": "Mato Grosso do Sul",
+    "codigo": "50"
+  },
+  "MG": {
+    "sigla": "MG",
+    "nome": "Minas Gerais",
+    "codigo": "31"
+  },
+  "PA": {
+    "sigla": "PA",
+    "nome": "Pará",
+    "codigo": "15"
+  },
+  "PB": {
+    "sigla": "PB",
+    "nome": "Paraíba",
+    "codigo": "25"
+  },
+  "PR": {
+    "sigla": "PR",
+    "nome": "Paraná",
+    "codigo": "41"
+  },
+  "PE": {
+    "sigla": "PE",
+    "nome": "Pernambuco",
+    "codigo": "26"
+  },
+  "PI": {
+    "sigla": "PI",
+    "nome": "Piauí",
+    "codigo": "22"
+  },
+  "RJ": {
+    "sigla": "RJ",
+    "nome": "Rio de Janeiro",
+    "codigo": "33"
+  },
+  "RN": {
+    "sigla": "RN",
+    "nome": "Rio Grande do Norte",
+    "codigo": "24"
+  },
+  "RS": {
+    "sigla": "RS",
+    "nome": "Rio Grande do Sul",
+    "codigo": "43"
+  },
+  "RO": {
+    "sigla": "RO",
+    "nome": "Rondônia",
+    "codigo": "11"
+  },
+  "RR": {
+    "sigla": "RR",
+    "nome": "Roraima",
+    "codigo": "14"
+  },
+  "SC": {
+    "sigla": "SC",
+    "nome": "Santa Catarina",
+    "codigo": "42"
+  },
+  "SP": {
+    "sigla": "SP",
+    "nome": "São Paulo",
+    "codigo": "35"
+  },
+  "SE": {
+    "sigla": "SE",
+    "nome": "Sergipe",
+    "codigo": "28"
+  },
+  "TO": {
+    "sigla": "TO",
+    "nome": "Tocantins",
+    "codigo": "17"
+  },
+  "DF": {
+    "sigla": "DF",
+    "nome": "Distrito Federal",
+    "codigo": "53"
+  },
+  "EX": {
+    "sigla": "EX",
+    "nome": "Exterior",
+    "codigo": "00"
+  }
+}
