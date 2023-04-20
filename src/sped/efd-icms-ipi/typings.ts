@@ -46,6 +46,21 @@ export interface EfdIcmsIpiEntidade {
   };
 }
 
+export interface EfdIcmsIpiParticipante {
+  codigo: string;
+  nome: string;
+  codigoPais: string;
+  cpfCnpj: string;
+  ie?: string;
+  codigoMunicipio?: string;
+  suframa?: string;
+  endereco: string;
+  numero?: string;
+  complemento?: string;
+  bairro?: string;
+  changes: EfdIcmsIpiParticipanteChange[];
+}
+
 export interface EfdIcmsIpiParticipanteChange {
   data: Date;
   numeroCampo:
@@ -62,19 +77,35 @@ export interface EfdIcmsIpiParticipanteChange {
   conteudoAnterior: string;
 }
 
-export interface EfdIcmsIpiParticipante {
+export interface EfdIcmsIpiItem {
   codigo: string;
-  nome: string;
-  codigoPais: string;
-  cpfCnpj: string;
-  ie?: string;
-  codigoMunicipio?: string;
-  suframa?: string;
-  endereco: string;
-  numero?: string;
-  complemento?: string;
-  bairro?: string;
-  changes: EfdIcmsIpiParticipanteChange[];
+  descricao: string;
+  codigoBarras?: string;
+  unidade: string;
+  tipo:
+    | '00'
+    | '01'
+    | '02'
+    | '03'
+    | '04'
+    | '05'
+    | '06'
+    | '07'
+    | '08'
+    | '09'
+    | '10'
+    | '99';
+  ncm?: string;
+  exIpi?: string;
+  genero?: string;
+  lst?: string;
+  aliquotaIcms?: string;
+  cest?: string;
+}
+
+export interface EfdIcmsIpiOperacao {
+  codigo: string;
+  descricao: string;
 }
 
 export interface EfdIcmsIpiDocument {

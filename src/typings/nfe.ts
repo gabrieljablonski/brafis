@@ -523,7 +523,7 @@ export interface NfeProt {
   xMotivo: string;
 }
 
-export interface NfeIssuedXml {
+export interface NfeEmitida {
   nfeProc: {
     '@versao': string;
     '@xmlns': 'http://www.portalfiscal.inf.br/nfe';

@@ -5,6 +5,8 @@ import tables from '@/tables';
 import { isValidCnpj, isValidCpf } from '@/utils/validators';
 import { endOfMonth, format } from 'date-fns';
 import {
+  EfdIcmsIpiItem,
+  EfdIcmsIpiOperacao,
   EfdIcmsIpiParticipante,
   EfdIcmsIpiParticipanteChange,
 } from './typings';
@@ -68,14 +70,25 @@ export default class Bloco0 extends Bloco {
     [...this.efd.unidades.values()].forEach(u => {
       this.build0190(u);
     });
-    // this.build0200();
+    [...this.efd.items.values()].forEach(i => {
+      this.build0200(i);
+    });
     // this.build0300();
-    // this.build0400();
-    // this.build0450();
+    [...this.efd.operacoes.values()].forEach(o => {
+      this.build0400(o);
+    });
+    this.efd.nfes.forEach((nfe, i) => {
+      this.build0450(
+        `${i + 1}`,
+        nfe.nfeProc.NFe.infNFe.infAdic?.infCpl
+          ?.replace(/\n/g, ' ')
+          .replace(/ +/g, ' ') ?? ''
+      );
+    });
     // this.build0460();
     // this.build0500();
     // this.build0600();
-    // this.build0990();
+    this.build0990();
 
     return this.registers;
   }
@@ -788,8 +801,7 @@ export default class Bloco0 extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private build0200() {
-    throw new NotImplemented();
+  private build0200(item: EfdIcmsIpiItem) {
     /**
      * Texto fixo contendo "0200"
      *
@@ -805,7 +817,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 60
      */
-    const COD_ITEM = '';
+    const COD_ITEM = item.codigo;
     /**
      * Descrição do item
      *
@@ -813,7 +825,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: -
      */
-    const DESCR_ITEM = '';
+    const DESCR_ITEM = item.descricao;
     /**
      * Representação alfanumérico do código de barra do produto, se houver
      *
@@ -821,7 +833,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: -
      */
-    const COD_BARRA = '';
+    const COD_BARRA = item.codigoBarras ?? '';
     /**
      * Código anterior do item com relação à última
      *  informação apresentada
@@ -838,7 +850,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 6
      */
-    const UNID_INV = '';
+    const UNID_INV = item.unidade;
     /**
      * Tipo do item - Atividades Industriais, Comerciais e Serviços:
      *  00 - Mercadoria para Revenda; 01 - Matéria-prima;
@@ -849,7 +861,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 2
      */
-    const TIPO_ITEM = '';
+    const TIPO_ITEM = item.tipo;
     /**
      * Código da Nomenclatura Comum do Mercosul
      *
@@ -857,7 +869,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 008*
      */
-    const COD_NCM = '';
+    const COD_NCM = item.ncm ?? '';
     /**
      * Código EX, conforme a TIPI
      *
@@ -865,7 +877,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 3
      */
-    const EX_IPI = '';
+    const EX_IPI = item.exIpi ?? '';
     /**
      * Código do gênero do item, conforme a Tabela
      *  4.2.1
@@ -874,7 +886,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 002*
      */
-    const COD_GEN = '';
+    const COD_GEN = item.genero ?? '';
     /**
      * Código do serviço conforme lista do Anexo I da Lei Complementar Federal nº 116/03
      *
@@ -882,7 +894,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 5
      */
-    const COD_LST = '';
+    const COD_LST = item.lst ?? '';
     /**
      * Alíquota de ICMS aplicável ao item nas
      *  operações internas
@@ -891,7 +903,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 6
      */
-    const ALIQ_ICMS = '';
+    const ALIQ_ICMS = item.aliquotaIcms ?? '';
     /**
      * Código Especificador da Substituição Tributária
      *
@@ -899,7 +911,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: 007*
      */
-    const CEST = '';
+    const CEST = item.cest ?? '';
     this.registers.push([
       REG,
       COD_ITEM,
@@ -1240,8 +1252,7 @@ export default class Bloco0 extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private build0400() {
-    throw new NotImplemented();
+  private build0400(operacao: EfdIcmsIpiOperacao) {
     /**
      * Texto fixo contendo "0400"
      *
@@ -1257,7 +1268,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 10
      */
-    const COD_NAT = '';
+    const COD_NAT = operacao.codigo;
     /**
      * Descrição da natureza da operação/prestação
      *
@@ -1265,7 +1276,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: -
      */
-    const DESCR_NAT = '';
+    const DESCR_NAT = operacao.descricao;
     this.registers.push([REG, COD_NAT, DESCR_NAT]);
   }
 
@@ -1274,8 +1285,7 @@ export default class Bloco0 extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private build0450() {
-    throw new NotImplemented();
+  private build0450(codigo: string, infAdic: string) {
     /**
      * Texto fixo contendo "0450"
      *
@@ -1291,7 +1301,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: 6
      */
-    const COD_INF = '';
+    const COD_INF = codigo;
     /**
      * Texto livre da informação complementar existente no documento fiscal, inclusive espécie de normas legais, poder normativo, número, capitulação, data e demais referências pertinentes com indicações referentes ao tributo
      *
@@ -1299,7 +1309,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: C
      * Tamanho: -
      */
-    const TXT = '';
+    const TXT = infAdic.slice(0, 250);
     this.registers.push([REG, COD_INF, TXT]);
   }
 
@@ -1462,7 +1472,6 @@ export default class Bloco0 extends Bloco {
    * Ocorrência: um por arquivo
    */
   private build0990() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "0990"
      *
@@ -1478,7 +1487,7 @@ export default class Bloco0 extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD_LIN_0 = '';
+    const QTD_LIN_0 = `${this.registers.length + 1}`;
     this.registers.push([REG, QTD_LIN_0]);
   }
 }

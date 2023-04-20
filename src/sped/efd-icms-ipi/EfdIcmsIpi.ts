@@ -1,7 +1,7 @@
 import { XMLParser } from 'fast-xml-parser';
 import xmlDsig from '@/utils/xmlDsig';
 import yup from '@/utils/yup';
-import { NfeIssuedXml } from '@/typings';
+import { NfeEmitida } from '@/typings';
 import { BadArgs } from '@/utils/exceptions';
 import { unmask } from '@/utils';
 
@@ -18,6 +18,8 @@ import Bloco9 from './Bloco9';
 import {
   EfdIcmsIpiBuildOptions,
   EfdIcmsIpiEntidade,
+  EfdIcmsIpiItem,
+  EfdIcmsIpiOperacao,
   EfdIcmsIpiParticipante,
 } from './typings';
 import InvalidXml from '@/utils/exceptions/InvalidXml';
@@ -64,13 +66,17 @@ export default class EfdIcmsIpi {
   /**
    * @todo should also support other types of documents (NFC-e, CT-e, ...)
    */
-  nfes: NfeIssuedXml[];
+  nfes: NfeEmitida[];
 
   entidade: EfdIcmsIpiEntidade;
 
   participantes: Map<string, EfdIcmsIpiParticipante>;
 
   unidades: Set<string>;
+
+  items: Map<string, EfdIcmsIpiItem>;
+
+  operacoes: Map<string, EfdIcmsIpiOperacao>;
 
   constructor(options: EfdIcmsIpiBuildOptions) {
     if (!options.documents.length) {
@@ -79,6 +85,8 @@ export default class EfdIcmsIpi {
     this.nfes = [];
     this.participantes = new Map();
     this.unidades = new Set();
+    this.items = new Map();
+    this.operacoes = new Map();
     try {
       this.entidade = entitySchema.validateSync(
         options.entity
@@ -99,6 +107,7 @@ export default class EfdIcmsIpi {
     this.nfes = [];
     this.participantes = new Map();
     this.unidades = new Set();
+    this.items = new Map();
     const documents = options.documents;
     const ALWAYS_ARRAY = new Set(['det', 'vol', 'detPag']);
     const parser = new XMLParser({
@@ -264,9 +273,40 @@ export default class EfdIcmsIpi {
       }
       this.participantes.set(key, participante);
 
-      det.forEach(({ prod }) => {
+      det.forEach(({ prod, imposto }) => {
         this.unidades.add(prod.uCom);
         this.unidades.add(prod.uTrib);
+        const key = `${prod.xProd}`;
+        const oldItem = this.items.get(key);
+        this.items.set(key, {
+          codigo: prod.cProd,
+          descricao: prod.xProd,
+          codigoBarras: prod.cEAN,
+          unidade: prod.uCom,
+          /**
+           * @todo how to decide on the item type?
+           */
+          tipo: '00',
+          ncm: prod.NCM,
+          exIpi: prod.EXTIPI,
+          genero: prod.NCM.slice(0, 2),
+          aliquotaIcms:
+            oldItem?.aliquotaIcms || emit.enderEmit.UF === dest.enderDest.UF
+              ? imposto.ICMS.ICMS00?.pICMS ??
+                imposto.ICMS.ICMS10?.pICMS ??
+                imposto.ICMS.ICMS20?.pICMS ??
+                imposto.ICMS.ICMS51?.pICMS ??
+                imposto.ICMS.ICMS70?.pICMS ??
+                ''
+              : '',
+          cest: prod.CEST,
+        });
+      });
+
+      const oldOperacao = this.operacoes.get(ide.natOp);
+      this.operacoes.set(ide.natOp, {
+        codigo: oldOperacao?.codigo ?? `${this.operacoes.size + 1}`,
+        descricao: ide.natOp,
       });
     });
   }
@@ -291,7 +331,7 @@ export default class EfdIcmsIpi {
       []
     );
     return entries
-      .map(entry => entry.map(v => (v === undefined ? '' : v)).join('|'))
+      .map(entry => `|${entry.map(v => (v === undefined ? '' : v)).join('|')}|`)
       .join('\n');
   }
 }
