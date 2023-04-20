@@ -2,36 +2,41 @@ import { NotImplemented } from '@/utils/exceptions';
 import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Bloco1Options {}
+export interface Bloco1Options {
+  include?: boolean;
+}
 
 export default class Bloco1 extends Bloco {
+  private include: boolean;
+
   constructor(options: BlocoOptions & Bloco1Options) {
     super(options);
+    this.include = options.include ?? false;
   }
 
   build(): string[][] {
-    throw new NotImplemented();
     this.registers = [];
 
     this.build1001();
     this.build1010();
-    this.build1100();
-    this.build1200();
-    this.build1250();
-    this.build1300();
-    this.build1350();
-    this.build1390();
-    this.build1400();
-    this.build1500();
-    this.build1600();
-    this.build1601();
-    this.build1700();
-    this.build1800();
-    this.build1900();
-    this.build1960();
-    this.build1970();
-    this.build1980();
+    if (this.include) {
+      this.build1100();
+      this.build1200();
+      this.build1250();
+      this.build1300();
+      this.build1350();
+      this.build1390();
+      this.build1400();
+      this.build1500();
+      this.build1600();
+      this.build1601();
+      this.build1700();
+      this.build1800();
+      this.build1900();
+      this.build1960();
+      this.build1970();
+      this.build1980();
+    }
     this.build1990();
 
     return this.registers;
@@ -43,7 +48,6 @@ export default class Bloco1 extends Bloco {
    * Ocorrência: um por arquivo
    */
   private build1001() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "1001"
      *
@@ -61,7 +65,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: N
      * Tamanho: 001*
      */
-    const IND_MOV = '';
+    const IND_MOV = this.include ? '0' : '1';
     this.registers.push([REG, IND_MOV]);
   }
 
@@ -71,7 +75,6 @@ export default class Bloco1 extends Bloco {
    * Ocorrência: 1
    */
   private build1010() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "1010"
      *
@@ -88,7 +91,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_EXP = '';
+    const IND_EXP = 'N';
     /**
      * Reg 1200 - Existem informações acerca de créditos de ICMS a serem controlados, definidos pela Sefaz:
      *  S - Sim N - Não
@@ -97,7 +100,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_CCRF = '';
+    const IND_CCRF = 'N';
     /**
      * Reg. 1300 - É comércio varejista de combustíveis com movimentação e/ou estoque no período:
      *  S - Sim N - Não
@@ -106,7 +109,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_COMB = '';
+    const IND_COMB = 'N';
     /**
      * Reg. 1390 - Usinas de açúcar e/álcool - O estabelecimento é produtor de açúcar e/ou álcool carburante com movimentação e/ou estoque no período: S - Sim
      *  N - Não
@@ -115,7 +118,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_USINA = '';
+    const IND_USINA = 'N';
     /**
      * Reg 1400 - Sendo o registro obrigatório em sua Unidade de Federação, existem informações a serem prestadas neste registro:
      *  S - Sim;
@@ -125,7 +128,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_VA = '';
+    const IND_VA = 'N';
     /**
      * Reg 1500 - A empresa é distribuidora de energia e ocorreu fornecimento de energia elétrica para consumidores de outra UF:
      *  S - Sim;
@@ -135,7 +138,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_EE = '';
+    const IND_EE = 'N';
     /**
      * Reg 1601 - Realizou vendas com instrumentos eletrônicos de pagamento:
      *  S - Sim;
@@ -145,7 +148,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_CART = '';
+    const IND_CART = 'N';
     /**
      * Reg. 1700 - Foram emitidos documentos fiscais em papel no período em unidade da federação que exija o controle de utilização de documentos fiscais:
      *  S - Sim N - Não
@@ -154,7 +157,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_FORM = '';
+    const IND_FORM = 'N';
     /**
      * Reg 1800 - A empresa prestou serviços de transporte aéreo de cargas e de passageiros:
      *  S - Sim N - Não
@@ -163,7 +166,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_AER = '';
+    const IND_AER = 'N';
     /**
      * Reg. 1960 - Possui informações GIAF1? S - Sim;
      *  N - Não
@@ -172,7 +175,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_GIAF1 = '';
+    const IND_GIAF1 = 'N';
     /**
      * Reg. 1970 - Possui informações GIAF3? S - Sim;
      *  N - Não
@@ -181,7 +184,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_GIAF3 = '';
+    const IND_GIAF3 = 'N';
     /**
      * Reg. 1980 - Possui informações GIAF4? S - Sim;
      *  N - Não
@@ -190,7 +193,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_GIAF4 = '';
+    const IND_GIAF4 = 'N';
     /**
      * Reg. 1250 - Possui informações consolidadas de saldos de restituição, ressarcimento e complementação do ICMS?
      *  S - Sim;
@@ -3324,7 +3327,6 @@ export default class Bloco1 extends Bloco {
    * Ocorrência: um por Arquivo
    */
   private build1990() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "1990"
      *
@@ -3340,7 +3342,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD_LIN_1 = '';
+    const QTD_LIN_1 = `${this.registers.length + 1}`;
     this.registers.push([REG, QTD_LIN_1]);
   }
 }

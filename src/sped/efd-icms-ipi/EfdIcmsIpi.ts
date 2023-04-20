@@ -316,21 +316,27 @@ export default class EfdIcmsIpi {
     await efd.parseXmls(options);
     const blocks = [
       new Bloco0({ efd, ...options.bloco0Options }),
-      // new BlocoB({ efd, ...options.blocoBOptions }),
+      new BlocoB({ efd, ...options.blocoBOptions }),
       // new BlocoC({ efd, ...options.blocoCOptions }),
       // new BlocoD({ efd, ...options.blocoDOptions }),
       // new BlocoE({ efd, ...options.blocoEOptions }),
-      // new BlocoG({ efd, ...options.blocoGOptions }),
-      // new BlocoH({ efd, ...options.blocoHOptions }),
-      // new BlocoK({ efd, ...options.blocoKOptions }),
-      // new Bloco1({ efd, ...options.bloco1Options }),
-      // new Bloco9({ efd, ...options.bloco9Options }),
+      new BlocoG({ efd, ...options.blocoGOptions }),
+      new BlocoH({ efd, ...options.blocoHOptions }),
+      new BlocoK({ efd, ...options.blocoKOptions }),
+      new Bloco1({ efd, ...options.bloco1Options }),
     ];
-    const entries = blocks.reduce<string[][]>(
+    const registers = blocks.reduce<string[][]>(
       (prev, block) => prev.concat(block.build()),
       []
     );
-    return entries
+    registers.push(
+      ...new Bloco9({
+        efd,
+        previousRegisters: registers,
+        ...options.bloco9Options,
+      }).build()
+    );
+    return registers
       .map(entry => `|${entry.map(v => (v === undefined ? '' : v)).join('|')}|`)
       .join('\n');
   }

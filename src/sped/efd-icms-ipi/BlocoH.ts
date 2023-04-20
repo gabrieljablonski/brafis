@@ -2,20 +2,25 @@ import { NotImplemented } from '@/utils/exceptions';
 import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface BlocoHOptions {}
+export interface BlocoHOptions {
+  include?: boolean;
+}
 
 export default class BlocoH extends Bloco {
+  private include: boolean;
+
   constructor(options: BlocoOptions & BlocoHOptions) {
     super(options);
+    this.include = options.include ?? false;
   }
 
   build(): string[][] {
-    throw new NotImplemented();
     this.registers = [];
 
     this.buildH001();
-    this.buildH005();
+    if (this.include) {
+      this.buildH005();
+    }
     this.buildH990();
 
     return this.registers;
@@ -27,7 +32,6 @@ export default class BlocoH extends Bloco {
    * Ocorrência: um por Arquivo
    */
   private buildH001() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "H001"
      *
@@ -45,7 +49,7 @@ export default class BlocoH extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_MOV = '';
+    const IND_MOV = this.include ? '0' : '1';
     this.registers.push([REG, IND_MOV]);
   }
 
@@ -308,7 +312,6 @@ export default class BlocoH extends Bloco {
    * Ocorrência: um por arquivo
    */
   private buildH990() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "H990"
      *
@@ -324,7 +327,7 @@ export default class BlocoH extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD_LIN_H = '';
+    const QTD_LIN_H = `${this.registers.length + 1}`;
     this.registers.push([REG, QTD_LIN_H]);
   }
 }

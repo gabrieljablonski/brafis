@@ -2,27 +2,32 @@ import { NotImplemented } from '@/utils/exceptions';
 import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface BlocoBOptions {}
+export interface BlocoBOptions {
+  include?: boolean;
+}
 
 export default class BlocoB extends Bloco {
+  private include: boolean;
+
   constructor(options: BlocoOptions & BlocoBOptions) {
     super(options);
+    this.include = options.include ?? false;
   }
 
   build(): string[][] {
-    throw new NotImplemented();
     this.registers = [];
 
     this.buildB001();
-    this.buildB020();
-    this.buildB030();
-    this.buildB350();
-    this.buildB420();
-    this.buildB440();
-    this.buildB460();
-    this.buildB470();
-    this.buildB500();
+    if (this.include) {
+      this.buildB020();
+      this.buildB030();
+      this.buildB350();
+      this.buildB420();
+      this.buildB440();
+      this.buildB460();
+      this.buildB470();
+      this.buildB500();
+    }
     this.buildB990();
 
     return this.registers;
@@ -34,7 +39,6 @@ export default class BlocoB extends Bloco {
    * Ocorrência: um por arquivo
    */
   private buildB001() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "B001"
      *
@@ -52,7 +56,7 @@ export default class BlocoB extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_DAD = '';
+    const IND_DAD = this.include ? '0' : '1';
     this.registers.push([REG, IND_DAD]);
   }
 
@@ -1146,7 +1150,6 @@ export default class BlocoB extends Bloco {
    * Ocorrência: um por arquivo
    */
   private buildB990() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "B990"
      *
@@ -1162,7 +1165,7 @@ export default class BlocoB extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD_LIN_B = '';
+    const QTD_LIN_B = `${this.registers.length + 1}`;
     this.registers.push([REG, QTD_LIN_B]);
   }
 }

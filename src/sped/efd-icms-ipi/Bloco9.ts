@@ -1,21 +1,38 @@
-import { NotImplemented } from '@/utils/exceptions';
 import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Bloco9Options {}
+export interface Bloco9Options {
+  previousRegisters: string[][];
+}
 
 export default class Bloco9 extends Bloco {
+  private previousRegisters: string[][];
+
   constructor(options: BlocoOptions & Bloco9Options) {
     super(options);
+    this.previousRegisters = options.previousRegisters;
   }
 
   build(): string[][] {
-    throw new NotImplemented();
     this.registers = [];
 
     this.build9001();
-    this.build9900();
+
+    const registerCount = new Map<string, number>();
+    this.previousRegisters.forEach(([register]) => {
+      registerCount.set(register, (registerCount.get(register) ?? 0) + 1);
+    });
+    registerCount.set('9001', 1);
+    registerCount.set('9900', 0); // so the order is correct
+    registerCount.set('9990', 1);
+    registerCount.set('9999', 1);
+
+    registerCount.set('9900', registerCount.size);
+
+    [...registerCount.entries()].forEach(([register, count]) => {
+      this.build9900(register, count);
+    });
+
     this.build9990();
     this.build9999();
 
@@ -28,7 +45,6 @@ export default class Bloco9 extends Bloco {
    * Ocorrência: um por Arquivo
    */
   private build9001() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "9001"
      *
@@ -46,7 +62,7 @@ export default class Bloco9 extends Bloco {
      * Tipo: N
      * Tamanho: 001*
      */
-    const IND_MOV = '';
+    const IND_MOV = '0';
     this.registers.push([REG, IND_MOV]);
   }
 
@@ -55,8 +71,7 @@ export default class Bloco9 extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private build9900() {
-    throw new NotImplemented();
+  private build9900(register: string, quantity: number) {
     /**
      * Texto fixo contendo "9900"
      *
@@ -72,7 +87,7 @@ export default class Bloco9 extends Bloco {
      * Tipo: C
      * Tamanho: 4
      */
-    const REG_BLC = '';
+    const REG_BLC = register;
     /**
      * Total de registros do tipo informado no campo anterior
      *
@@ -80,7 +95,7 @@ export default class Bloco9 extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD_REG_BLC = '';
+    const QTD_REG_BLC = `${quantity}`;
     this.registers.push([REG, REG_BLC, QTD_REG_BLC]);
   }
 
@@ -90,7 +105,6 @@ export default class Bloco9 extends Bloco {
    * Ocorrência: um por Arquivo
    */
   private build9990() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "9990"
      *
@@ -106,7 +120,7 @@ export default class Bloco9 extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD_LIN_9 = '';
+    const QTD_LIN_9 = `${this.registers.length + 2}`; // +2 -> self and 9999
     this.registers.push([REG, QTD_LIN_9]);
   }
 
@@ -116,7 +130,6 @@ export default class Bloco9 extends Bloco {
    * Ocorrência: um por Arquivo
    */
   private build9999() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "9999"
      *
@@ -132,7 +145,9 @@ export default class Bloco9 extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD_LIN = '';
+    const QTD_LIN = `${
+      this.registers.length + 1 + this.previousRegisters.length
+    }`;
     this.registers.push([REG, QTD_LIN]);
   }
 }
