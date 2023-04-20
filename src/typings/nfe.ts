@@ -535,4 +535,6 @@ export interface NfeIssuedXml {
       infProt: NfeProt;
     };
   };
+  cancelled?: boolean;
+  isIssuer?: boolean;
 }

@@ -1,0 +1,58 @@
+diff --git a/node_modules/xml-core/dist/index.js b/node_modules/xml-core/dist/index.js
+index 8adf233..461d3cf 100644
+--- a/node_modules/xml-core/dist/index.js
++++ b/node_modules/xml-core/dist/index.js
+@@ -423,7 +423,16 @@ if (typeof self === "undefined") {
+     sWindow.XMLSerializer = xmldom.XMLSerializer;
+     sWindow.DOMParser = xmldom.DOMParser;
+     sWindow.DOMImplementation = xmldom.DOMImplementation;
+-    sWindow.document = new DOMImplementation().createDocument("http://www.w3.org/1999/xhtml", "html", null);
++    sWindow.document = new DOMImplementation({
++        locator: {},
++        errorHandler: { 
++            warning: () => {},
++            error: () => {},
++            fatalError: (e) => { 
++                console.error(e); 
++            }
++        }
++    }).createDocument("http://www.w3.org/1999/xhtml", "html", null);
+ }
+ else {
+     sWindow = self;
+@@ -444,7 +453,16 @@ function Parse(xmlString) {
+     xmlString = xmlString
+         .replace(/\r\n/g, "\n")
+         .replace(/\r/g, "\n");
+-    return new DOMParser().parseFromString(xmlString, APPLICATION_XML);
++    return new DOMParser({
++        locator: {},
++        errorHandler: { 
++            warning: () => {},
++            error: () => {},
++            fatalError: (e) => { 
++                console.error(e); 
++            }
++        }
++    }).parseFromString(xmlString, APPLICATION_XML);
+ }
+ function Stringify(target) {
+     return new XMLSerializer().serializeToString(target);
+@@ -604,7 +622,16 @@ class XmlObject {
+             namespaceUri2 = ` xmlns${nsPrefix}="${namespaceUri}"`;
+         }
+         const name = `${namePrefix}${root}`;
+-        const doc = new DOMParser().parseFromString(`<${name}${namespaceUri2}></${name}>`, APPLICATION_XML);
++        const doc = new DOMParser({
++            locator: {},
++            errorHandler: { 
++                warning: () => {},
++                error: () => {},
++                fatalError: (e) => { 
++                    console.error(e); 
++                }
++            }
++        }).parseFromString(`<${name}${namespaceUri2}></${name}>`, APPLICATION_XML);
+         return doc;
+     }
+     static GetChildren(node, localName, nameSpace) {

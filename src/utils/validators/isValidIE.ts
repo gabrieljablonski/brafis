@@ -1,4 +1,5 @@
 import { State, STATES } from '@/typings';
+import { unmask } from '@/utils';
 
 type StateValidations = {
   [state in State]: (ie: string) => boolean;
@@ -368,5 +369,5 @@ export default function isValidIE(
     });
     return valid;
   }
-  return stateValidations[state]?.(ie) ?? false;
+  return stateValidations[state]?.(unmask(ie)) ?? false;
 }

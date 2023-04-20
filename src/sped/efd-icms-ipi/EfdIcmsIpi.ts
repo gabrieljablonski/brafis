@@ -1,50 +1,105 @@
 import { XMLParser } from 'fast-xml-parser';
+import xmlDsig from '@/utils/xmlDsig';
+import yup from '@/utils/yup';
 import { NfeIssuedXml } from '@/typings';
 import { BadArgs } from '@/utils/exceptions';
-import {
-  isValidCnpj,
-  isValidCpf,
-  isValidIE,
-  isValidCityCode,
-} from '@/utils/validators';
 import { unmask } from '@/utils';
 
-import Bloco0, { Bloco0Options } from './Bloco0';
-import BlocoB, { BlocoBOptions } from './BlocoB';
-import BlocoC, { BlocoCOptions } from './BlocoC';
-import BlocoD, { BlocoDOptions } from './BlocoD';
-import BlocoE, { BlocoEOptions } from './BlocoE';
-import BlocoG, { BlocoGOptions } from './BlocoG';
-import BlocoH, { BlocoHOptions } from './BlocoH';
-import BlocoK, { BlocoKOptions } from './BlocoK';
-import Bloco1, { Bloco1Options } from './Bloco1';
-import Bloco9, { Bloco9Options } from './Bloco9';
-import { EfdIcmsIpiEntity } from './typings';
+import Bloco0 from './Bloco0';
+import BlocoB from './BlocoB';
+import BlocoC from './BlocoC';
+import BlocoD from './BlocoD';
+import BlocoE from './BlocoE';
+import BlocoG from './BlocoG';
+import BlocoH from './BlocoH';
+import BlocoK from './BlocoK';
+import Bloco1 from './Bloco1';
+import Bloco9 from './Bloco9';
+import {
+  EfdIcmsIpiBuildOptions,
+  EfdIcmsIpiEntidade,
+  EfdIcmsIpiParticipante,
+} from './typings';
+import InvalidXml from '@/utils/exceptions/InvalidXml';
+import { format } from 'date-fns';
+import { isValidCnpj } from '@/utils/validators';
 
-export interface EfdIcmsIpiBuildOptions {
-  entity: EfdIcmsIpiEntity;
-  xmls: string[];
-  bloco0Options: Bloco0Options;
-  blocoBOptions?: BlocoBOptions;
-  blocoCOptions?: BlocoCOptions;
-  blocoDOptions?: BlocoDOptions;
-  blocoEOptions?: BlocoEOptions;
-  blocoGOptions?: BlocoGOptions;
-  blocoHOptions?: BlocoHOptions;
-  blocoKOptions?: BlocoKOptions;
-  bloco1Options?: Bloco1Options;
-  bloco9Options?: Bloco9Options;
-}
+const entitySchema = yup.object({
+  nome: yup.string().required().max(100),
+  nomeFantasia: yup.string().max(60).optional(),
+  cpfCnpj: yup.string().cpfCnpj().required().transform(unmask),
+  cep: yup.string().cep().required().transform(unmask),
+  uf: yup.string().state().required(),
+  codigoMunicipio: yup.string().cityCode().required(),
+  bairro: yup.string().required().max(60),
+  endereco: yup.string().max(60),
+  numero: yup.string().max(10).optional(),
+  complemento: yup.string().max(60).optional(),
+  telefone: yup.string().phone().optional().transform(unmask),
+  fax: yup.string().max(11).optional(),
+  email: yup.string().email().optional(),
+  ie: yup.string().ie('uf').transform(unmask),
+  perfil: yup.string().oneOf(['A', 'B', 'C'], 'Invalid profile'),
+  im: yup.string().max(255).optional(),
+  suframa: yup.string().length(9).optional(),
+  atividadeIndustrial: yup.boolean().optional(),
+  contabilista: yup.object({
+    nome: yup.string().max(100).required(),
+    cpf: yup.string().cpf().required().transform(unmask),
+    crc: yup.string().max(15).required(),
+    cnpj: yup.string().cnpj().optional().transform(unmask),
+    cep: yup.string().cep().optional().transform(unmask),
+    endereco: yup.string().max(60).optional(),
+    numero: yup.string().max(10).optional(),
+    complemento: yup.string().max(60).optional(),
+    bairro: yup.string().max(60).optional(),
+    telefone: yup.string().phone().optional().transform(unmask),
+    fax: yup.string().max(11).optional(),
+    email: yup.string().email().required(),
+    codigoMunicipio: yup.string().cityCode().required(),
+  }),
+});
 
 export default class EfdIcmsIpi {
   /**
    * @todo should also support other types of documents (NFC-e, CT-e, ...)
    */
-  parsedXmls: NfeIssuedXml[];
+  nfes: NfeIssuedXml[];
 
-  entity: EfdIcmsIpiEntity;
+  entidade: EfdIcmsIpiEntidade;
+
+  participantes: Map<string, EfdIcmsIpiParticipante>;
+
+  unidades: Set<string>;
 
   constructor(options: EfdIcmsIpiBuildOptions) {
+    if (!options.documents.length) {
+      throw new BadArgs('`options.xml` must contain at least one entry');
+    }
+    this.nfes = [];
+    this.participantes = new Map();
+    this.unidades = new Set();
+    try {
+      this.entidade = entitySchema.validateSync(
+        options.entity
+      ) as EfdIcmsIpiEntidade;
+    } catch (e) {
+      const err = e as yup.ValidationError;
+      throw new BadArgs(
+        `EfdIcmsIpi.build(): ${err.message}\n${JSON.stringify(
+          err.value,
+          null,
+          2
+        )}`
+      );
+    }
+  }
+
+  async parseXmls(options: EfdIcmsIpiBuildOptions) {
+    this.nfes = [];
+    this.participantes = new Map();
+    this.unidades = new Set();
+    const documents = options.documents;
     const ALWAYS_ARRAY = new Set(['det', 'vol', 'detPag']);
     const parser = new XMLParser({
       ignoreAttributes: false,
@@ -52,39 +107,173 @@ export default class EfdIcmsIpi {
       isArray: name => ALWAYS_ARRAY.has(name),
       parseTagValue: false,
     });
-    /**
-     * @todo test performance with large input when making this async
-     */
-    this.parsedXmls = options.xmls.map(xml => parser.parse(xml));
-    this.entity = options.entity;
+    this.nfes = await Promise.all(
+      documents.map(async ({ xml, cancelled }, i) => {
+        try {
+          /**
+           * @todo the xml is being parsed twice :(
+           */
+          const doc = xmlDsig.Parse(xml);
+          const signature = doc.getElementsByTagNameNS(
+            'http://www.w3.org/2000/09/xmldsig#',
+            'Signature'
+          );
+          const signed = new xmlDsig.SignedXml(doc);
+          signed.LoadXml(signature[0]);
+          await signed.Verify();
+        } catch {
+          throw new InvalidXml(
+            `EfdIcmsIpi.build(): XML for \`documents[${i}]\` is invalid`
+          );
+        }
+        const nfe = parser.parse(xml);
+        return {
+          ...nfe,
+          cancelled,
+        };
+      })
+    );
+    this.nfes.sort((a, b) =>
+      a.nfeProc.NFe.infNFe['@Id'].localeCompare(b.nfeProc.NFe.infNFe['@Id'])
+    );
+    this.nfes.forEach((nfe, i) => {
+      const { ide, emit, dest, det } = nfe.nfeProc.NFe.infNFe;
+      const issuedOn = new Date(ide.dhEmi);
+      const { periodStart, periodEnd } = options.bloco0Options;
+      if (issuedOn < periodStart || issuedOn > periodEnd) {
+        throw new BadArgs(
+          `EfdIcmsIpi.build(): Expected \`documentos[${i}].ide.dhEmi\` (${format(
+            issuedOn,
+            'yyyy-MM-dd'
+          )}) to be in range (${format(periodStart, 'yyyy-MM-dd')}, ${format(
+            periodEnd,
+            'yyyy-MM-dd'
+          )})`
+        );
+      }
+      if (emit.IE !== this.entidade.ie && dest.IE !== this.entidade.ie) {
+        throw new BadArgs(
+          `EfdIcmsIpi.build(): Expected IE '${this.entidade.ie}' as one of \`documentos[${i}].[emit|dest].IE\``
+        );
+      }
+      nfe.isIssuer = emit.IE === this.entidade.ie;
+      let key = '';
+      let oldParticipante: EfdIcmsIpiParticipante | null = null;
+      let participante: EfdIcmsIpiParticipante | null = null;
+      if (!nfe.isIssuer) {
+        key = `${emit.CPF ?? emit.CNPJ}${emit.IE}`;
+        oldParticipante = this.participantes.get(key) ?? null;
+        participante = {
+          codigo: oldParticipante?.codigo ?? `${this.participantes.size + 1}`,
+          nome: emit.xNome,
+          codigoPais: emit.enderEmit.cPais ?? '1058',
+          cpfCnpj: emit.CPF ?? emit.CNPJ ?? '',
+          ie: emit.IE === 'ISENTO' ? undefined : emit.IE,
+          codigoMunicipio: emit.enderEmit.cMun,
+          endereco: emit.enderEmit.xLgr,
+          numero: emit.enderEmit.nro,
+          complemento: emit.enderEmit.xCpl,
+          bairro: emit.enderEmit.xBairro,
+          changes: oldParticipante?.changes ?? [],
+        };
+      } else {
+        key = `${dest.CPF ?? dest.CNPJ}${dest.IE}`;
+        oldParticipante = this.participantes.get(key) ?? null;
+        participante = {
+          codigo: oldParticipante?.codigo ?? `${this.participantes.size + 1}`,
+          nome: dest.xNome,
+          codigoPais: dest.enderDest.cPais ?? '1058',
+          cpfCnpj: dest.CPF ?? dest.CNPJ ?? '',
+          ie: dest.IE === 'ISENTO' ? undefined : dest.IE,
+          suframa: dest.ISUF,
+          codigoMunicipio: dest.enderDest.cMun,
+          endereco: dest.enderDest.xLgr,
+          numero: dest.enderDest.nro,
+          complemento: dest.enderDest.xCpl,
+          bairro: dest.enderDest.xBairro,
+          changes: oldParticipante?.changes ?? [],
+        };
+      }
+      if (oldParticipante && !nfe.cancelled) {
+        /**
+         * ignore changes on cancelled documents
+         */
+        if (participante.nome !== oldParticipante.nome) {
+          participante.changes.push({
+            data: issuedOn,
+            numeroCampo: '03',
+            conteudoAnterior: oldParticipante.nome,
+          });
+        }
+        if (participante.codigoPais !== oldParticipante.codigoPais) {
+          participante.changes.push({
+            data: issuedOn,
+            numeroCampo: '04',
+            conteudoAnterior: oldParticipante.codigoPais,
+          });
+        }
+        if (participante.cpfCnpj !== oldParticipante.cpfCnpj) {
+          participante.changes.push({
+            data: issuedOn,
+            numeroCampo: isValidCnpj(participante.cpfCnpj) ? '05' : '06',
+            conteudoAnterior: oldParticipante.cpfCnpj,
+          });
+        }
+        if (participante.codigoMunicipio !== oldParticipante.codigoMunicipio) {
+          participante.changes.push({
+            data: issuedOn,
+            numeroCampo: '08',
+            conteudoAnterior: oldParticipante.codigoMunicipio ?? '',
+          });
+        }
+        if (participante.suframa !== oldParticipante.suframa) {
+          participante.changes.push({
+            data: issuedOn,
+            numeroCampo: '09',
+            conteudoAnterior: oldParticipante.suframa ?? '',
+          });
+        }
+        if (participante.endereco !== oldParticipante.endereco) {
+          participante.changes.push({
+            data: issuedOn,
+            numeroCampo: '10',
+            conteudoAnterior: oldParticipante.endereco,
+          });
+        }
+        if (participante.numero !== oldParticipante.numero) {
+          participante.changes.push({
+            data: issuedOn,
+            numeroCampo: '11',
+            conteudoAnterior: oldParticipante.numero ?? '',
+          });
+        }
+        if (participante.complemento !== oldParticipante.complemento) {
+          participante.changes.push({
+            data: issuedOn,
+            numeroCampo: '12',
+            conteudoAnterior: oldParticipante.complemento ?? '',
+          });
+        }
+        if (participante.bairro !== oldParticipante.bairro) {
+          participante.changes.push({
+            data: issuedOn,
+            numeroCampo: '13',
+            conteudoAnterior: oldParticipante.bairro ?? '',
+          });
+        }
+      }
+      this.participantes.set(key, participante);
 
-    /**
-     * @todo use schema validation
-     */
-
-    if (!isValidCityCode(this.entity.codigoMunicipio)) {
-      throw new BadArgs(
-        `Invalid \`entity.codigoMunicipio\` '${this.entity.codigoMunicipio}'`
-      );
-    }
-    if (!isValidCpf(this.entity.cpfCnpj) && !isValidCnpj(this.entity.cpfCnpj)) {
-      throw new BadArgs(
-        `Invalid \`entity.codigoMunicipio\` '${this.entity.cpfCnpj}'`
-      );
-    }
-    if (!isValidIE(this.entity.ie)) {
-      throw new BadArgs(
-        `Invalid \`entity.codigoMunicipio\` '${this.entity.ie}'`
-      );
-    }
-
-    this.entity.cpfCnpj = unmask(this.entity.cpfCnpj);
-    this.entity.ie = unmask(this.entity.ie);
-    this.entity.cep = unmask(this.entity.cep);
+      det.forEach(({ prod }) => {
+        this.unidades.add(prod.uCom);
+        this.unidades.add(prod.uTrib);
+      });
+    });
   }
 
-  static build(options: EfdIcmsIpiBuildOptions) {
+  static async build(options: EfdIcmsIpiBuildOptions) {
     const efd = new EfdIcmsIpi(options);
+    await efd.parseXmls(options);
     const blocks = [
       new Bloco0({ efd, ...options.bloco0Options }),
       // new BlocoB({ efd, ...options.blocoBOptions }),
@@ -101,6 +290,8 @@ export default class EfdIcmsIpi {
       (prev, block) => prev.concat(block.build()),
       []
     );
-    return entries.map(entry => entry.join('|')).join('\n');
+    return entries
+      .map(entry => entry.map(v => (v === undefined ? '' : v)).join('|'))
+      .join('\n');
   }
 }

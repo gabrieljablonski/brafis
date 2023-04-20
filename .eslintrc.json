@@ -25,6 +25,7 @@
     "@typescript-eslint/no-unused-vars": "warn",
     "no-unused-expressions": "error",
     "prettier/prettier": "error",
+    "no-useless-rename": "error",
     "import/extensions": [
       "error",
       "ignorePackages",
