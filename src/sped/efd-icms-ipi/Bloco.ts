@@ -7,14 +7,14 @@ export interface BlocoOptions {
 export default class Bloco {
   protected efd: EfdIcmsIpi;
 
-  protected registers: string[][];
+  protected registers: string[][] = [];
 
   constructor(options: BlocoOptions) {
     this.efd = options.efd;
-    this.registers = [];
   }
 
-  build(): string[][] {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  build(...args: unknown[]): string[][] {
     this.registers = [];
     return this.registers;
   }

@@ -20,21 +20,37 @@ export interface NfeIde {
   cUF: string;
   cNF: string;
   natOp: string;
-  // 55 -> NF-e; 65 -> NFC-e
+  /**
+   * 55 -> NF-e
+   * 65 -> NFC-e
+   */
   mod: '55' | '65';
   serie: string;
   nNF: string;
   dhEmi: string;
   dhSaiEnt?: string;
-  // 0 -> Entrada; 1 -> Saída
+  /**
+   *  0 -> Entrada
+   *  1 -> Saída
+   */
   tpNF: '0' | '1';
-  // 1 -> Operação interna; 2 -> Operação interestadual; 3 -> Operação com exterior
+  /**
+   * 1 -> Operação interna
+   * 2 -> Operação interestadual
+   * 3 -> Operação com exterior
+   */
   idDest: '1' | '2' | '3';
   cMunFG: string;
   tpImp: '0' | '1' | '2' | '3' | '5';
   tpEmis: '1' | '2' | '3' | '5' | '6' | '7' | '8' | '9';
   cDV: string;
   tpAmb: '1' | '2';
+  /**
+   * 1 -> NF-e normal
+   * 2 -> NF-e complementar
+   * 3 -> NF-e de ajuste
+   * 4 -> Devolução de mercadoria
+   */
   finNFe: NfeFinalidade;
   indFinal: '0' | '1';
   indPres: '0' | '1' | '2' | '3' | '4' | '5' | '9';

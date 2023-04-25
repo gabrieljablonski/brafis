@@ -26,6 +26,7 @@
     "no-unused-expressions": "error",
     "prettier/prettier": "error",
     "no-useless-rename": "error",
+    "prefer-destructuring": "error",
     "import/extensions": [
       "error",
       "ignorePackages",

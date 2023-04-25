@@ -77,14 +77,11 @@ export default class Bloco0 extends Bloco {
     [...this.efd.operacoes.values()].forEach(o => {
       this.build0400(o);
     });
-    this.efd.nfes.forEach((nfe, i) => {
-      this.build0450(
-        `${i + 1}`,
-        nfe.nfeProc.NFe.infNFe.infAdic?.infCpl
-          ?.replace(/\n/g, ' ')
-          .replace(/ +/g, ' ') ?? ''
-      );
-    });
+    [...this.efd.informacoesComplementares.entries()].forEach(
+      ([info, codigo]) => {
+        this.build0450(codigo, info);
+      }
+    );
     // this.build0460();
     // this.build0500();
     // this.build0600();
@@ -853,9 +850,18 @@ export default class Bloco0 extends Bloco {
     const UNID_INV = item.unidade;
     /**
      * Tipo do item - Atividades Industriais, Comerciais e Serviços:
-     *  00 - Mercadoria para Revenda; 01 - Matéria-prima;
+     *  00 - Mercadoria para Revenda;
+     *  01 - Matéria-prima;
      *  02 - Embalagem;
-     *  03 - Produto em Processo; 04 - Produto Acabado;
+     *  03 - Produto em Processo;
+     *  04 - Produto Acabado;
+     *  05 – Subproduto;
+     *  06 – Produto Intermediário;
+     *  07 – Material de Uso e Consumo;
+     *  08 – Ativo Imobilizado;
+     *  09 – Serviços;
+     *  10 – Outros insumos;
+     *  99 – Outras.
      *
      * Número: 7
      * Tipo: N

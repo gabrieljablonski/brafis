@@ -2,23 +2,28 @@ import { NotImplemented } from '@/utils/exceptions';
 import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface BlocoEOptions {}
+export interface BlocoEOptions {
+  include?: boolean;
+}
 
 export default class BlocoE extends Bloco {
+  private include: boolean;
+
   constructor(options: BlocoOptions & BlocoEOptions) {
     super(options);
+    this.include = options.include ?? false;
   }
 
   build(): string[][] {
-    throw new NotImplemented();
     this.registers = [];
 
     this.buildE001();
-    this.buildE100();
-    this.buildE200();
-    this.buildE300();
-    this.buildE500();
+    if (this.include) {
+      this.buildE100();
+      this.buildE200();
+      this.buildE300();
+      this.buildE500();
+    }
     this.buildE990();
 
     return this.registers;
@@ -30,7 +35,6 @@ export default class BlocoE extends Bloco {
    * Ocorrência: um por Arquivo
    */
   private buildE001() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "E001"
      *
@@ -48,7 +52,7 @@ export default class BlocoE extends Bloco {
      * Tipo: C
      * Tamanho: 1
      */
-    const IND_MOV = '';
+    const IND_MOV = this.include ? '0' : '1';
     this.registers.push([REG, IND_MOV]);
   }
 
@@ -2033,7 +2037,6 @@ export default class BlocoE extends Bloco {
    * Ocorrência: um por Arquivo
    */
   private buildE990() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "E990"
      *
@@ -2049,7 +2052,7 @@ export default class BlocoE extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD_LIN_E = '';
+    const QTD_LIN_E = `${this.registers.length + 1}`;
     this.registers.push([REG, QTD_LIN_E]);
   }
 }

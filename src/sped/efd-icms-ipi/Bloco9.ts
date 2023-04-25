@@ -1,20 +1,20 @@
 import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
 
-export interface Bloco9Options {
-  previousRegisters: string[][];
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface Bloco9Options {}
 
 export default class Bloco9 extends Bloco {
   private previousRegisters: string[][];
 
   constructor(options: BlocoOptions & Bloco9Options) {
     super(options);
-    this.previousRegisters = options.previousRegisters;
+    this.previousRegisters = [];
   }
 
-  build(): string[][] {
+  build(previousRegisters: string[][]): string[][] {
     this.registers = [];
+    this.previousRegisters = previousRegisters;
 
     this.build9001();
 

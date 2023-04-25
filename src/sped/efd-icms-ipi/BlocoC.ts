@@ -1,30 +1,60 @@
 import { NotImplemented } from '@/utils/exceptions';
 import Bloco from './Bloco';
 import type { BlocoOptions } from './Bloco';
+import { NfeDet, NfeEmitida } from '@/typings';
+import { format } from 'date-fns';
+import Decimal from 'decimal.js';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface BlocoCOptions {}
+export interface BlocoCOptions {
+  include?: boolean;
+}
 
 export default class BlocoC extends Bloco {
+  private include: boolean;
+
   constructor(options: BlocoOptions & BlocoCOptions) {
     super(options);
+    this.include = options.include ?? false;
   }
 
   build(): string[][] {
-    throw new NotImplemented();
     this.registers = [];
 
     this.buildC001();
-    this.buildC100();
-    this.buildC300();
-    this.buildC350();
-    this.buildC400();
-    this.buildC495();
-    this.buildC500();
-    this.buildC600();
-    this.buildC700();
-    this.buildC800();
-    this.buildC860();
+    if (this.include) {
+      this.efd.nfes.forEach(nfe => {
+        this.buildC100(nfe);
+        if (nfe.cancelled) {
+          return;
+        }
+        const info =
+          nfe.nfeProc.NFe.infNFe.infAdic?.infCpl
+            ?.slice(0, 255)
+            .replace(/[\n|]/g, ' ')
+            .replace(/ +/g, ' ') ?? '';
+        if (!info) {
+          return;
+        }
+        const codigo = this.efd.informacoesComplementares.get(info);
+        if (!codigo) {
+          throw new Error('info not found');
+        }
+        this.buildC110(codigo);
+        nfe.nfeProc.NFe.infNFe.det.forEach(item => {
+          this.buildC170(nfe, item);
+        });
+        this.buildC190(nfe);
+      });
+      // this.buildC300();
+      // this.buildC350();
+      // this.buildC400();
+      // this.buildC495();
+      // this.buildC500();
+      // this.buildC600();
+      // this.buildC700();
+      // this.buildC800();
+      // this.buildC860();
+    }
     this.buildC990();
 
     return this.registers;
@@ -36,7 +66,6 @@ export default class BlocoC extends Bloco {
    * Ocorrência: um por arquivo
    */
   private buildC001() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "C001"
      *
@@ -54,7 +83,7 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 1
      */
-    const IND_MOV = '';
+    const IND_MOV = this.include ? '0' : '1';
     this.registers.push([REG, IND_MOV]);
   }
 
@@ -63,8 +92,17 @@ export default class BlocoC extends Bloco {
    * Nível: 2
    * Ocorrência: vários (por arquivo)
    */
-  private buildC100() {
-    throw new NotImplemented();
+  private buildC100(nfe: NfeEmitida) {
+    const {
+      '@Id': chave,
+      ide,
+      emit,
+      dest,
+      total,
+      pag,
+      transp,
+    } = nfe.nfeProc.NFe.infNFe;
+
     /**
      * Texto fixo contendo "C100"
      *
@@ -82,7 +120,7 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_OPER = '';
+    const IND_OPER = ide.tpNF;
     /**
      * Indicador do emitente do documento fiscal:
      *  0 - Emissão própria;
@@ -92,7 +130,7 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_EMIT = '';
+    const IND_EMIT = nfe.isIssuer ? '0' : '1';
     /**
      * Código do participante (campo 02 do Registro 0150):
      *  - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
@@ -102,7 +140,10 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 60
      */
-    const COD_PART = '';
+    const keyParticipante = nfe.isIssuer
+      ? `${dest.CPF ?? dest.CNPJ}${dest.IE}`
+      : `${emit.CPF ?? emit.CNPJ}${emit.IE}`;
+    const COD_PART = this.efd.participantes.get(keyParticipante)?.codigo || '';
     /**
      * Código do modelo do documento fiscal, conforme a Tabela 4.1.1
      *
@@ -110,7 +151,7 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 002*
      */
-    const COD_MOD = '';
+    const COD_MOD = '55';
     /**
      * Código da situação do documento fiscal,
      *  conforme a Tabela 4.1.2
@@ -119,7 +160,11 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 002*
      */
-    const COD_SIT = '';
+    let situacao = '00';
+    if (nfe.cancelled) {
+      situacao = '02';
+    }
+    const COD_SIT = situacao;
     /**
      * Série do documento fiscal
      *
@@ -127,7 +172,7 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 3
      */
-    const SER = '';
+    const SER = ide.serie;
     /**
      * Número do documento fiscal
      *
@@ -135,7 +180,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 9
      */
-    const NUM_DOC = '';
+    const NUM_DOC = ide.nNF;
     /**
      * Chave da Nota Fiscal Eletrônica
      *
@@ -143,7 +188,43 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 044*
      */
-    const CHV_NFE = '';
+    const CHV_NFE = chave.replace(/^NFe/, '');
+
+    if (situacao === '02') {
+      this.registers.push([
+        REG,
+        IND_OPER,
+        IND_EMIT,
+        '',
+        COD_MOD,
+        COD_SIT,
+        SER,
+        NUM_DOC,
+        CHV_NFE,
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+      ]);
+      return;
+    }
+
     /**
      * Data da emissão do documento fiscal
      *
@@ -151,7 +232,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 008*
      */
-    const DT_DOC = '';
+    const DT_DOC = format(new Date(ide.dhEmi), 'ddMMyyyy');
     /**
      * Data da entrada ou da saída
      *
@@ -159,7 +240,9 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 008*
      */
-    const DT_E_S = '';
+    const DT_E_S = ide.dhSaiEnt
+      ? format(new Date(ide.dhSaiEnt), 'ddMMyyyy')
+      : '';
     /**
      * Valor total do documento fiscal
      *
@@ -167,18 +250,18 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_DOC = '';
+    const VL_DOC = total.ICMSTot.vNF.decimalComma();
     /**
      * Indicador do tipo de pagamento:
      *  0 - À vista;
      *  1 - A prazo;
-     *  9 - Sem pagamento
+     *  2 - Outros
      *
      * Número: 13
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_PGTO = '';
+    const IND_PGTO = pag.detPag?.[0].indPag ?? '2';
     /**
      * Valor total do desconto
      *
@@ -186,7 +269,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_DESC = '';
+    const VL_DESC = total.ICMSTot.vDesc.decimalComma();
     /**
      * Abatimento não tributado e não comercial
      *  Por exemplo: desconto ICMS nas remessas para ZFM
@@ -195,7 +278,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_ABAT_NT = '';
+    const VL_ABAT_NT = '0,00';
     /**
      * Valor total das mercadorias e serviços
      *
@@ -203,18 +286,21 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_MERC = '';
+    const VL_MERC = total.ICMSTot.vNF.decimalComma();
     /**
      * Indicador do tipo do frete:
-     *  0 - Por conta de terceiros;
-     *  1 - Por conta do emitente;
-     *  2 - Por conta do destinatário; 9 - Sem cobrança de frete
+     *  0 - Contratação do Frete por conta do Remetente (CIF);
+     *  1 - Contratação do Frete por conta do Destinatário (FOB);
+     *  2 - Contratação do Frete por conta de Terceiros;
+     *  3 - Transporte Próprio por conta do Remetente;
+     *  4 - Transporte Próprio por conta do Destinatário;
+     *  9 - Sem Ocorrência de Transporte.
      *
      * Número: 17
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_FRT = '';
+    const IND_FRT = transp.modFrete;
     /**
      * Valor do frete indicado no documento fiscal
      *
@@ -222,7 +308,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_FRT = '';
+    const VL_FRT = total.ICMSTot.vFrete.decimalComma();
     /**
      * Valor do seguro indicado no documento fiscal
      *
@@ -230,7 +316,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_SEG = '';
+    const VL_SEG = total.ICMSTot.vSeg.decimalComma();
     /**
      * Valor de outras despesas acessórias
      *
@@ -238,7 +324,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_OUT_DA = '';
+    const VL_OUT_DA = total.ICMSTot.vOutro.decimalComma();
     /**
      * Valor da base de cálculo do ICMS
      *
@@ -246,7 +332,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_BC_ICMS = '';
+    const VL_BC_ICMS = total.ICMSTot.vBC.decimalComma();
     /**
      * Valor do ICMS
      *
@@ -254,7 +340,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_ICMS = '';
+    const VL_ICMS = total.ICMSTot.vICMS.decimalComma();
     /**
      * Valor da base de cálculo do ICMS substituição
      *  tributária
@@ -263,7 +349,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_BC_ICMS_ST = '';
+    const VL_BC_ICMS_ST = total.ICMSTot.vBCST.decimalComma();
     /**
      * Valor do ICMS retido por substituição tributária
      *
@@ -271,7 +357,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_ICMS_ST = '';
+    const VL_ICMS_ST = total.ICMSTot.vST.decimalComma();
     /**
      * Valor total do IPI
      *
@@ -279,7 +365,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_IPI = '';
+    const VL_IPI = total.ICMSTot.vIPI.decimalComma();
     /**
      * Valor total do PIS
      *
@@ -287,7 +373,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_PIS = '';
+    const VL_PIS = total.ICMSTot.vPIS.decimalComma();
     /**
      * Valor total da COFINS
      *
@@ -295,7 +381,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_COFINS = '';
+    const VL_COFINS = total.ICMSTot.vCOFINS.decimalComma();
     /**
      * Valor total do PIS retido por substituição
      *  tributária
@@ -428,8 +514,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC110() {
-    throw new NotImplemented();
+  private buildC110(codigo: string) {
     /**
      * Texto fixo contendo "C110"
      *
@@ -446,7 +531,7 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 6
      */
-    const COD_INF = '';
+    const COD_INF = codigo;
     /**
      * Descrição complementar do código de referência
      *
@@ -1402,8 +1487,7 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N (um ou vários por registro C100)
    */
-  private buildC170() {
-    throw new NotImplemented();
+  private buildC170(nfe: NfeEmitida, item: NfeDet) {
     /**
      * Texto fixo contendo "C170"
      *
@@ -1419,7 +1503,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 3
      */
-    const NUM_ITEM = '';
+    const NUM_ITEM = item['@nItem'];
     /**
      * Código do item (campo 02 do Registro 0200)
      *
@@ -1427,7 +1511,11 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 60
      */
-    const COD_ITEM = '';
+    const codigo = this.efd.items.get(item.prod.xProd)?.codigo;
+    if (!codigo) {
+      throw new Error('item not found');
+    }
+    const COD_ITEM = codigo;
     /**
      * Descrição complementar do item como adotado no documento fiscal
      *
@@ -1435,7 +1523,7 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: -
      */
-    const DESCR_COMPL = '';
+    const DESCR_COMPL = item.infAdProd ?? '';
     /**
      * Quantidade do item
      *
@@ -1443,7 +1531,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD = '';
+    const QTD = Number(item.prod.qCom).toFixed(5).decimalComma();
     /**
      * Unidade do item (Campo 02 do registro 0190)
      *
@@ -1451,7 +1539,7 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 6
      */
-    const UNID = '';
+    const UNID = item.prod.uCom;
     /**
      * Valor total do item (mercadorias ou serviços)
      *
@@ -1459,7 +1547,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_ITEM = '';
+    const VL_ITEM = item.prod.vProd.decimalComma();
     /**
      * Valor do desconto comercial
      *
@@ -1467,7 +1555,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_DESC = '';
+    const VL_DESC = item.prod.vDesc?.decimalComma() ?? '';
     /**
      * Movimentação física do ITEM/PRODUTO:
      *  0. SIM
@@ -1477,7 +1565,9 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_MOV = '';
+    const IND_MOV = ['2', '3'].includes(nfe.nfeProc.NFe.infNFe.ide.finNFe)
+      ? '1'
+      : '0';
     /**
      * Código da Situação Tributária referente ao
      *  ICMS, conforme a Tabela indicada no item 4.3.1
@@ -1486,7 +1576,20 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 003*
      */
-    const CST_ICMS = '';
+    const icms =
+      item.imposto.ICMS.ICMS00 ??
+      item.imposto.ICMS.ICMS10 ??
+      item.imposto.ICMS.ICMS20 ??
+      item.imposto.ICMS.ICMS30 ??
+      item.imposto.ICMS.ICMS40 ??
+      item.imposto.ICMS.ICMS51 ??
+      item.imposto.ICMS.ICMS60 ??
+      item.imposto.ICMS.ICMS70 ??
+      item.imposto.ICMS.ICMS90;
+    if (!icms) {
+      throw new Error(`icms not found '${item}'`);
+    }
+    const CST_ICMS = `${icms.orig}${icms.CST}`;
     /**
      * Código Fiscal de Operação e Prestação
      *
@@ -1494,7 +1597,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 004*
      */
-    const CFOP = '';
+    // eslint-disable-next-line prefer-destructuring
+    const CFOP = item.prod.CFOP;
     /**
      * Código da natureza da operação (campo 02 do Registro 0400)
      *
@@ -1502,7 +1606,11 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 10
      */
-    const COD_NAT = '';
+    const natureza = this.efd.operacoes.get(nfe.nfeProc.NFe.infNFe.ide.natOp);
+    if (!natureza) {
+      throw new Error('operation not found');
+    }
+    const COD_NAT = natureza.codigo;
     /**
      * Valor da base de cálculo do ICMS
      *
@@ -1510,7 +1618,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_BC_ICMS = '';
+    const VL_BC_ICMS = (icms as { vBC?: string }).vBC?.decimalComma() ?? '0,00';
     /**
      * Alíquota do ICMS
      *
@@ -1518,7 +1626,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 6
      */
-    const ALIQ_ICMS = '';
+    const ALIQ_ICMS =
+      (icms as { pICMS?: string }).pICMS?.decimalComma() ?? '0,00';
     /**
      * Valor do ICMS creditado/debitado
      *
@@ -1526,7 +1635,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_ICMS = '';
+    const VL_ICMS =
+      (icms as { vICMS?: string }).vICMS?.decimalComma() ?? '0,00';
     /**
      * Valor da base de cálculo referente à substituição
      *  tributária
@@ -1535,7 +1645,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_BC_ICMS_ST = '';
+    const VL_BC_ICMS_ST =
+      (icms as { vBCST?: string }).vBCST?.decimalComma() ?? '0,00';
     /**
      * Alíquota do ICMS da substituição tributária na unidade da federação de destino
      *
@@ -1543,7 +1654,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const ALIQ_ST = '';
+    const ALIQ_ST =
+      (icms as { pICMSST?: string }).pICMSST?.decimalComma() ?? '0,00';
     /**
      * Valor do ICMS referente à substituição tributária
      *
@@ -1551,7 +1663,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_ICMS_ST = '';
+    const VL_ICMS_ST =
+      (icms as { vICMSST?: string }).vICMSST?.decimalComma() ?? '0,00';
     /**
      * Indicador de período de apuração do IPI:
      *  0 - Mensal;
@@ -1570,7 +1683,8 @@ export default class BlocoC extends Bloco {
      * Tipo: C
      * Tamanho: 002*
      */
-    const CST_IPI = '';
+    const ipi = item.imposto.IPI;
+    const CST_IPI = ipi?.IPITrib?.CST ?? ipi?.IPINT?.CST ?? '';
     /**
      * Código de enquadramento legal do IPI, conforme tabela indicada no item 4.5.3
      *
@@ -1586,7 +1700,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_BC_IPI = '';
+    const VL_BC_IPI = ipi?.IPITrib?.vBC?.decimalComma() ?? '';
     /**
      * Alíquota do IPI
      *
@@ -1594,7 +1708,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 6
      */
-    const ALIQ_IPI = '';
+    const pIPI = ipi?.IPITrib?.pIPI;
+    const ALIQ_IPI = pIPI ? Number(pIPI).toFixed(6).decimalComma() : '';
     /**
      * Valor do IPI creditado/debitado
      *
@@ -1602,7 +1717,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_IPI = '';
+    const VL_IPI = ipi?.IPITrib?.vIPI?.decimalComma() ?? '';
     /**
      * Código da Situação Tributária referente ao PIS
      *
@@ -1610,7 +1725,12 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 002*
      */
-    const CST_PIS = '';
+    const pis =
+      item.imposto.PIS?.PISAliq ??
+      item.imposto.PIS?.PISNT ??
+      item.imposto.PIS?.PISOutr ??
+      item.imposto.PIS?.PISQtde;
+    const CST_PIS = pis?.CST ?? '';
     /**
      * Valor da base de cálculo do PIS
      *
@@ -1618,7 +1738,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_BC_PIS = '';
+    const VL_BC_PIS = (pis as { vBC?: string }).vBC?.decimalComma() ?? '';
     /**
      * Alíquota do PIS (em percentual)
      *
@@ -1626,7 +1746,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 8
      */
-    const ALIQ_PIS_PCT = '';
+    const { pPIS } = pis as { pPIS?: string };
+    const ALIQ_PIS_PCT = pPIS ? Number(pPIS).toFixed(4).decimalComma() : '';
     /**
      * Quantidade - Base de cálculo PIS
      *
@@ -1634,7 +1755,10 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QUANT_BC_PIS = '';
+    const { qBCProd: qBCProdPis } = pis as { qBCProd?: string };
+    const QUANT_BC_PIS = qBCProdPis
+      ? Number(qBCProdPis).toFixed(3).decimalComma()
+      : '0,000';
     /**
      * Alíquota do PIS (em reais)
      *
@@ -1642,7 +1766,10 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const ALIQ_PIS = '';
+    const { vAliqProd: vAliqProdPis } = pis as { vAliqProd?: string };
+    const ALIQ_PIS = vAliqProdPis
+      ? Number(vAliqProdPis).toFixed(4).decimalComma()
+      : '0,0000';
     /**
      * Valor do PIS
      *
@@ -1650,7 +1777,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_PIS = '';
+    const { vPIS } = pis as { vPIS?: string };
+    const VL_PIS = vPIS?.decimalComma() ?? '0,00';
     /**
      * Código da Situação Tributária referente ao
      *  COFINS
@@ -1659,7 +1787,12 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 002*
      */
-    const CST_COFINS = '';
+    const cofins =
+      item.imposto.COFINS?.COFINSAliq ??
+      item.imposto.COFINS?.COFINSQtde ??
+      item.imposto.COFINS?.COFINSNT ??
+      item.imposto.COFINS?.COFINSOutr;
+    const CST_COFINS = cofins?.CST ?? '';
     /**
      * Valor da base de cálculo da COFINS
      *
@@ -1667,7 +1800,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_BC_COFINS = '';
+    const VL_BC_COFINS = '0,00';
     /**
      * Alíquota do COFINS (em percentual)
      *
@@ -1675,7 +1808,10 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 8
      */
-    const ALIQ_COFINS_PCT = '';
+    const { pCOFINS } = cofins as { pCOFINS?: string };
+    const ALIQ_COFINS_PCT = pCOFINS
+      ? Number(pCOFINS).toFixed(4).decimalComma()
+      : '0,0000';
     /**
      * Quantidade - Base de cálculo COFINS
      *
@@ -1683,7 +1819,10 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QUANT_BC_COFINS = '';
+    const { qBCProd: qBCProdCofins } = cofins as { qBCProd?: string };
+    const QUANT_BC_COFINS = qBCProdCofins
+      ? Number(qBCProdCofins).toFixed(3).decimalComma()
+      : '0,000';
     /**
      * Alíquota da COFINS (em reais)
      *
@@ -1691,7 +1830,10 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const ALIQ_COFINS = '';
+    const { vAliqProd: vAliqProdCofins } = cofins as { vAliqProd?: string };
+    const ALIQ_COFINS = vAliqProdCofins
+      ? Number(vAliqProdCofins).toFixed(4).decimalComma()
+      : '0,0000';
     /**
      * Valor da COFINS
      *
@@ -1699,7 +1841,9 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_COFINS = '';
+    const { vCOFINS } = cofins as { vCOFINS?: string };
+
+    const VL_COFINS = vCOFINS?.decimalComma() ?? '0,00';
     /**
      * Código da conta analítica contábil
      *  debitada/creditada
@@ -3130,8 +3274,10 @@ export default class BlocoC extends Bloco {
    * Nível: 3
    * Ocorrência: 1:N
    */
-  private buildC190() {
-    throw new NotImplemented();
+  private buildC190(nfe: NfeEmitida) {
+    const { det, total } = nfe.nfeProc.NFe.infNFe;
+    const [item] = det;
+
     /**
      * Texto fixo contendo "C190"
      *
@@ -3147,7 +3293,20 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 003*
      */
-    const CST_ICMS = '';
+    const icms =
+      item.imposto.ICMS.ICMS00 ??
+      item.imposto.ICMS.ICMS10 ??
+      item.imposto.ICMS.ICMS20 ??
+      item.imposto.ICMS.ICMS30 ??
+      item.imposto.ICMS.ICMS40 ??
+      item.imposto.ICMS.ICMS51 ??
+      item.imposto.ICMS.ICMS60 ??
+      item.imposto.ICMS.ICMS70 ??
+      item.imposto.ICMS.ICMS90;
+    if (!icms) {
+      throw new Error(`icms not found '${item}'`);
+    }
+    const CST_ICMS = `${icms.orig}${icms.CST}`;
     /**
      * Código Fiscal de Operação e Prestação do
      *  agrupamento de itens
@@ -3156,7 +3315,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 004*
      */
-    const CFOP = '';
+    // eslint-disable-next-line prefer-destructuring
+    const CFOP = item.prod.CFOP;
     /**
      * Alíquota do ICMS
      *
@@ -3164,7 +3324,8 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: 6
      */
-    const ALIQ_ICMS = '';
+    const ALIQ_ICMS =
+      (icms as { pICMS?: string }).pICMS?.decimalComma() ?? '0,00';
     /**
      * Valor da operação na combinação de CST_ICMS, CFOP e alíquota do ICMS, correspondente ao
      *
@@ -3172,7 +3333,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_OPR = '';
+    const VL_OPR = total.ICMSTot.vNF.decimalComma();
     /**
      * Parcela correspondente ao "Valor da base de
      *  cálculo do ICMS" referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
@@ -3181,7 +3342,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_BC_ICMS = '';
+    const VL_BC_ICMS = total.ICMSTot.vBC.decimalComma();
     /**
      * Parcela correspondente ao "Valor do ICMS", incluindo o FCP, quando aplicável, referente à combinação de CST_ICMS, CFOP e alíquota do
      *  ICMS
@@ -3190,7 +3351,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_ICMS = '';
+    const VL_ICMS = total.ICMSTot.vICMS.decimalComma();
     /**
      * Parcela correspondente ao "Valor da base de cálculo do ICMS" da substituição tributária referente à combinação de CST_ICMS, CFOP e
      *  alíquota do ICMS
@@ -3199,7 +3360,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_BC_ICMS_ST = '';
+    const VL_BC_ICMS_ST = total.ICMSTot.vBCST.decimalComma();
     /**
      * Parcela correspondente ao valor creditado/debitado do ICMS da substituição tributária, incluindo o FCP_ ST, quando aplicável, referente à combinação de CST_ICMS,
      *  CFOP, e alíquota do ICMS
@@ -3208,7 +3369,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_ICMS_ST = '';
+    const VL_ICMS_ST = total.ICMSTot.vST.decimalComma();
     /**
      * Valor não tributado em função da redução da base de cálculo do ICMS, referente à combinação de
      *  CST_ICMS, CFOP e alíquota do ICMS
@@ -3217,7 +3378,15 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_RED_BC = '';
+    const valor = new Decimal(0);
+    det.forEach(({ imposto: { ICMS }, prod }) => {
+      const icms = ICMS.ICMS20 ?? ICMS.ICMS70;
+      if (!icms) {
+        return;
+      }
+      valor.add(new Decimal(icms.pRedBC).times(prod.vProd));
+    });
+    const VL_RED_BC = valor.toFixed(2).decimalComma();
     /**
      * Parcela correspondente ao "Valor do IPI" referente à combinação CST_ICMS, CFOP e
      *  alíquota do ICMS
@@ -3226,7 +3395,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const VL_IPI = '';
+    const VL_IPI = total.ICMSTot.vIPI.decimalComma();
     /**
      * Código da observação do lançamento fiscal
      *  (campo 02 do Registro 0460)
@@ -8124,7 +8293,6 @@ export default class BlocoC extends Bloco {
    * Ocorrência: um por arquivo
    */
   private buildC990() {
-    throw new NotImplemented();
     /**
      * Texto fixo contendo "C990"
      *
@@ -8140,7 +8308,7 @@ export default class BlocoC extends Bloco {
      * Tipo: N
      * Tamanho: -
      */
-    const QTD_LIN_C = '';
+    const QTD_LIN_C = `${this.registers.length + 1}`;
     this.registers.push([REG, QTD_LIN_C]);
   }
 }

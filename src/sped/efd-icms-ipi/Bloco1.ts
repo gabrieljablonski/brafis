@@ -203,7 +203,7 @@ export default class Bloco1 extends Bloco {
      * Tipo: C
      * Tamanho: 001*
      */
-    const IND_REST_RESSARC_COMPL_ICMS = '';
+    const IND_REST_RESSARC_COMPL_ICMS = 'N';
     this.registers.push([
       REG,
       IND_EXP,

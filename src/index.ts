@@ -40,6 +40,9 @@ const documents = xmls.map(f => {
       periodStart: new Date('2023-04-01T00:00:00-03:00'),
       periodEnd: new Date('2023-04-30T23:59:59-03:00'),
     },
+    blocoCOptions: {
+      include: true,
+    },
   });
   console.log(efd);
 })();

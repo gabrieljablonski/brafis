@@ -66,27 +66,24 @@ export default class EfdIcmsIpi {
   /**
    * @todo should also support other types of documents (NFC-e, CT-e, ...)
    */
-  nfes: NfeEmitida[];
+  nfes: NfeEmitida[] = [];
 
   entidade: EfdIcmsIpiEntidade;
 
-  participantes: Map<string, EfdIcmsIpiParticipante>;
+  participantes: Map<string, EfdIcmsIpiParticipante> = new Map();
 
-  unidades: Set<string>;
+  unidades: Set<string> = new Set();
 
-  items: Map<string, EfdIcmsIpiItem>;
+  items: Map<string, EfdIcmsIpiItem> = new Map();
 
-  operacoes: Map<string, EfdIcmsIpiOperacao>;
+  operacoes: Map<string, EfdIcmsIpiOperacao> = new Map();
+
+  informacoesComplementares: Map<string, string> = new Map();
 
   constructor(options: EfdIcmsIpiBuildOptions) {
     if (!options.documents.length) {
       throw new BadArgs('`options.xml` must contain at least one entry');
     }
-    this.nfes = [];
-    this.participantes = new Map();
-    this.unidades = new Set();
-    this.items = new Map();
-    this.operacoes = new Map();
     try {
       this.entidade = entitySchema.validateSync(
         options.entity
@@ -108,7 +105,7 @@ export default class EfdIcmsIpi {
     this.participantes = new Map();
     this.unidades = new Set();
     this.items = new Map();
-    const documents = options.documents;
+    const { documents } = options;
     const ALWAYS_ARRAY = new Set(['det', 'vol', 'detPag']);
     const parser = new XMLParser({
       ignoreAttributes: false,
@@ -308,6 +305,18 @@ export default class EfdIcmsIpi {
         codigo: oldOperacao?.codigo ?? `${this.operacoes.size + 1}`,
         descricao: ide.natOp,
       });
+
+      const info =
+        nfe.nfeProc.NFe.infNFe.infAdic?.infCpl
+          ?.slice(0, 255)
+          .replace(/[\n|]/g, ' ')
+          .replace(/ +/g, ' ') ?? '';
+      if (info && !this.informacoesComplementares.get(info)) {
+        this.informacoesComplementares.set(
+          info,
+          `${this.informacoesComplementares.size + 1}`
+        );
+      }
     });
   }
 
@@ -317,24 +326,18 @@ export default class EfdIcmsIpi {
     const blocks = [
       new Bloco0({ efd, ...options.bloco0Options }),
       new BlocoB({ efd, ...options.blocoBOptions }),
-      // new BlocoC({ efd, ...options.blocoCOptions }),
-      // new BlocoD({ efd, ...options.blocoDOptions }),
-      // new BlocoE({ efd, ...options.blocoEOptions }),
+      new BlocoC({ efd, ...options.blocoCOptions }),
+      new BlocoD({ efd, ...options.blocoDOptions }),
+      new BlocoE({ efd, ...options.blocoEOptions }),
       new BlocoG({ efd, ...options.blocoGOptions }),
       new BlocoH({ efd, ...options.blocoHOptions }),
       new BlocoK({ efd, ...options.blocoKOptions }),
       new Bloco1({ efd, ...options.bloco1Options }),
+      new Bloco9({ efd, ...options.bloco9Options }),
     ];
     const registers = blocks.reduce<string[][]>(
-      (prev, block) => prev.concat(block.build()),
+      (prev, block) => prev.concat(block.build(prev)),
       []
-    );
-    registers.push(
-      ...new Bloco9({
-        efd,
-        previousRegisters: registers,
-        ...options.bloco9Options,
-      }).build()
     );
     return registers
       .map(entry => `|${entry.map(v => (v === undefined ? '' : v)).join('|')}|`)
