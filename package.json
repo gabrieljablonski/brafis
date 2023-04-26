@@ -1,5 +1,5 @@
 {
-  "name": "template-ts-pkg",
+  "name": "@fazenda-tech/brafis",
   "version": "1.0.0",
   "main": "build/index.js",
   "author": "gabrieljablonski <contact@gabrieljablonski.com>",
