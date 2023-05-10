@@ -59,7 +59,7 @@ export interface NfeIde {
   verProc: `FazendaNota v${number}.${number}.${number}`;
   dhCont?: string;
   xJust?: string;
-  NFref?: NfeNfRef;
+  NFref?: NfeNfRef[];
 }
 
 export interface NfeEmit {

@@ -10,6 +10,10 @@
     "build": "tsc && tsc-alias",
     "postbuild": "cp -r tables/ build/tables"
   },
+  "files": [
+    "build",
+    "README.md"
+  ],
   "devDependencies": {
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.43.0",

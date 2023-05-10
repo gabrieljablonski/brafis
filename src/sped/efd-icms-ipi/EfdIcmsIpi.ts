@@ -106,7 +106,7 @@ export default class EfdIcmsIpi {
     this.unidades = new Set();
     this.items = new Map();
     const { documents } = options;
-    const ALWAYS_ARRAY = new Set(['det', 'vol', 'detPag']);
+    const ALWAYS_ARRAY = new Set(['det', 'vol', 'detPag', 'NFref']);
     const parser = new XMLParser({
       ignoreAttributes: false,
       attributeNamePrefix: '@',
