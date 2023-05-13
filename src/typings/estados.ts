@@ -27,4 +27,5 @@ export const STATES = [
   'SE',
   'TO',
 ] as const;
+
 export type State = (typeof STATES)[number];

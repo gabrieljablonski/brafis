@@ -1,6 +1,7 @@
 import EfdIcmsIpi from '@/sped/efd-icms-ipi';
 
 export { EfdIcmsIpi };
+export * from '@/mdfe';
 
 // import fs from 'fs';
 
