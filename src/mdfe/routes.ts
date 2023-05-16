@@ -30,17 +30,15 @@ const STATE_GRAPH = new Map<State, State[]>([
   ['TO', ['BA', 'GO', 'MA', 'MT', 'PA', 'PI']],
 ]);
 
-type Route = State[];
-
-export function getAdjacentStates(state: State): State[] {
-  return STATE_GRAPH.get(state) ?? [];
+export function getAdjacentStates(state: string): string[] {
+  return STATE_GRAPH.get(state as State) ?? [];
 }
 
-export function statesAreAdjacent(state1: State, state2: State): boolean {
-  return STATE_GRAPH.get(state1)?.includes(state2) ?? false;
+export function statesAreAdjacent(state1: string, state2: string): boolean {
+  return STATE_GRAPH.get(state1 as State)?.includes(state2 as State) ?? false;
 }
 
-export function routeIsValid(route: Route): boolean {
+export function routeIsValid(route: string[]): boolean {
   if (route.length < 2) {
     return false;
   }
