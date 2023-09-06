@@ -13,7 +13,7 @@ import path from 'path';
 const versaoLeiauteRaw = JSON.parse(
   fs
     .readFileSync(
-      path.resolve(__dirname, './tables/sped/efd-icms-ipi/versao-leiaute.json')
+      path.resolve(__dirname, '../tables/sped/efd-icms-ipi/versao-leiaute.json')
     )
     .toString()
 );
@@ -30,7 +30,7 @@ const versaoLeiaute = new Map<string, TableVersaoLeiauteEntry>(
 );
 
 const estadosRaw = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, './tables/estados.json')).toString()
+  fs.readFileSync(path.resolve(__dirname, '../tables/estados.json')).toString()
 );
 const estados = new Map<string, TableEstadosEntry>(
   Object.entries(estadosRaw).map(([codigo, entry]) => [
@@ -40,7 +40,7 @@ const estados = new Map<string, TableEstadosEntry>(
 );
 
 const cidadesRaw = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, './tables/cidades.json')).toString()
+  fs.readFileSync(path.resolve(__dirname, '../tables/cidades.json')).toString()
 );
 const cidades = new Map<string, TableCidadesEntry>(
   Object.entries(cidadesRaw).map(([codigo, entry]) => [

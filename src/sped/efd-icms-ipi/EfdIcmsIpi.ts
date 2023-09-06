@@ -115,23 +115,23 @@ export default class EfdIcmsIpi {
     });
     this.nfes = await Promise.all(
       documents.map(async ({ xml, cancelled }, i) => {
-        try {
-          /**
-           * @todo the xml is being parsed twice :(
-           */
-          const doc = xmlDsig.Parse(xml);
-          const signature = doc.getElementsByTagNameNS(
-            'http://www.w3.org/2000/09/xmldsig#',
-            'Signature'
-          );
-          const signed = new xmlDsig.SignedXml(doc);
-          signed.LoadXml(signature[0]);
-          await signed.Verify();
-        } catch {
-          throw new InvalidXml(
-            `EfdIcmsIpi.build(): XML for \`documents[${i}]\` is invalid`
-          );
-        }
+        // try {
+        //   /**
+        //    * @todo the xml is being parsed twice :(
+        //    */
+        //   const doc = xmlDsig.Parse(xml);
+        //   const signature = doc.getElementsByTagNameNS(
+        //     'http://www.w3.org/2000/09/xmldsig#',
+        //     'Signature'
+        //   );
+        //   const signed = new xmlDsig.SignedXml(doc);
+        //   signed.LoadXml(signature[0]);
+        //   await signed.Verify();
+        // } catch {
+        //   throw new InvalidXml(
+        //     `EfdIcmsIpi.build(): XML for \`documents[${i}]\` is invalid`
+        //   );
+        // }
         const nfe = parser.parse(xml);
         return {
           ...nfe,
