@@ -1,6 +1,6 @@
 {
   "name": "@fazenda-tech/brafis",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "build/index.js",
   "author": "gabrieljablonski <contact@gabrieljablonski.com>",
   "license": "MIT",
